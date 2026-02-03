@@ -189,6 +189,7 @@
             this.Controls.Add(this.txtnombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRegistrarCliente";
             this.Text = "FrmRegistrarCliente";
             this.Load += new System.EventHandler(this.FrmRegistrarCliente_Load);

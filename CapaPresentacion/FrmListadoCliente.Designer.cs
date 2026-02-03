@@ -1,4 +1,6 @@
-﻿namespace CapaPresentacion
+﻿using System;
+
+namespace CapaPresentacion
 {
     partial class FrmListadoCliente
     {
@@ -139,7 +141,7 @@
             this.rbtnrfc.TabStop = true;
             this.rbtnrfc.Text = "RFC";
             this.rbtnrfc.UseVisualStyleBackColor = true;
-            this.rbtnrfc.CheckedChanged += new System.EventHandler(this.rbtndni_CheckedChanged);
+            this.rbtnrfc.CheckedChanged += new System.EventHandler(this.rbtnrfc_CheckedChanged);
             // 
             // rbtnnombre
             // 
@@ -184,6 +186,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void rbtnrfc_CheckedChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

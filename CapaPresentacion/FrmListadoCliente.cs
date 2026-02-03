@@ -40,7 +40,7 @@ namespace CapaPresentacion
         }
 
 
-        //Método para buscar por DNI
+        //Método para buscar por RFC
         public void BuscarRfc()
         {
             this.dlistado.DataSource = CNCliente.BuscarRfc(this.txtbuscar.Text);
@@ -50,4 +50,4 @@ namespace CapaPresentacion
 
     }
 }
-}
+

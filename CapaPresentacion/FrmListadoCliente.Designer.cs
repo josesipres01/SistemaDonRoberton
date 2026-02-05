@@ -55,6 +55,7 @@ namespace CapaPresentacion
             this.btneliminar.TabIndex = 11;
             this.btneliminar.Text = "&Eliminar";
             this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // btneditar
             // 
@@ -64,6 +65,7 @@ namespace CapaPresentacion
             this.btneditar.TabIndex = 10;
             this.btneditar.Text = "&Editar";
             this.btneditar.UseVisualStyleBackColor = true;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // btnnuevo
             // 
@@ -73,6 +75,7 @@ namespace CapaPresentacion
             this.btnnuevo.TabIndex = 9;
             this.btnnuevo.Text = "&Nuevo";
             this.btnnuevo.UseVisualStyleBackColor = true;
+            this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
             // 
             // dlistado
             // 
@@ -112,6 +115,7 @@ namespace CapaPresentacion
             this.btnbuscar.TabIndex = 2;
             this.btnbuscar.Text = "&Buscar";
             this.btnbuscar.UseVisualStyleBackColor = true;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // txtbuscar
             // 

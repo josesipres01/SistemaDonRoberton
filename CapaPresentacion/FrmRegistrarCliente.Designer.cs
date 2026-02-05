@@ -245,12 +245,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtidcliente;
-        private System.Windows.Forms.TextBox txtcorreo;
-        private System.Windows.Forms.TextBox txttelefono;
-        private System.Windows.Forms.TextBox txtrfc;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtapellidos;
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
@@ -259,7 +254,12 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialButton btnguardar;
         private MaterialSkin.Controls.MaterialButton btncancelar;
-        private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtidcliente;
+        public System.Windows.Forms.TextBox txtcorreo;
+        public System.Windows.Forms.TextBox txttelefono;
+        public System.Windows.Forms.TextBox txtrfc;
+        public System.Windows.Forms.TextBox txtapellidos;
+        public System.Windows.Forms.TextBox txtnombre;
     }
 }

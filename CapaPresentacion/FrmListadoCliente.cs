@@ -58,7 +58,7 @@ namespace CapaPresentacion
             }
             else
             {
-                MessageBox.Show("Seleccione un criterio de búsqueda", "Sistema de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               MessageBox.Show("Seleccione un criterio de búsqueda", "Sistema DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -75,7 +75,7 @@ namespace CapaPresentacion
         private void btneditar_Click(object sender, EventArgs e)
         {
              FrmRegistrarCliente form = new FrmRegistrarCliente();
-
+    
             form.Edit = true;
 
             form.txtidcliente.Text = this.dlistado.CurrentRow.Cells["idcliente"].Value.ToString();
@@ -85,7 +85,9 @@ namespace CapaPresentacion
             form.txttelefono.Text = this.dlistado.CurrentRow.Cells["telefono"].Value.ToString();
             form.txtcorreo.Text = this.dlistado.CurrentRow.Cells["correo"].Value.ToString();
 
-            string estado = this.dlistado.CurrentRow.Cells["estado"].Value.ToString();
+            form.ShowDialog();
+            this.Mostrar();
+
 
        
 

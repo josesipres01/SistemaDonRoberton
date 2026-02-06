@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,20 +12,7 @@ namespace CapaDatos
     {
         public static string Conn = "Data Source=LAPTOP-RF1M8NB9; Initial Catalog=sistemaDonRoberton;Integrated Security=True";
 
-        public static SqlConnection CrearConexion()
-        {
-            SqlConnection cadenaConex = new SqlConnection();
-            try
-            {
-                cadenaConex.ConnectionString = Conn;
-            }
-            catch (Exception ex)
-            {
-                cadenaConex = null;
-                throw ex;
-            }
-            return cadenaConex;
-        }
+    
 
     }
 }

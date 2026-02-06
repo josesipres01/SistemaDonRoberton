@@ -176,6 +176,7 @@
             this.btnguardar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnguardar.UseAccentColor = false;
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // btncancelar
             // 
@@ -195,6 +196,7 @@
             this.btncancelar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btncancelar.UseAccentColor = false;
             this.btncancelar.UseVisualStyleBackColor = true;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
             // txtnombre
             // 

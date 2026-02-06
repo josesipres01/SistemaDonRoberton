@@ -30,7 +30,7 @@ namespace CapaDatos
                 conexion.ConnectionString = Conexión.Conn;
                 SqlCommand Cmd = new SqlCommand("splistar_cliente", conexion);
                 Cmd.CommandType = CommandType.StoredProcedure;
-
+                    
                 SqlDataAdapter SqlDat = new SqlDataAdapter(Cmd);
                 SqlDat.Fill(result);
             }
@@ -60,7 +60,7 @@ namespace CapaDatos
             {
                 conexion.ConnectionString = Conexión.Conn;
                 conexion.Open();
-                SqlCommand Cmd = new SqlCommand("spguardar_cliente_n", conexion);
+                SqlCommand Cmd = new SqlCommand("spguardar_cliente", conexion);
                 Cmd.CommandType = CommandType.StoredProcedure;
 
                 Cmd.Parameters.AddWithValue("@idcliente", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -80,7 +80,7 @@ namespace CapaDatos
 
             finally
             {
-                if (conexion.State != ConnectionState.Open)
+                if (conexion.State == ConnectionState.Open)
                     conexion.Close();
 
             }
@@ -103,6 +103,7 @@ namespace CapaDatos
                 Cmd.Parameters.AddWithValue("@apellidos", cli.Apellidos);
                 Cmd.Parameters.AddWithValue("rfc", cli.Rfc);
                 Cmd.Parameters.AddWithValue("telefono", cli.Telefono);
+                Cmd.Parameters.AddWithValue("correo", cli.Correo);
 
                 result = Cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo editar el registro";
 

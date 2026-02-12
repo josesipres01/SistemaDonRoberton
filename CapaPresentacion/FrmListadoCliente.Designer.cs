@@ -36,12 +36,13 @@ namespace CapaPresentacion
             this.btneditar = new System.Windows.Forms.Button();
             this.btnnuevo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbtnnombre = new System.Windows.Forms.RadioButton();
             this.rbtnrfc = new System.Windows.Forms.RadioButton();
+            this.rbtnnombre = new System.Windows.Forms.RadioButton();
             this.txtbuscar = new System.Windows.Forms.TextBox();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.btnsalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnreportes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -66,6 +67,7 @@ namespace CapaPresentacion
             this.dlistado.RowTemplate.Height = 24;
             this.dlistado.Size = new System.Drawing.Size(740, 167);
             this.dlistado.TabIndex = 8;
+            this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
             // 
             // label1
             // 
@@ -107,17 +109,6 @@ namespace CapaPresentacion
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criterio de Búsqueda";
             // 
-            // rbtnnombre
-            // 
-            this.rbtnnombre.AutoSize = true;
-            this.rbtnnombre.Location = new System.Drawing.Point(7, 42);
-            this.rbtnnombre.Name = "rbtnnombre";
-            this.rbtnnombre.Size = new System.Drawing.Size(77, 20);
-            this.rbtnnombre.TabIndex = 0;
-            this.rbtnnombre.TabStop = true;
-            this.rbtnnombre.Text = "Nombre";
-            this.rbtnnombre.UseVisualStyleBackColor = true;
-            // 
             // rbtnrfc
             // 
             this.rbtnrfc.AutoSize = true;
@@ -129,6 +120,17 @@ namespace CapaPresentacion
             this.rbtnrfc.Text = "RFC";
             this.rbtnrfc.UseVisualStyleBackColor = true;
             this.rbtnrfc.CheckedChanged += new System.EventHandler(this.rbtnrfc_CheckedChanged);
+            // 
+            // rbtnnombre
+            // 
+            this.rbtnnombre.AutoSize = true;
+            this.rbtnnombre.Location = new System.Drawing.Point(7, 42);
+            this.rbtnnombre.Name = "rbtnnombre";
+            this.rbtnnombre.Size = new System.Drawing.Size(77, 20);
+            this.rbtnnombre.TabIndex = 0;
+            this.rbtnnombre.TabStop = true;
+            this.rbtnnombre.Text = "Nombre";
+            this.rbtnnombre.UseVisualStyleBackColor = true;
             // 
             // txtbuscar
             // 
@@ -167,11 +169,22 @@ namespace CapaPresentacion
             this.panel1.Size = new System.Drawing.Size(740, 130);
             this.panel1.TabIndex = 7;
             // 
+            // btnreportes
+            // 
+            this.btnreportes.Location = new System.Drawing.Point(697, 30);
+            this.btnreportes.Name = "btnreportes";
+            this.btnreportes.Size = new System.Drawing.Size(75, 27);
+            this.btnreportes.TabIndex = 12;
+            this.btnreportes.Text = "Reportes";
+            this.btnreportes.UseVisualStyleBackColor = true;
+            this.btnreportes.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmListadoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnreportes);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btneditar);
             this.Controls.Add(this.btnnuevo);
@@ -211,5 +224,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Button btnsalir;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnreportes;
     }
 }

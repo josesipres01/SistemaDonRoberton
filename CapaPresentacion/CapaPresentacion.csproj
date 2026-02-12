@@ -48,6 +48,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="FrmMenuReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenuReportes.Designer.cs">
+      <DependentUpon>FrmMenuReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteClienteDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteClienteDelete.Designer.cs">
+      <DependentUpon>FrmReporteClienteDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +71,18 @@
     </Compile>
     <Compile Include="FrmRegistrarCliente.Designer.cs">
       <DependentUpon>FrmRegistrarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteClienteUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteClienteUpdate.Designer.cs">
+      <DependentUpon>FrmReporteClienteUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginBitacora.Designer.cs">
+      <DependentUpon>LoginBitacora.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -77,8 +101,20 @@
     <EmbeddedResource Include="FrmListadoCliente.resx">
       <DependentUpon>FrmListadoCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuReportes.resx">
+      <DependentUpon>FrmMenuReportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarCliente.resx">
       <DependentUpon>FrmRegistrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteClienteDelete.resx">
+      <DependentUpon>FrmReporteClienteDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteClienteUpdate.resx">
+      <DependentUpon>FrmReporteClienteUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginBitacora.resx">
+      <DependentUpon>LoginBitacora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,14 +16,33 @@ namespace CapaPresentacion
         public FrmReporteClienteDelete()
         {
             InitializeComponent();
+            try
+            {
+                CargarDatosDelete();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public void CargarDatosDelete()
         {
+            DataTable dt = CNBitacora.MostrarEliminaciones();
 
+            this.dlistado.DataSource = dt;
         }
 
-        private void btnnuevo_Click(object sender, EventArgs e)
+
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FrmReporteClienteDelete_Load(object sender, EventArgs e)
         {
 
         }

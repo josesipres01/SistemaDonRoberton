@@ -126,6 +126,24 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginBitacora frmLogin = new LoginBitacora();
+
+            if (frmLogin.ShowDialog() == DialogResult.OK)
+            {
+                MenuReportes frmReporte = new MenuReportes();
+                frmReporte.ShowDialog();
+            }
+
+
+        }
+
+        private void dlistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
     
 }

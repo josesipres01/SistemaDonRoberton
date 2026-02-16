@@ -1,6 +1,7 @@
 ﻿using CapaNegocio;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CapaPresentacion
@@ -10,7 +11,9 @@ namespace CapaPresentacion
         public FrmReporteClienteUpdate()
         {
             InitializeComponent();
-        try
+
+
+            try
             {
                 CargarDatosUpdates();
             }
@@ -41,5 +44,7 @@ namespace CapaPresentacion
         {
 
         }
+
+       
     }
 }

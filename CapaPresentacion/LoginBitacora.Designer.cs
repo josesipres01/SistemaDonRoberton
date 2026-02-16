@@ -81,6 +81,7 @@
             this.txtcontrasena.Name = "txtcontrasena";
             this.txtcontrasena.Size = new System.Drawing.Size(152, 22);
             this.txtcontrasena.TabIndex = 4;
+            this.txtcontrasena.UseSystemPasswordChar = true;
             // 
             // button1
             // 

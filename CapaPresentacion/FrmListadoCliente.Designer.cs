@@ -171,9 +171,9 @@ namespace CapaPresentacion
             // 
             // btnreportes
             // 
-            this.btnreportes.Location = new System.Drawing.Point(697, 30);
+            this.btnreportes.Location = new System.Drawing.Point(683, 30);
             this.btnreportes.Name = "btnreportes";
-            this.btnreportes.Size = new System.Drawing.Size(75, 27);
+            this.btnreportes.Size = new System.Drawing.Size(89, 43);
             this.btnreportes.TabIndex = 12;
             this.btnreportes.Text = "Reportes";
             this.btnreportes.UseVisualStyleBackColor = true;

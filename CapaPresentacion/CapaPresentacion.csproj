@@ -78,6 +78,18 @@
     <Compile Include="FrmReporteClienteUpdate.Designer.cs">
       <DependentUpon>FrmReporteClienteUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteSesiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteSesiones.Designer.cs">
+      <DependentUpon>FrmReporteSesiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginBitacora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +104,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{0d4166a6-07af-4bee-8326-64ca364c5694}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
       <Project>{efe83673-65e3-4c5e-89e8-9955074457f3}</Project>
       <Name>CapaNegocio</Name>
@@ -112,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteClienteUpdate.resx">
       <DependentUpon>FrmReporteClienteUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteSesiones.resx">
+      <DependentUpon>FrmReporteSesiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginBitacora.resx">
       <DependentUpon>LoginBitacora.cs</DependentUpon>

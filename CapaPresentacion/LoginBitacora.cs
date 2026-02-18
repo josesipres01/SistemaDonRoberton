@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace CapaPresentacion
 {
     public partial class LoginBitacora : Form
     {
+        CNUsuario objetoCN = new CNUsuario();
         public LoginBitacora()
         {
             InitializeComponent();
@@ -24,18 +26,22 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string usuarioAdmin = "admin";
-            string passAdmin = "12345";
+            string user = txtusuario.Text.Trim();
+            string pass = txtcontrasena.Text.Trim();
 
-            if (txtusuario.Text.Trim() == usuarioAdmin && txtcontrasena.Text.Trim() == passAdmin)
+            // Llamamos a la Capa de Negocio para verificar si es ADMIN en la BD
+            if (objetoCN.LoginAdministrador(user, pass))
             {
                 MessageBox.Show("Acceso concedido al historial.", "Sistema Don Roberton", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Cerramos este login con OK para que el menú de reportes sepa que puede mostrarse
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Usuario o contraseña incorrectos", "Error de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // El mensaje ahora es más específico: o los datos están mal, o no es administrador
+                MessageBox.Show("Credenciales incorrectas o no tiene permisos de Administrador.", "Error de Seguridad", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 txtcontrasena.Clear();
                 txtusuario.Focus();
             }

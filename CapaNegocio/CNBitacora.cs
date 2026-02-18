@@ -11,6 +11,7 @@ namespace CapaNegocio
 {
     public class CNBitacora
     {
+         CDBitacora cb = new CDBitacora();  
         public static DataTable MostrarUpdates()
         {
             return new CDBitacora().ListarActualizaciones();
@@ -18,6 +19,23 @@ namespace CapaNegocio
         public static DataTable MostrarEliminaciones()
         {
             return new CDBitacora().ListarEliminaciones();
+        }
+
+        public int LoginEntrada(string user)
+        {
+            return cb.RegistrarSesion(user);
+
+        }
+
+        public void LoginSalida(int id)
+        {
+            cb.RegistrarSalida(id);
+
+        }
+
+        public static DataTable MostrarSesiones()
+        {
+           return new CDBitacora().ListarSesiones();
         }
     }
 }

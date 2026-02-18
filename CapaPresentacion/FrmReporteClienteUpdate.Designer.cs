@@ -30,8 +30,6 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.dlistado = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btneliminar = new System.Windows.Forms.Button();
             this.idcliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre_antiguo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +41,8 @@
             this.correo_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_operacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btneliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,26 +81,7 @@
             this.dlistado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dlistado.Size = new System.Drawing.Size(1287, 251);
             this.dlistado.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Noto Serif SC Black", 16F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(38, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 39);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Reporte Clientes";
-            // 
-            // btneliminar
-            // 
-            this.btneliminar.Location = new System.Drawing.Point(1240, 477);
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(90, 36);
-            this.btneliminar.TabIndex = 23;
-            this.btneliminar.Text = "&Cancelar";
-            this.btneliminar.UseVisualStyleBackColor = true;
-            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click_1);
+            this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
             // 
             // idcliente
             // 
@@ -110,7 +91,6 @@
             this.idcliente.MinimumWidth = 6;
             this.idcliente.Name = "idcliente";
             this.idcliente.ReadOnly = true;
-            this.idcliente.Width = 108;
             // 
             // nombre_antiguo
             // 
@@ -211,6 +191,26 @@
             this.usuario.Name = "usuario";
             this.usuario.ReadOnly = true;
             this.usuario.Width = 86;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Noto Serif SC Black", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(38, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(253, 39);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Reporte Clientes";
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.Location = new System.Drawing.Point(1240, 477);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(90, 36);
+            this.btneliminar.TabIndex = 23;
+            this.btneliminar.Text = "&Cancelar";
+            this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click_1);
             // 
             // FrmReporteClienteUpdate
             // 

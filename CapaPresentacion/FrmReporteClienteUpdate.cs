@@ -45,6 +45,9 @@ namespace CapaPresentacion
 
         }
 
-       
+        private void dlistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

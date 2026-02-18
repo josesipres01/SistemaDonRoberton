@@ -36,5 +36,16 @@ namespace CapaPresentacion
 
             frmDelete.ShowDialog();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReporteSesion_Click(object sender, EventArgs e)
+        {
+            FrmReporteSesiones frmSesiones= new FrmReporteSesiones();
+            frmSesiones.ShowDialog();
+        }
     }
 }

@@ -140,10 +140,37 @@ namespace CapaPresentacion
 
         }
 
-        private void dlistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void FrmListadoCliente_FormClosing(object sender, FormClosingEventArgs e)
         {
+            DialogResult respuesta = MessageBox.Show(
+                "¿Está seguro de que desea cerrar la sesión actual?",
+                "Confirmar Salida",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (respuesta == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                try
+                {
+                    CNBitacora objCN = new CNBitacora();
+
+                    objCN.LoginSalida(Sesion.IdAcceso);
+
+                    Application.ExitThread();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al registrar salida: " + ex.Message);
+                }
+            }
 
         }
+
     }
     
 }

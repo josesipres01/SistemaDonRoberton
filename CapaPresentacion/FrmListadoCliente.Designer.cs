@@ -63,11 +63,11 @@ namespace CapaPresentacion
             this.dlistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dlistado.Location = new System.Drawing.Point(32, 215);
             this.dlistado.Name = "dlistado";
+            this.dlistado.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dlistado.RowHeadersWidth = 51;
             this.dlistado.RowTemplate.Height = 24;
             this.dlistado.Size = new System.Drawing.Size(740, 167);
             this.dlistado.TabIndex = 8;
-            this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
             // 
             // label1
             // 
@@ -191,9 +191,11 @@ namespace CapaPresentacion
             this.Controls.Add(this.dlistado);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmListadoCliente";
-            this.Text = "FrmListadoCliente";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Text = "ListadoCliente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmListadoCliente_FormClosing);
             this.Load += new System.EventHandler(this.FrmListadoCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).EndInit();
             this.groupBox1.ResumeLayout(false);

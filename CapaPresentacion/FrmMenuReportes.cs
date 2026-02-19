@@ -47,5 +47,10 @@ namespace CapaPresentacion
             FrmReporteSesiones frmSesiones= new FrmReporteSesiones();
             frmSesiones.ShowDialog();
         }
+
+        private void MenuReportes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

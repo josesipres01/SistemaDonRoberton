@@ -37,7 +37,6 @@ namespace CapaDatos
             catch (Exception ex)
             {
                 result = null;
-                throw ex;
             }
             finally
             {
@@ -169,7 +168,7 @@ namespace CapaDatos
             catch (Exception ex)
             {
                 result = null;
-                throw ex;
+               
             }
 
             finally
@@ -198,7 +197,7 @@ namespace CapaDatos
             catch (Exception ex)
             {
                 result = null;
-                throw ex;
+              
             }
 
             finally

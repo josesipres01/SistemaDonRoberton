@@ -30,178 +30,239 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            this.btneliminar = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dlistado = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btneditar = new System.Windows.Forms.Button();
-            this.btnnuevo = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbtnrfc = new System.Windows.Forms.RadioButton();
-            this.rbtnnombre = new System.Windows.Forms.RadioButton();
-            this.txtbuscar = new System.Windows.Forms.TextBox();
-            this.btnbuscar = new System.Windows.Forms.Button();
-            this.btnsalir = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnreportes = new System.Windows.Forms.Button();
+            this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
+            this.rbtnnombre = new MaterialSkin.Controls.MaterialButton();
+            this.rbtnrfc = new MaterialSkin.Controls.MaterialButton();
+            this.btnnuevo = new MaterialSkin.Controls.MaterialButton();
+            this.btneditar = new MaterialSkin.Controls.MaterialButton();
+            this.btneliminar = new MaterialSkin.Controls.MaterialButton();
+            this.idcliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btneliminar
-            // 
-            this.btneliminar.Location = new System.Drawing.Point(679, 397);
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(75, 23);
-            this.btneliminar.TabIndex = 11;
-            this.btneliminar.Text = "&Eliminar";
-            this.btneliminar.UseVisualStyleBackColor = true;
-            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // dlistado
             // 
+            this.dlistado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dlistado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dlistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dlistado.Location = new System.Drawing.Point(32, 215);
+            this.dlistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idcliente,
+            this.nombre,
+            this.apellidos,
+            this.telefono,
+            this.correo,
+            this.rfc});
+            this.dlistado.Location = new System.Drawing.Point(24, 175);
+            this.dlistado.Margin = new System.Windows.Forms.Padding(2);
             this.dlistado.Name = "dlistado";
-            this.dlistado.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dlistado.RowHeadersWidth = 51;
-            this.dlistado.RowTemplate.Height = 24;
-            this.dlistado.Size = new System.Drawing.Size(740, 167);
+            this.dlistado.RowTemplate.Height = 45;
+            this.dlistado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dlistado.Size = new System.Drawing.Size(555, 136);
             this.dlistado.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Clientes";
-            // 
-            // btneditar
-            // 
-            this.btneditar.Location = new System.Drawing.Point(590, 397);
-            this.btneditar.Name = "btneditar";
-            this.btneditar.Size = new System.Drawing.Size(75, 23);
-            this.btneditar.TabIndex = 10;
-            this.btneditar.Text = "&Editar";
-            this.btneditar.UseVisualStyleBackColor = true;
-            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
-            // 
-            // btnnuevo
-            // 
-            this.btnnuevo.Location = new System.Drawing.Point(496, 397);
-            this.btnnuevo.Name = "btnnuevo";
-            this.btnnuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnnuevo.TabIndex = 9;
-            this.btnnuevo.Text = "&Nuevo";
-            this.btnnuevo.UseVisualStyleBackColor = true;
-            this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbtnrfc);
-            this.groupBox1.Controls.Add(this.rbtnnombre);
-            this.groupBox1.Location = new System.Drawing.Point(14, 14);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Criterio de Búsqueda";
-            // 
-            // rbtnrfc
-            // 
-            this.rbtnrfc.AutoSize = true;
-            this.rbtnrfc.Location = new System.Drawing.Point(97, 42);
-            this.rbtnrfc.Name = "rbtnrfc";
-            this.rbtnrfc.Size = new System.Drawing.Size(55, 20);
-            this.rbtnrfc.TabIndex = 1;
-            this.rbtnrfc.TabStop = true;
-            this.rbtnrfc.Text = "RFC";
-            this.rbtnrfc.UseVisualStyleBackColor = true;
-            this.rbtnrfc.CheckedChanged += new System.EventHandler(this.rbtnrfc_CheckedChanged);
-            // 
-            // rbtnnombre
-            // 
-            this.rbtnnombre.AutoSize = true;
-            this.rbtnnombre.Location = new System.Drawing.Point(7, 42);
-            this.rbtnnombre.Name = "rbtnnombre";
-            this.rbtnnombre.Size = new System.Drawing.Size(77, 20);
-            this.rbtnnombre.TabIndex = 0;
-            this.rbtnnombre.TabStop = true;
-            this.rbtnnombre.Text = "Nombre";
-            this.rbtnnombre.UseVisualStyleBackColor = true;
+            this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
             // 
             // txtbuscar
             // 
-            this.txtbuscar.Location = new System.Drawing.Point(231, 53);
+            this.txtbuscar.AnimateReadOnly = false;
+            this.txtbuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtbuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtbuscar.Depth = 0;
+            this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtbuscar.HideSelection = true;
+            this.txtbuscar.Hint = "Buscar cliente...";
+            this.txtbuscar.LeadingIcon = global::CapaPresentacion.Properties.Resources.lupa;
+            this.txtbuscar.Location = new System.Drawing.Point(39, 108);
+            this.txtbuscar.MaxLength = 32767;
+            this.txtbuscar.MouseState = MaterialSkin.MouseState.OUT;
             this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.Size = new System.Drawing.Size(308, 22);
-            this.txtbuscar.TabIndex = 1;
+            this.txtbuscar.PasswordChar = '\0';
+            this.txtbuscar.PrefixSuffixText = null;
+            this.txtbuscar.ReadOnly = false;
+            this.txtbuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtbuscar.SelectedText = "";
+            this.txtbuscar.SelectionLength = 0;
+            this.txtbuscar.SelectionStart = 0;
+            this.txtbuscar.ShortcutsEnabled = true;
+            this.txtbuscar.Size = new System.Drawing.Size(250, 48);
+            this.txtbuscar.TabIndex = 12;
+            this.txtbuscar.TabStop = false;
+            this.txtbuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtbuscar.TrailingIcon = null;
+            this.txtbuscar.UseSystemPasswordChar = false;
+            this.txtbuscar.Click += new System.EventHandler(this.bucarCliente_Click);
+            this.txtbuscar.Paint += new System.Windows.Forms.PaintEventHandler(this.RedondearControl_Paint);
+            this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
             // 
-            // btnbuscar
+            // rbtnnombre
             // 
-            this.btnbuscar.Location = new System.Drawing.Point(558, 69);
-            this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnbuscar.TabIndex = 2;
-            this.btnbuscar.Text = "&Buscar";
-            this.btnbuscar.UseVisualStyleBackColor = true;
-            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
+            this.rbtnnombre.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rbtnnombre.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.rbtnnombre.Depth = 0;
+            this.rbtnnombre.HighEmphasis = true;
+            this.rbtnnombre.Icon = null;
+            this.rbtnnombre.Location = new System.Drawing.Point(324, 120);
+            this.rbtnnombre.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.rbtnnombre.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbtnnombre.Name = "rbtnnombre";
+            this.rbtnnombre.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.rbtnnombre.Size = new System.Drawing.Size(82, 36);
+            this.rbtnnombre.TabIndex = 13;
+            this.rbtnnombre.Text = "Nombre";
+            this.rbtnnombre.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.rbtnnombre.UseAccentColor = false;
+            this.rbtnnombre.UseVisualStyleBackColor = true;
+            this.rbtnnombre.Click += new System.EventHandler(this.rbtnnombre_Click);
+            this.rbtnnombre.Paint += new System.Windows.Forms.PaintEventHandler(this.RedondearControl_Paint);
             // 
-            // btnsalir
+            // rbtnrfc
             // 
-            this.btnsalir.Location = new System.Drawing.Point(651, 69);
-            this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Size = new System.Drawing.Size(71, 23);
-            this.btnsalir.TabIndex = 3;
-            this.btnsalir.Text = "&Salir";
-            this.btnsalir.UseVisualStyleBackColor = true;
+            this.rbtnrfc.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rbtnrfc.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.rbtnrfc.Depth = 0;
+            this.rbtnrfc.HighEmphasis = true;
+            this.rbtnrfc.Icon = null;
+            this.rbtnrfc.Location = new System.Drawing.Point(416, 120);
+            this.rbtnrfc.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.rbtnrfc.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbtnrfc.Name = "rbtnrfc";
+            this.rbtnrfc.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.rbtnrfc.Size = new System.Drawing.Size(64, 36);
+            this.rbtnrfc.TabIndex = 14;
+            this.rbtnrfc.Text = "RFC";
+            this.rbtnrfc.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.rbtnrfc.UseAccentColor = false;
+            this.rbtnrfc.UseVisualStyleBackColor = true;
+            this.rbtnrfc.Click += new System.EventHandler(this.rbtnrfc_Click);
+            this.rbtnrfc.Paint += new System.Windows.Forms.PaintEventHandler(this.RedondearControl_Paint);
             // 
-            // panel1
+            // btnnuevo
             // 
-            this.panel1.Controls.Add(this.btnsalir);
-            this.panel1.Controls.Add(this.btnbuscar);
-            this.panel1.Controls.Add(this.txtbuscar);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(32, 79);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(740, 130);
-            this.panel1.TabIndex = 7;
+            this.btnnuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnnuevo.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnnuevo.Depth = 0;
+            this.btnnuevo.HighEmphasis = true;
+            this.btnnuevo.Icon = null;
+            this.btnnuevo.Location = new System.Drawing.Point(24, 323);
+            this.btnnuevo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnnuevo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnnuevo.Name = "btnnuevo";
+            this.btnnuevo.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnnuevo.Size = new System.Drawing.Size(70, 36);
+            this.btnnuevo.TabIndex = 15;
+            this.btnnuevo.Text = "Nuevo";
+            this.btnnuevo.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnnuevo.UseAccentColor = false;
+            this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
+            this.btnnuevo.Paint += new System.Windows.Forms.PaintEventHandler(this.RedondearControl_Paint);
             // 
-            // btnreportes
+            // btneditar
             // 
-            this.btnreportes.Location = new System.Drawing.Point(683, 30);
-            this.btnreportes.Name = "btnreportes";
-            this.btnreportes.Size = new System.Drawing.Size(89, 43);
-            this.btnreportes.TabIndex = 12;
-            this.btnreportes.Text = "Reportes";
-            this.btnreportes.UseVisualStyleBackColor = true;
-            this.btnreportes.Click += new System.EventHandler(this.button1_Click);
+            this.btneditar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btneditar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btneditar.Depth = 0;
+            this.btneditar.HighEmphasis = true;
+            this.btneditar.Icon = null;
+            this.btneditar.Location = new System.Drawing.Point(102, 323);
+            this.btneditar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btneditar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btneditar.Name = "btneditar";
+            this.btneditar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btneditar.Size = new System.Drawing.Size(71, 36);
+            this.btneditar.TabIndex = 16;
+            this.btneditar.Text = "Editar";
+            this.btneditar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btneditar.UseAccentColor = false;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
+            this.btneditar.Paint += new System.Windows.Forms.PaintEventHandler(this.RedondearControl_Paint);
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btneliminar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btneliminar.Depth = 0;
+            this.btneliminar.HighEmphasis = true;
+            this.btneliminar.Icon = null;
+            this.btneliminar.Location = new System.Drawing.Point(181, 323);
+            this.btneliminar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btneliminar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btneliminar.Size = new System.Drawing.Size(88, 36);
+            this.btneliminar.TabIndex = 17;
+            this.btneliminar.Text = "Eliminar";
+            this.btneliminar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btneliminar.UseAccentColor = true;
+            this.btneliminar.Paint += new System.Windows.Forms.PaintEventHandler(this.RedondearControl_Paint);
+            // 
+            // idcliente
+            // 
+            this.idcliente.DataPropertyName = "idcliente";
+            this.idcliente.HeaderText = "idcliente";
+            this.idcliente.Name = "idcliente";
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            // 
+            // apellidos
+            // 
+            this.apellidos.DataPropertyName = "apellidos";
+            this.apellidos.HeaderText = "Apelldos";
+            this.apellidos.Name = "apellidos";
+            // 
+            // telefono
+            // 
+            this.telefono.DataPropertyName = "telefono";
+            this.telefono.HeaderText = "Telefono";
+            this.telefono.Name = "telefono";
+            // 
+            // correo
+            // 
+            this.correo.DataPropertyName = "correo";
+            this.correo.HeaderText = "Correo";
+            this.correo.Name = "correo";
+            // 
+            // rfc
+            // 
+            this.rfc.DataPropertyName = "rfc";
+            this.rfc.HeaderText = "RFC";
+            this.rfc.Name = "rfc";
             // 
             // FrmListadoCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnreportes);
+            this.ClientSize = new System.Drawing.Size(616, 405);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btneditar);
             this.Controls.Add(this.btnnuevo);
+            this.Controls.Add(this.rbtnrfc);
+            this.Controls.Add(this.rbtnnombre);
+            this.Controls.Add(this.txtbuscar);
             this.Controls.Add(this.dlistado);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmListadoCliente";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Text = "ListadoCliente";
+            this.Text = "Listado de Clientes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmListadoCliente_FormClosing);
             this.Load += new System.EventHandler(this.FrmListadoCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,19 +274,18 @@ namespace CapaPresentacion
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.DataGridView dlistado;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btneditar;
-        private System.Windows.Forms.Button btnnuevo;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbtnrfc;
-        private System.Windows.Forms.RadioButton rbtnnombre;
-        private System.Windows.Forms.TextBox txtbuscar;
-        private System.Windows.Forms.Button btnbuscar;
-        private System.Windows.Forms.Button btnsalir;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnreportes;
+        private MaterialSkin.Controls.MaterialTextBox2 txtbuscar;
+        private MaterialSkin.Controls.MaterialButton rbtnnombre;
+        private MaterialSkin.Controls.MaterialButton rbtnrfc;
+        private MaterialSkin.Controls.MaterialButton btnnuevo;
+        private MaterialSkin.Controls.MaterialButton btneditar;
+        private MaterialSkin.Controls.MaterialButton btneliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idcliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn correo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rfc;
     }
 }

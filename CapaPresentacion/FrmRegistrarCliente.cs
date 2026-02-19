@@ -15,17 +15,18 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-           
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK; 
-            materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue600, Primary.Blue700,
-                Primary.Blue200, Accent.LightBlue200,
-                TextShade.WHITE
 
+            // CAMBIA ESTO: De DARK a LIGHT
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+
+            // Ajusta los colores para que coincidan con el listado
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.Blue700, Primary.Blue900,
+                Primary.Blue500, Accent.LightBlue200,
+                TextShade.WHITE
             );
-            
         }
 
         private void FrmRegistrarCliente_Load(object sender, EventArgs e)

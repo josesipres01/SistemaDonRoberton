@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReporteClienteUpdate));
             this.dlistado = new System.Windows.Forms.DataGridView();
             this.idcliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre_antiguo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,25 +41,23 @@
             this.correo_actual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_operacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.btneliminar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Noto Serif SC", 12F);
-            this.label2.Location = new System.Drawing.Point(38, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(229, 29);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Registros actualizados";
             // 
             // dlistado
             // 
             this.dlistado.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
             this.dlistado.AllowUserToAddRows = false;
+            this.dlistado.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dlistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dlistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idcliente,
@@ -73,13 +71,14 @@
             this.correo_actual,
             this.fecha_operacion,
             this.usuario});
-            this.dlistado.Location = new System.Drawing.Point(43, 142);
+            this.dlistado.Location = new System.Drawing.Point(33, 142);
+            this.dlistado.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dlistado.Name = "dlistado";
             this.dlistado.ReadOnly = true;
             this.dlistado.RowHeadersWidth = 51;
             this.dlistado.RowTemplate.Height = 24;
             this.dlistado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dlistado.Size = new System.Drawing.Size(1287, 251);
+            this.dlistado.Size = new System.Drawing.Size(965, 204);
             this.dlistado.TabIndex = 20;
             this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
             // 
@@ -91,6 +90,7 @@
             this.idcliente.MinimumWidth = 6;
             this.idcliente.Name = "idcliente";
             this.idcliente.ReadOnly = true;
+            this.idcliente.Width = 82;
             // 
             // nombre_antiguo
             // 
@@ -100,7 +100,7 @@
             this.nombre_antiguo.MinimumWidth = 6;
             this.nombre_antiguo.Name = "nombre_antiguo";
             this.nombre_antiguo.ReadOnly = true;
-            this.nombre_antiguo.Width = 122;
+            this.nombre_antiguo.Width = 99;
             // 
             // nombre_actual
             // 
@@ -110,7 +110,7 @@
             this.nombre_actual.MinimumWidth = 6;
             this.nombre_actual.Name = "nombre_actual";
             this.nombre_actual.ReadOnly = true;
-            this.nombre_actual.Width = 115;
+            this.nombre_actual.Width = 94;
             // 
             // apellidos_antiguo
             // 
@@ -120,7 +120,7 @@
             this.apellidos_antiguo.MinimumWidth = 6;
             this.apellidos_antiguo.Name = "apellidos_antiguo";
             this.apellidos_antiguo.ReadOnly = true;
-            this.apellidos_antiguo.Width = 123;
+            this.apellidos_antiguo.Width = 99;
             // 
             // apellidos_actual
             // 
@@ -130,7 +130,7 @@
             this.apellidos_actual.MinimumWidth = 6;
             this.apellidos_actual.Name = "apellidos_actual";
             this.apellidos_actual.ReadOnly = true;
-            this.apellidos_actual.Width = 116;
+            this.apellidos_actual.Width = 94;
             // 
             // rfc_antiguo
             // 
@@ -140,7 +140,7 @@
             this.rfc_antiguo.MinimumWidth = 6;
             this.rfc_antiguo.Name = "rfc_antiguo";
             this.rfc_antiguo.ReadOnly = true;
-            this.rfc_antiguo.Width = 102;
+            this.rfc_antiguo.Width = 85;
             // 
             // rfc_actual
             // 
@@ -150,7 +150,7 @@
             this.rfc_actual.MinimumWidth = 6;
             this.rfc_actual.Name = "rfc_actual";
             this.rfc_actual.ReadOnly = true;
-            this.rfc_actual.Width = 95;
+            this.rfc_actual.Width = 79;
             // 
             // correo_antiguo
             // 
@@ -160,7 +160,7 @@
             this.correo_antiguo.MinimumWidth = 6;
             this.correo_antiguo.Name = "correo_antiguo";
             this.correo_antiguo.ReadOnly = true;
-            this.correo_antiguo.Width = 115;
+            this.correo_antiguo.Width = 94;
             // 
             // correo_actual
             // 
@@ -170,7 +170,7 @@
             this.correo_actual.MinimumWidth = 6;
             this.correo_actual.Name = "correo_actual";
             this.correo_actual.ReadOnly = true;
-            this.correo_actual.Width = 108;
+            this.correo_actual.Width = 88;
             // 
             // fecha_operacion
             // 
@@ -180,7 +180,7 @@
             this.fecha_operacion.MinimumWidth = 6;
             this.fecha_operacion.Name = "fecha_operacion";
             this.fecha_operacion.ReadOnly = true;
-            this.fecha_operacion.Width = 146;
+            this.fecha_operacion.Width = 118;
             // 
             // usuario
             // 
@@ -190,52 +190,103 @@
             this.usuario.MinimumWidth = 6;
             this.usuario.Name = "usuario";
             this.usuario.ReadOnly = true;
-            this.usuario.Width = 86;
+            this.usuario.Width = 71;
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btneliminar.FlatAppearance.BorderSize = 0;
+            this.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneliminar.Location = new System.Drawing.Point(930, 388);
+            this.btneliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(68, 29);
+            this.btneliminar.TabIndex = 23;
+            this.btneliminar.Text = "&Cancelar";
+            this.btneliminar.UseVisualStyleBackColor = false;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click_1);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(37, 112);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1035, 59);
+            this.panel1.TabIndex = 25;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(25, 34);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(36, 25);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Noto Serif SC Black", 16F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(38, 30);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(58, 33);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(253, 39);
-            this.label1.TabIndex = 19;
+            this.label1.Size = new System.Drawing.Size(176, 25);
+            this.label1.TabIndex = 12;
             this.label1.Text = "Reporte Clientes";
             // 
-            // btneliminar
+            // label2
             // 
-            this.btneliminar.Location = new System.Drawing.Point(1240, 477);
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(90, 36);
-            this.btneliminar.TabIndex = 23;
-            this.btneliminar.Text = "&Cancelar";
-            this.btneliminar.UseVisualStyleBackColor = true;
-            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click_1);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(71, 112);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(182, 21);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Registros actualizados";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FrmReporteClienteUpdate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1381, 658);
-            this.Controls.Add(this.btneliminar);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(1036, 535);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.dlistado);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmReporteClienteUpdate";
             this.Text = "FrmReporteClienteUpdate";
             this.Load += new System.EventHandler(this.FrmReporteClienteUpdate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dlistado;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_antiguo;
@@ -248,5 +299,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn correo_actual;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_operacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

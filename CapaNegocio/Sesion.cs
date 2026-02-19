@@ -10,7 +10,7 @@ namespace CapaNegocio
     {
         public static int IdAcceso; 
         public static string Usuario;
-
+        public static string Rol;
 
     }
 }

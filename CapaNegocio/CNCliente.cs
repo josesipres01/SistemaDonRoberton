@@ -61,6 +61,11 @@ namespace CapaNegocio
             return Datos.BuscarRfc(Datos);
         }
 
+        public DataTable Login(string user, string pass)
+        {
+            CDUsuario objetoCD = new CDUsuario();
+            return objetoCD.ValidarAcceso(user, pass);
+        }
 
 
 

@@ -32,12 +32,16 @@ namespace CapaPresentacion
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Blue700, Primary.Blue900,
-                Primary.Blue500, Accent.LightBlue200,
+                Primary.Blue500, Accent.Red400,
                 TextShade.WHITE);
         }
 
         private void FrmListadoCliente_Load(object sender, EventArgs e)
         {
+            if (Sesion.Rol != "admin")
+            {
+                btnReporte.Visible = false; 
+            }
             this.Top = 0;
             this.Left = 0;
 
@@ -142,14 +146,7 @@ namespace CapaPresentacion
             this.Mostrar();
         }
 
-        //Abrir reportes
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (new LoginBitacora().ShowDialog() == DialogResult.OK)
-            {
-                new MenuReportes().ShowDialog();
-            }
-        }
+        
 
         //Bordes redondos en botones
         // Asocia este evento Paint a todos tus botones en el Diseñador
@@ -169,10 +166,26 @@ namespace CapaPresentacion
 
         private void FrmListadoCliente_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Cerrar sesión?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.No)
-                e.Cancel = true;
+            if (MessageBox.Show("¿Desea cerrar la sesión actual?", "Confirmar Salida", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true; 
+            }
             else
-                Application.ExitThread();
+            {
+                try
+                {
+                    CapaNegocio.CNBitacora objCN = new CapaNegocio.CNBitacora();
+
+                    objCN.LoginSalida(Sesion.IdAcceso);
+
+                    Application.ExitThread();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al registrar salida: " + ex.Message);
+                    Application.ExitThread();
+                }
+            }
         }
 
         private void bucarCliente_Click(object sender, EventArgs e)
@@ -194,6 +207,19 @@ namespace CapaPresentacion
 
         private void dlistado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            
+                new MenuReportes().ShowDialog();
+           
 
         }
     }

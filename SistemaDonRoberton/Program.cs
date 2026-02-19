@@ -17,7 +17,7 @@ namespace SistemaDonRoberton1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CapaPresentacion.FrmReporteSesiones());
+            Application.Run(new CapaPresentacion.Login());
         }
     }
 }

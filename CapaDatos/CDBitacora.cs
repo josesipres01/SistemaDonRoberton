@@ -58,7 +58,7 @@ namespace CapaDatos
             using (SqlConnection conexion = new SqlConnection(Conexión.Conn))
             {
                 conexion.Open();
-                string query = "INSERT INTO bitacora_accesos(usuario, fecha_entrada) VALUES (@user, GETDATE()); SELECT SCOPE_IDENTITY();\";)";
+                string query = "INSERT INTO bitacora_accesos(usuario, fecha_entrada) VALUES (@user, GETDATE()); SELECT SCOPE_IDENTITY();";
                 SqlCommand cmd = new SqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@user", usuario);
                 return Convert.ToInt32(cmd.ExecuteScalar());
@@ -74,7 +74,7 @@ namespace CapaDatos
                 con.Open();
                 string query = "UPDATE bitacora_accesos SET fecha_salida = GETDATE() WHERE id = @id";
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@id", idAcceso);
+                cmd.Parameters.AddWithValue("@id", idAcceso); // <-- Debe coincidir con el @ de arriba
                 cmd.ExecuteNonQuery();
             }
         }

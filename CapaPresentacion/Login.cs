@@ -48,7 +48,7 @@ namespace CapaPresentacion
 
                     object resultadoRol = cmdLogin.ExecuteScalar();
 
-                    if (resultadoRol != null) // Si no es nulo, el usuario y pass son correctos
+                    if (resultadoRol != null) 
                     {
                         Sesion.Rol = resultadoRol.ToString();
                         Sesion.Usuario = usuario;
@@ -63,7 +63,6 @@ namespace CapaPresentacion
                         // Guardamos el ID del acceso para registrar la salida después
                         Sesion.IdAcceso = Convert.ToInt32(cmdBitacora.ExecuteScalar());
 
-                        // --- NAVEGACIÓN ---
                         MessageBox.Show("Hola! " + usuario, "Acceso Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         Form principal = new FrmListadoCliente();

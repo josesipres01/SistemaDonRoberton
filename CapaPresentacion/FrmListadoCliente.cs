@@ -55,10 +55,8 @@ namespace CapaPresentacion
         {
             try
             {
-                // Limpiamos el origen actual para forzar el refresco
                 this.dlistado.DataSource = null;
 
-                // Asignamos los datos desde la Capa Negocio
                 DataTable dt = CNCliente.Listar();
                 this.dlistado.DataSource = dt;
 
@@ -220,6 +218,49 @@ namespace CapaPresentacion
             
                 new MenuReportes().ShowDialog();
            
+
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("¿Realmente desea eliminar el(los) registro(s)?",
+                    "SistemaDonRoberton",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Question);
+
+                if (dlistado.SelectedRows.Count > 0)
+                {
+                    if (opcion == DialogResult.OK)
+                    {
+                        string idcliente = dlistado.CurrentRow.Cells["idcliente"].Value.ToString();
+                        CNCliente.Eliminar(Convert.ToInt32(idcliente));
+
+                        MessageBox.Show("Registro(s) eliminado(s) correctamente",
+                            "SistemaDonRoberton",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                        Mostrar();
+                    }
+                }
+                Mostrar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            FrmListadoCategoria form = new FrmListadoCategoria();
+            form.Show();
+            this.Hide();
 
         }
     }

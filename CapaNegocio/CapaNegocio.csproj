@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="CNBitacora.cs" />
+    <Compile Include="CNCategoria.cs" />
     <Compile Include="CNCliente.cs" />
     <Compile Include="CNUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

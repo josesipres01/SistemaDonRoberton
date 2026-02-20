@@ -74,7 +74,7 @@ namespace CapaDatos
                 con.Open();
                 string query = "UPDATE bitacora_accesos SET fecha_salida = GETDATE() WHERE id = @id";
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@id", idAcceso); // <-- Debe coincidir con el @ de arriba
+                cmd.Parameters.AddWithValue("@id", idAcceso); 
                 cmd.ExecuteNonQuery();
             }
         }
@@ -84,7 +84,6 @@ namespace CapaDatos
             using (SqlConnection con = new SqlConnection(Conexión.Conn))
             {
                 DataTable dt = new DataTable();
-                // Esta query calcula la duración exacta en formato HH:MM:SS
                 string query = @"SELECT usuario, 
                                  fecha_entrada, 
                                  fecha_salida, 

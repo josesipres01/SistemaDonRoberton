@@ -65,7 +65,7 @@ namespace CapaPresentacion
 
                         MessageBox.Show("Hola! " + usuario, "Acceso Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        Form principal = new FrmListadoCliente();
+                        Form principal = new PantallaInicio();
                         principal.Show();
                         this.Hide();
                     }

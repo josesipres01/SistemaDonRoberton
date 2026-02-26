@@ -12,28 +12,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using MaterialSkin;
-using MaterialSkin.Controls;
+
 
 namespace CapaPresentacion
 {
-    public partial class FrmListadoCliente : MaterialForm
+    public partial class FrmListadoCliente : Form
     {
 
-        private readonly MaterialSkinManager materialSkinManager;
         string criterioBusqueda = "Nombre";
 
         public FrmListadoCliente()
         {
             InitializeComponent();
 
-            materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue700, Primary.Blue900,
-                Primary.Blue500, Accent.Red400,
-                TextShade.WHITE);
         }
 
         private void FrmListadoCliente_Load(object sender, EventArgs e)
@@ -42,8 +33,7 @@ namespace CapaPresentacion
             {
                 btnReporte.Visible = false; 
             }
-            this.Top = 0;
-            this.Left = 0;
+            
 
             Mostrar();
             configurarTabla(); //Metodo para la tabla bonita

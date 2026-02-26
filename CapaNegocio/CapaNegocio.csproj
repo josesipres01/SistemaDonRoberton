@@ -45,6 +45,8 @@
     <Compile Include="CNBitacora.cs" />
     <Compile Include="CNCategoria.cs" />
     <Compile Include="CNCliente.cs" />
+    <Compile Include="CNProducto.cs" />
+    <Compile Include="CNProveedor.cs" />
     <Compile Include="CNUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sesion.cs" />

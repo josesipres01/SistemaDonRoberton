@@ -48,24 +48,38 @@ namespace CapaPresentacion
 
         private void btnnuevo_Click(object sender, EventArgs e)
         {
-            FrmRegistrarCategoria form = new FrmRegistrarCategoria();
-            form.Show();
-            form.Insert = true;
-            this.Hide();
+            PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
+            if (objetoPadre != null)
+            {
+                // 1. Creamos la instancia y activamos la bandera 'Insert'
+                FrmRegistrarCategoria form = new FrmRegistrarCategoria { Insert = true };
+
+                // 2. Lo abrimos en el panel principal
+                objetoPadre.AbrirFormulario(form);
+
+                // 3. Cerramos el listado
+                this.Close();
+            }
         }
 
         private void btneditar_Click(object sender, EventArgs e)
         {
-            FrmRegistrarCategoria form = new FrmRegistrarCategoria();
-            form.Edit = true;
-            form.Insert = false;
-
-            form.txtidcategoria.Text = this.dlistado.CurrentRow.Cells["idcategoria"].Value.ToString();
-            form.txtdescripcion.Text = this.dlistado.CurrentRow.Cells["descripcion"].Value.ToString();
-
-            form.Show();
-            this.Hide();
+            if (dlistado.CurrentCell == null) return;
+                PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+                if(objetoPadre != null)
+                {
+                    FrmRegistrarCategoria form = new FrmRegistrarCategoria { Edit = true };
+                    form.Edit = true;
+                    form.Insert = false;
+                    form.txtidcategoria.Text = this.dlistado.CurrentRow.Cells["idcategoria"].Value.ToString();
+                    form.txtdescripcion.Text = this.dlistado.CurrentRow.Cells["descripcion"].Value.ToString();
+                    objetoPadre.AbrirFormulario(form);
+                    this.Close();
+                }
+                
         }
+        
 
         private void btneliminar_Click(object sender, EventArgs e)
         {

@@ -56,9 +56,11 @@ namespace CapaPresentacion
                     this.Insert = false;
                     this.Edit = false;
 
-                    FrmListadoCategoria form = new FrmListadoCategoria();
-                    form.Show();
-                    this.Hide();
+                    PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
+                    objetoPadre.AbrirFormulario(new FrmListadoCategoria());
+
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -69,9 +71,11 @@ namespace CapaPresentacion
 
         private void btncancerlar_Click(object sender, EventArgs e)
         {
-            FrmListadoCategoria form = new FrmListadoCategoria();
-            form.Show();
-            this.Hide();
+            PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
+            objetoPadre.AbrirFormulario(new FrmListadoCategoria());
+
+            this.Close();
         }
     }
 }

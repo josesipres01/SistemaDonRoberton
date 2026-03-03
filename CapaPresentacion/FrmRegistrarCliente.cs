@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class FrmRegistrarCliente : MaterialForm
+    public partial class FrmRegistrarCliente : Form
     {
         public bool Insert = false;
         public bool Edit = false;
@@ -15,18 +15,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
 
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-
-            // CAMBIA ESTO: De DARK a LIGHT
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-
-            // Ajusta los colores para que coincidan con el listado
-            materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue700, Primary.Blue900,
-                Primary.Blue500, Accent.LightBlue200,
-                TextShade.WHITE
-            );
+          
         }
 
         private void FrmRegistrarCliente_Load(object sender, EventArgs e)
@@ -79,9 +68,11 @@ namespace CapaPresentacion
                     this.Insert = false;
                     this.Edit = false;
 
-                    FrmListadoCliente form = new FrmListadoCliente();
-                    form.Show();
-                    this.Hide();
+                    PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
+                    objetoPadre.AbrirFormulario(new FrmListadoCliente());
+
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -93,9 +84,16 @@ namespace CapaPresentacion
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-            FrmListadoCliente form = new FrmListadoCliente();
-            form.Show();
-            this.Hide();
+            PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
+            objetoPadre.AbrirFormulario(new FrmListadoCliente());
+
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -29,10 +29,7 @@ namespace CapaPresentacion
 
         private void FrmListadoCliente_Load(object sender, EventArgs e)
         {
-            if (Sesion.Rol != "admin")
-            {
-                btnReporte.Visible = false; 
-            }
+            
             
 
             Mostrar();
@@ -108,30 +105,50 @@ namespace CapaPresentacion
         public void BuscarRfc() => this.dlistado.DataSource = CNCliente.BuscarRfc(this.txtbuscar.Text);
 
 
-        //Acciones del sistema
         private void btnnuevo_Click(object sender, EventArgs e)
         {
-            FrmRegistrarCliente form = new FrmRegistrarCliente { Insert = true };
-            form.Show();
-            this.Hide();
+            PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
+            if (objetoPadre != null)
+            {
+                // 1. Creamos la instancia y activamos la bandera 'Insert'
+                FrmRegistrarCliente form = new FrmRegistrarCliente { Insert = true };
+
+                // 2. Lo abrimos en el panel principal
+                objetoPadre.AbrirFormulario(form);
+
+                // 3. Cerramos el listado
+                this.Close();
+            }
         }
 
         private void btneditar_Click(object sender, EventArgs e)
-        {
+        { // 1. Validar que haya una fila seleccionada
             if (dlistado.CurrentRow == null) return;
 
-            FrmRegistrarCliente form = new FrmRegistrarCliente { Edit = true };
+            // 2. Obtener la referencia a la PantallaInicio para usar su panel
+            PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
 
-            // Mapeo seguro de datos
-            form.txtidcliente.Text = dlistado.CurrentRow.Cells["idcliente"].Value.ToString();
-            form.txtnombre.Text = dlistado.CurrentRow.Cells["nombre"].Value.ToString();
-            form.txtapellidos.Text = dlistado.CurrentRow.Cells["apellidos"].Value.ToString();
-            form.txtrfc.Text = dlistado.CurrentRow.Cells["rfc"].Value.ToString();
-            form.txttelefono.Text = dlistado.CurrentRow.Cells["telefono"].Value.ToString();
-            form.txtcorreo.Text = dlistado.CurrentRow.Cells["correo"].Value.ToString();
+            if (objetoPadre != null)
+            {
+                // 3. Crear el formulario de registro marcando la bandera 'Edit' como true
+                FrmRegistrarCliente form = new FrmRegistrarCliente { Edit = true };
 
-            form.ShowDialog();
-            this.Mostrar();
+                // 4. Mapeo de datos (Pasamos los datos de la tabla al formulario de registro)
+                // Asegúrate de que los nombres de las celdas coincidan con tu DataGridView
+                form.txtidcliente.Text = dlistado.CurrentRow.Cells["idcliente"].Value.ToString();
+                form.txtnombre.Text = dlistado.CurrentRow.Cells["nombre"].Value.ToString();
+                form.txtapellidos.Text = dlistado.CurrentRow.Cells["apellidos"].Value.ToString();
+                form.txtrfc.Text = dlistado.CurrentRow.Cells["rfc"].Value.ToString();
+                form.txttelefono.Text = dlistado.CurrentRow.Cells["telefono"].Value.ToString();
+                form.txtcorreo.Text = dlistado.CurrentRow.Cells["correo"].Value.ToString();
+
+                // 5. En lugar de form.ShowDialog(), lo mandamos al panel principal
+                objetoPadre.AbrirFormulario(form);
+
+                // 6. Cerramos el listado para que no ocupe memoria "detrás" del panel
+                this.Close();
+            }   
         }
 
         
@@ -152,29 +169,7 @@ namespace CapaPresentacion
             control.Region = new Region(path);
         }
 
-        private void FrmListadoCliente_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("¿Desea cerrar la sesión actual?", "Confirmar Salida", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-                e.Cancel = true; 
-            }
-            else
-            {
-                try
-                {
-                    CapaNegocio.CNBitacora objCN = new CapaNegocio.CNBitacora();
-
-                    objCN.LoginSalida(Sesion.IdAcceso);
-
-                    Application.ExitThread();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error al registrar salida: " + ex.Message);
-                    Application.ExitThread();
-                }
-            }
-        }
+     
 
         private void bucarCliente_Click(object sender, EventArgs e)
         {

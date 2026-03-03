@@ -30,7 +30,8 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dlistado = new System.Windows.Forms.DataGridView();
             this.idcliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,24 +45,24 @@ namespace CapaPresentacion
             this.btnnuevo = new MaterialSkin.Controls.MaterialButton();
             this.btneditar = new MaterialSkin.Controls.MaterialButton();
             this.btneliminar = new MaterialSkin.Controls.MaterialButton();
-            this.btnReporte = new MaterialSkin.Controls.MaterialButton();
-            this.btnCategorias = new MaterialSkin.Controls.MaterialButton();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
             this.SuspendLayout();
             // 
             // dlistado
             // 
             this.dlistado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dlistado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dlistado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dlistado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dlistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dlistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idcliente,
@@ -70,13 +71,21 @@ namespace CapaPresentacion
             this.telefono,
             this.correo,
             this.rfc});
-            this.dlistado.Location = new System.Drawing.Point(59, 227);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dlistado.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dlistado.Location = new System.Drawing.Point(34, 177);
             this.dlistado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dlistado.Name = "dlistado";
             this.dlistado.RowHeadersWidth = 51;
             this.dlistado.RowTemplate.Height = 45;
             this.dlistado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dlistado.Size = new System.Drawing.Size(880, 188);
+            this.dlistado.Size = new System.Drawing.Size(760, 188);
             this.dlistado.TabIndex = 8;
             this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
             // 
@@ -144,7 +153,7 @@ namespace CapaPresentacion
             this.txtbuscar.HideSelection = true;
             this.txtbuscar.Hint = "Buscar cliente...";
             this.txtbuscar.LeadingIcon = global::CapaPresentacion.Properties.Resources.lupa;
-            this.txtbuscar.Location = new System.Drawing.Point(79, 145);
+            this.txtbuscar.Location = new System.Drawing.Point(34, 95);
             this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtbuscar.MaxLength = 32767;
             this.txtbuscar.MouseState = MaterialSkin.MouseState.OUT;
@@ -174,7 +183,7 @@ namespace CapaPresentacion
             this.rbtnnombre.Depth = 0;
             this.rbtnnombre.HighEmphasis = true;
             this.rbtnnombre.Icon = null;
-            this.rbtnnombre.Location = new System.Drawing.Point(483, 157);
+            this.rbtnnombre.Location = new System.Drawing.Point(447, 107);
             this.rbtnnombre.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.rbtnnombre.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbtnnombre.Name = "rbtnnombre";
@@ -195,7 +204,7 @@ namespace CapaPresentacion
             this.rbtnrfc.Depth = 0;
             this.rbtnrfc.HighEmphasis = true;
             this.rbtnrfc.Icon = null;
-            this.rbtnrfc.Location = new System.Drawing.Point(618, 157);
+            this.rbtnrfc.Location = new System.Drawing.Point(573, 107);
             this.rbtnrfc.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.rbtnrfc.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbtnrfc.Name = "rbtnrfc";
@@ -216,7 +225,7 @@ namespace CapaPresentacion
             this.btnnuevo.Depth = 0;
             this.btnnuevo.HighEmphasis = true;
             this.btnnuevo.Icon = null;
-            this.btnnuevo.Location = new System.Drawing.Point(59, 441);
+            this.btnnuevo.Location = new System.Drawing.Point(34, 391);
             this.btnnuevo.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnnuevo.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnnuevo.Name = "btnnuevo";
@@ -236,7 +245,7 @@ namespace CapaPresentacion
             this.btneditar.Depth = 0;
             this.btneditar.HighEmphasis = true;
             this.btneditar.Icon = null;
-            this.btneditar.Location = new System.Drawing.Point(173, 441);
+            this.btneditar.Location = new System.Drawing.Point(139, 391);
             this.btneditar.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btneditar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btneditar.Name = "btneditar";
@@ -256,7 +265,7 @@ namespace CapaPresentacion
             this.btneliminar.Depth = 0;
             this.btneliminar.HighEmphasis = true;
             this.btneliminar.Icon = null;
-            this.btneliminar.Location = new System.Drawing.Point(285, 441);
+            this.btneliminar.Location = new System.Drawing.Point(243, 391);
             this.btneliminar.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btneliminar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btneliminar.Name = "btneliminar";
@@ -269,54 +278,23 @@ namespace CapaPresentacion
             this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             this.btneliminar.Paint += new System.Windows.Forms.PaintEventHandler(this.RedondearControl_Paint);
             // 
-            // btnReporte
+            // label1
             // 
-            this.btnReporte.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnReporte.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnReporte.Depth = 0;
-            this.btnReporte.HighEmphasis = true;
-            this.btnReporte.Icon = null;
-            this.btnReporte.Location = new System.Drawing.Point(695, 60);
-            this.btnReporte.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.btnReporte.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnReporte.Size = new System.Drawing.Size(94, 36);
-            this.btnReporte.TabIndex = 19;
-            this.btnReporte.Text = "REPORTES";
-            this.btnReporte.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnReporte.UseAccentColor = false;
-            this.btnReporte.UseVisualStyleBackColor = true;
-            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
-            // 
-            // btnCategorias
-            // 
-            this.btnCategorias.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnCategorias.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnCategorias.Depth = 0;
-            this.btnCategorias.HighEmphasis = true;
-            this.btnCategorias.Icon = null;
-            this.btnCategorias.Location = new System.Drawing.Point(559, 60);
-            this.btnCategorias.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.btnCategorias.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCategorias.Size = new System.Drawing.Size(110, 36);
-            this.btnCategorias.TabIndex = 20;
-            this.btnCategorias.Text = "CATEGORIAS";
-            this.btnCategorias.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnCategorias.UseAccentColor = false;
-            this.btnCategorias.UseVisualStyleBackColor = true;
-            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(27, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 37);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "Clientes";
             // 
             // FrmListadoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(954, 571);
+            this.ClientSize = new System.Drawing.Size(922, 537);
             this.ControlBox = false;
-            this.Controls.Add(this.btnCategorias);
-            this.Controls.Add(this.btnReporte);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btneditar);
             this.Controls.Add(this.btnnuevo);
@@ -330,7 +308,7 @@ namespace CapaPresentacion
             this.Padding = new System.Windows.Forms.Padding(4, 79, 4, 4);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmListadoCliente_FormClosing);
+            this.Text = "¿";
             this.Load += new System.EventHandler(this.FrmListadoCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).EndInit();
             this.ResumeLayout(false);
@@ -351,13 +329,12 @@ namespace CapaPresentacion
         private MaterialSkin.Controls.MaterialButton btnnuevo;
         private MaterialSkin.Controls.MaterialButton btneditar;
         private MaterialSkin.Controls.MaterialButton btneliminar;
-        private MaterialSkin.Controls.MaterialButton btnReporte;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidos;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn rfc;
-        private MaterialSkin.Controls.MaterialButton btnCategorias;
+        private System.Windows.Forms.Label label1;
     }
 }

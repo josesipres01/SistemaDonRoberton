@@ -126,16 +126,12 @@ namespace CapaPresentacion
         { // 1. Validar que haya una fila seleccionada
             if (dlistado.CurrentRow == null) return;
 
-            // 2. Obtener la referencia a la PantallaInicio para usar su panel
             PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
 
             if (objetoPadre != null)
             {
-                // 3. Crear el formulario de registro marcando la bandera 'Edit' como true
                 FrmRegistrarCliente form = new FrmRegistrarCliente { Edit = true };
 
-                // 4. Mapeo de datos (Pasamos los datos de la tabla al formulario de registro)
-                // Asegúrate de que los nombres de las celdas coincidan con tu DataGridView
                 form.txtidcliente.Text = dlistado.CurrentRow.Cells["idcliente"].Value.ToString();
                 form.txtnombre.Text = dlistado.CurrentRow.Cells["nombre"].Value.ToString();
                 form.txtapellidos.Text = dlistado.CurrentRow.Cells["apellidos"].Value.ToString();
@@ -143,10 +139,8 @@ namespace CapaPresentacion
                 form.txttelefono.Text = dlistado.CurrentRow.Cells["telefono"].Value.ToString();
                 form.txtcorreo.Text = dlistado.CurrentRow.Cells["correo"].Value.ToString();
 
-                // 5. En lugar de form.ShowDialog(), lo mandamos al panel principal
                 objetoPadre.AbrirFormulario(form);
 
-                // 6. Cerramos el listado para que no ocupe memoria "detrás" del panel
                 this.Close();
             }   
         }

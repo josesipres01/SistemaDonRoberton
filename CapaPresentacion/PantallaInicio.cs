@@ -58,7 +58,7 @@ namespace CapaPresentacion
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario(new FrmMenu());
+            AbrirFormulario(new MenuReportes());
         }
     }
 }

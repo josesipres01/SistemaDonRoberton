@@ -39,6 +39,10 @@ namespace CapaPresentacion
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
+            PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
+            objetoPadre.AbrirFormulario(new MenuReportes());
+
             this.Close();
         }
 

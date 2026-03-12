@@ -12,6 +12,8 @@ namespace CapaPresentacion
 {
     public partial class MenuReportes : Form
     {
+        PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
         public MenuReportes()
         {
             InitializeComponent();
@@ -24,17 +26,27 @@ namespace CapaPresentacion
 
         private void btnmodificaciones_Click(object sender, EventArgs e)
         {
-            FrmReporteClienteUpdate frmupdate = new FrmReporteClienteUpdate();
 
-          
-            frmupdate.ShowDialog();
+            if (objetoPadre != null)
+            {
+                FrmReporteClienteUpdate form = new FrmReporteClienteUpdate { };
+
+                objetoPadre.AbrirFormulario(form);
+
+                this.Close();
+            }
         }
 
         private void btnelimaciones_Click(object sender, EventArgs e)
         {
-            FrmReporteClienteDelete frmDelete = new FrmReporteClienteDelete();
+            if (objetoPadre != null)
+            {
+                FrmReporteClienteDelete form = new FrmReporteClienteDelete { };
 
-            frmDelete.ShowDialog();
+                objetoPadre.AbrirFormulario(form);
+
+                this.Close();
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -44,8 +56,14 @@ namespace CapaPresentacion
 
         private void btnReporteSesion_Click(object sender, EventArgs e)
         {
-            FrmReporteSesiones frmSesiones= new FrmReporteSesiones();
-            frmSesiones.ShowDialog();
+            if (objetoPadre != null)
+            {
+                FrmReporteSesiones form = new FrmReporteSesiones { };
+
+                objetoPadre.AbrirFormulario(form);
+
+                this.Close();
+            }
         }
 
         private void MenuReportes_Load(object sender, EventArgs e)

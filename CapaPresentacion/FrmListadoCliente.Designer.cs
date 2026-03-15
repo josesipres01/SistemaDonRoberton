@@ -30,22 +30,22 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dlistado = new System.Windows.Forms.DataGridView();
-            this.idcliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
             this.rbtnnombre = new MaterialSkin.Controls.MaterialButton();
             this.rbtnrfc = new MaterialSkin.Controls.MaterialButton();
             this.btnnuevo = new MaterialSkin.Controls.MaterialButton();
             this.btneditar = new MaterialSkin.Controls.MaterialButton();
             this.btneliminar = new MaterialSkin.Controls.MaterialButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
+            this.rfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idcliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,14 +55,14 @@ namespace CapaPresentacion
             this.dlistado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dlistado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dlistado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dlistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dlistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idcliente,
@@ -71,14 +71,14 @@ namespace CapaPresentacion
             this.telefono,
             this.correo,
             this.rfc});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dlistado.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dlistado.DefaultCellStyle = dataGridViewCellStyle4;
             this.dlistado.Location = new System.Drawing.Point(34, 177);
             this.dlistado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dlistado.Name = "dlistado";
@@ -88,93 +88,6 @@ namespace CapaPresentacion
             this.dlistado.Size = new System.Drawing.Size(760, 188);
             this.dlistado.TabIndex = 8;
             this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
-            // 
-            // idcliente
-            // 
-            this.idcliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idcliente.DataPropertyName = "idcliente";
-            this.idcliente.HeaderText = "idcliente";
-            this.idcliente.MinimumWidth = 6;
-            this.idcliente.Name = "idcliente";
-            this.idcliente.Width = 89;
-            // 
-            // nombre
-            // 
-            this.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 87;
-            // 
-            // apellidos
-            // 
-            this.apellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.apellidos.DataPropertyName = "apellidos";
-            this.apellidos.HeaderText = "Apellidos";
-            this.apellidos.MinimumWidth = 6;
-            this.apellidos.Name = "apellidos";
-            this.apellidos.Width = 94;
-            // 
-            // telefono
-            // 
-            this.telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.telefono.DataPropertyName = "telefono";
-            this.telefono.HeaderText = "Telefono";
-            this.telefono.MinimumWidth = 6;
-            this.telefono.Name = "telefono";
-            this.telefono.Width = 93;
-            // 
-            // correo
-            // 
-            this.correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.correo.DataPropertyName = "correo";
-            this.correo.HeaderText = "Correo";
-            this.correo.MinimumWidth = 6;
-            this.correo.Name = "correo";
-            this.correo.Width = 80;
-            // 
-            // rfc
-            // 
-            this.rfc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.rfc.DataPropertyName = "rfc";
-            this.rfc.HeaderText = "RFC";
-            this.rfc.MinimumWidth = 6;
-            this.rfc.Name = "rfc";
-            this.rfc.Width = 64;
-            // 
-            // txtbuscar
-            // 
-            this.txtbuscar.AnimateReadOnly = false;
-            this.txtbuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtbuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtbuscar.Depth = 0;
-            this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtbuscar.HideSelection = true;
-            this.txtbuscar.Hint = "Buscar cliente...";
-            this.txtbuscar.LeadingIcon = global::CapaPresentacion.Properties.Resources.lupa;
-            this.txtbuscar.Location = new System.Drawing.Point(34, 95);
-            this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbuscar.MaxLength = 32767;
-            this.txtbuscar.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.PasswordChar = '\0';
-            this.txtbuscar.PrefixSuffixText = null;
-            this.txtbuscar.ReadOnly = false;
-            this.txtbuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtbuscar.SelectedText = "";
-            this.txtbuscar.SelectionLength = 0;
-            this.txtbuscar.SelectionStart = 0;
-            this.txtbuscar.ShortcutsEnabled = true;
-            this.txtbuscar.Size = new System.Drawing.Size(386, 48);
-            this.txtbuscar.TabIndex = 12;
-            this.txtbuscar.TabStop = false;
-            this.txtbuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtbuscar.TrailingIcon = null;
-            this.txtbuscar.UseSystemPasswordChar = false;
-            this.txtbuscar.Click += new System.EventHandler(this.bucarCliente_Click);
-            this.txtbuscar.Paint += new System.Windows.Forms.PaintEventHandler(this.RedondearControl_Paint);
-            this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
             // 
             // rbtnnombre
             // 
@@ -288,6 +201,93 @@ namespace CapaPresentacion
             this.label1.TabIndex = 53;
             this.label1.Text = "Clientes";
             // 
+            // txtbuscar
+            // 
+            this.txtbuscar.AnimateReadOnly = false;
+            this.txtbuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtbuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtbuscar.Depth = 0;
+            this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtbuscar.HideSelection = true;
+            this.txtbuscar.Hint = "Buscar cliente...";
+            this.txtbuscar.LeadingIcon = global::CapaPresentacion.Properties.Resources.lupa;
+            this.txtbuscar.Location = new System.Drawing.Point(34, 95);
+            this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbuscar.MaxLength = 32767;
+            this.txtbuscar.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtbuscar.Name = "txtbuscar";
+            this.txtbuscar.PasswordChar = '\0';
+            this.txtbuscar.PrefixSuffixText = null;
+            this.txtbuscar.ReadOnly = false;
+            this.txtbuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtbuscar.SelectedText = "";
+            this.txtbuscar.SelectionLength = 0;
+            this.txtbuscar.SelectionStart = 0;
+            this.txtbuscar.ShortcutsEnabled = true;
+            this.txtbuscar.Size = new System.Drawing.Size(386, 48);
+            this.txtbuscar.TabIndex = 12;
+            this.txtbuscar.TabStop = false;
+            this.txtbuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtbuscar.TrailingIcon = null;
+            this.txtbuscar.UseSystemPasswordChar = false;
+            this.txtbuscar.Click += new System.EventHandler(this.bucarCliente_Click);
+            this.txtbuscar.Paint += new System.Windows.Forms.PaintEventHandler(this.RedondearControl_Paint);
+            this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
+            // 
+            // rfc
+            // 
+            this.rfc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.rfc.DataPropertyName = "rfc";
+            this.rfc.HeaderText = "RFC";
+            this.rfc.MinimumWidth = 6;
+            this.rfc.Name = "rfc";
+            this.rfc.Width = 64;
+            // 
+            // correo
+            // 
+            this.correo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.correo.DataPropertyName = "correo";
+            this.correo.HeaderText = "Correo";
+            this.correo.MinimumWidth = 6;
+            this.correo.Name = "correo";
+            this.correo.Width = 80;
+            // 
+            // telefono
+            // 
+            this.telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.telefono.DataPropertyName = "telefono";
+            this.telefono.HeaderText = "Telefono";
+            this.telefono.MinimumWidth = 6;
+            this.telefono.Name = "telefono";
+            this.telefono.Width = 93;
+            // 
+            // apellidos
+            // 
+            this.apellidos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.apellidos.DataPropertyName = "apellidos";
+            this.apellidos.HeaderText = "Apellidos";
+            this.apellidos.MinimumWidth = 6;
+            this.apellidos.Name = "apellidos";
+            this.apellidos.Width = 94;
+            // 
+            // nombre
+            // 
+            this.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 87;
+            // 
+            // idcliente
+            // 
+            this.idcliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idcliente.DataPropertyName = "idcliente";
+            this.idcliente.HeaderText = "idcliente";
+            this.idcliente.MinimumWidth = 6;
+            this.idcliente.Name = "idcliente";
+            this.idcliente.Width = 89;
+            // 
             // FrmListadoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -329,12 +329,12 @@ namespace CapaPresentacion
         private MaterialSkin.Controls.MaterialButton btnnuevo;
         private MaterialSkin.Controls.MaterialButton btneditar;
         private MaterialSkin.Controls.MaterialButton btneliminar;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidos;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn rfc;
-        private System.Windows.Forms.Label label1;
     }
 }

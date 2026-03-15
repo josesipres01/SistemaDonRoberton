@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,10 @@ namespace CapaNegocio
 
         public static string Guardar(string nombre, string descripcion,
                                      DateTime fingreso, double pcompra,
-                                     double pventa, int stock, int idcategoria, int idproveedor)
+                                     double pventa, int stock, int idcategoria, int idproveedor, string codigo)
         {
             CDProducto Datos = new CDProducto();
+            Datos.Codigo = codigo;
             Datos.Nombre = nombre;
             Datos.Descripcion = descripcion;
             Datos.Fingreso = fingreso;
@@ -35,10 +37,11 @@ namespace CapaNegocio
 
         public static string Editar(int idproducto, string nombre, string descripcion,
                                      DateTime fingreso, double pcompra,
-                                     double pventa, int stock, int idcategoria, int idproveedor)
+                                     double pventa, int stock, int idcategoria, int idproveedor, string codigo)
         {
             CDProducto Datos = new CDProducto();
             Datos.Idproducto = idproducto;
+            Datos.Codigo = codigo;
             Datos.Nombre = nombre;
             Datos.Descripcion = descripcion;
             Datos.Fingreso = fingreso;
@@ -65,6 +68,15 @@ namespace CapaNegocio
             return Datos.BuscarNombre(Datos);
         }
 
-       
+        public static DataTable BuscarCodigo(string textoBuscar)
+        {
+            CDProducto Datos = new CDProducto();
+            Datos.Buscar = textoBuscar;
+            return Datos.BuscarNombre(Datos);
+        }
+
+
+
+
     }
 }

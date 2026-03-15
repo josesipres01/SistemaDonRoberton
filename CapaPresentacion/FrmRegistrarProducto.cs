@@ -13,6 +13,10 @@ namespace CapaPresentacion
 {
     public partial class FrmRegistrarProducto : Form
     {
+
+
+        public bool Insert = false;
+        public bool Edit = false;
         public FrmRegistrarProducto()
         {
             InitializeComponent();
@@ -67,7 +71,8 @@ namespace CapaPresentacion
                     Convert.ToDouble(txtprecioventa.Text),
                     Convert.ToInt32(txtstock.Text),
                     Convert.ToInt32(cbcategoria.SelectedValue),
-                    Convert.ToInt32(cbProveedor)
+                    Convert.ToInt32(cbProveedor),
+                    txtcodigo.Text.Trim()
                 );
 
                 if (rpta.Equals("OK"))
@@ -131,7 +136,8 @@ namespace CapaPresentacion
                     Convert.ToDouble(txtprecioventa.Text),
                     Convert.ToInt32(txtstock.Text),
                     Convert.ToInt32(cbcategoria.SelectedValue),
-                    Convert.ToInt32(cbProveedor.SelectedValue)
+                    Convert.ToInt32(cbProveedor.SelectedValue),
+                    txtcodigo.Text.Trim()
                 );
 
                 if (rpta.Equals("OK"))
@@ -157,12 +163,21 @@ namespace CapaPresentacion
                 MessageBox.Show("Ocurrió un error inesperado: " + ex.Message,
                                 "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
+            PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
+            objetoPadre.AbrirFormulario(new FrmListadoProducto());
+
+            this.Close();
+
         }
 
         private void btncancerlar_Click(object sender, EventArgs e)
         {
-            LimpiarControles();
+            PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
+            objetoPadre.AbrirFormulario(new FrmListadoProducto());
+
+            this.Close();
         }
     }
 }

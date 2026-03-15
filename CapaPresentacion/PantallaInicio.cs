@@ -47,7 +47,7 @@ namespace CapaPresentacion
 
         private void btnProducti_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmRegistrarProducto());
+            AbrirFormulario(new FrmListadoProducto());
 
         }
 

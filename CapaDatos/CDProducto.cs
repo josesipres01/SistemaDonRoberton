@@ -24,6 +24,8 @@ namespace CapaDatos
             public int Stock { get; set; }
             public int Idproveedor { get; set; }
             public int Idcategoria { get; set; }
+           public int codigo { get; set; }
+            
 
 
             public string Buscar { get; set; }
@@ -75,10 +77,11 @@ namespace CapaDatos
                     Cmd.Parameters.AddWithValue("stock", prod.Stock);
                     Cmd.Parameters.AddWithValue("idcategoria", prod.Idcategoria);
                     Cmd.Parameters.AddWithValue("idproveedor", prod.Idproveedor);
+                    Cmd.Parameters.AddWithValue("@codigo", prod.Codigo);
 
 
 
-                    resul = Cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo insertar el registro";
+                resul = Cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo insertar el registro";
                 }
                 catch (Exception ex)
                 {
@@ -114,8 +117,9 @@ namespace CapaDatos
                     Cmd.Parameters.AddWithValue("stock", prod.Stock);
                     Cmd.Parameters.AddWithValue("idcategoria", prod.Idcategoria);
                     Cmd.Parameters.AddWithValue("idproveedor", prod.Idproveedor);
+                    Cmd.Parameters.AddWithValue("@codigo", prod.Codigo);
 
-                    resul = Cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo actualizar el registro";
+                resul = Cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo actualizar el registro";
                 }
                 catch (Exception ex)
                 {
@@ -159,37 +163,65 @@ namespace CapaDatos
                 }
                 return resul;
             }
-            public DataTable BuscarNombre(CDProducto prod)
+        public DataTable BuscarNombre(CDProducto prod)
+        {
+            DataTable resul = new DataTable("producto");
+            SqlConnection conexion = new SqlConnection();
+            try
             {
-                DataTable resul = new DataTable("producto");
-                SqlConnection conexion = new SqlConnection();
-                try
-                {
-                    conexion.ConnectionString = Conexión.Conn;
-                    SqlCommand Cmd = new SqlCommand("spbuscar_producto_nombre", conexion);
-                    Cmd.CommandType = CommandType.StoredProcedure;
-                    Cmd.Parameters.AddWithValue("@nombre", prod.Buscar);
-                    SqlDataAdapter SqlDat = new SqlDataAdapter(Cmd);
-                    SqlDat.Fill(resul);
-                }
-                catch (Exception ex)
-                {
-                    resul = null;
-                    throw ex;
-                }
-                finally
-                {
-                    if (conexion.State == ConnectionState.Open)
-                    {
-                        conexion.Close();
-                    }
-                }
-                return resul;
+                conexion.ConnectionString = Conexión.Conn;
+                SqlCommand Cmd = new SqlCommand("spbuscar_producto_nombre", conexion);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@nombre", prod.Buscar);
+                SqlDataAdapter SqlDat = new SqlDataAdapter(Cmd);
+                SqlDat.Fill(resul);
             }
-            
-
+            catch (Exception ex)
+            {
+                resul = null;
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return resul;
         }
-    
+        public DataTable BuscarCodigo(CDProducto prod)
+        {
+            DataTable resul = new DataTable("producto");
+            SqlConnection conexion = new SqlConnection();
+            try
+            {
+                conexion.ConnectionString = Conexión.Conn;
+                SqlCommand Cmd = new SqlCommand("spbuscar_producto_codigo", conexion);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@codigo", prod.Buscar);
+                SqlDataAdapter SqlDat = new SqlDataAdapter(Cmd);
+                SqlDat.Fill(resul);
+            }
+            catch (Exception ex)
+            {
+                resul = null;
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return resul;
+        }
+
+    }
 
 }
+    
+
+
 

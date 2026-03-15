@@ -50,6 +50,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cbProveedor = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtcodigo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label13
@@ -76,7 +78,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(25, 250);
+            this.label11.Location = new System.Drawing.Point(25, 343);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(75, 17);
             this.label11.TabIndex = 76;
@@ -85,7 +87,7 @@
             // cbcategoria
             // 
             this.cbcategoria.FormattingEnabled = true;
-            this.cbcategoria.Location = new System.Drawing.Point(28, 278);
+            this.cbcategoria.Location = new System.Drawing.Point(28, 371);
             this.cbcategoria.Name = "cbcategoria";
             this.cbcategoria.Size = new System.Drawing.Size(201, 24);
             this.cbcategoria.TabIndex = 75;
@@ -109,7 +111,7 @@
             // 
             // txtprecioventa
             // 
-            this.txtprecioventa.Location = new System.Drawing.Point(315, 189);
+            this.txtprecioventa.Location = new System.Drawing.Point(309, 190);
             this.txtprecioventa.Name = "txtprecioventa";
             this.txtprecioventa.Size = new System.Drawing.Size(99, 22);
             this.txtprecioventa.TabIndex = 69;
@@ -181,7 +183,7 @@
             // 
             // txtdescripcion
             // 
-            this.txtdescripcion.Location = new System.Drawing.Point(28, 180);
+            this.txtdescripcion.Location = new System.Drawing.Point(28, 273);
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(201, 22);
             this.txtdescripcion.TabIndex = 59;
@@ -190,7 +192,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(25, 161);
+            this.label7.Location = new System.Drawing.Point(25, 254);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 17);
             this.label7.TabIndex = 57;
@@ -251,11 +253,30 @@
             this.cbProveedor.Size = new System.Drawing.Size(201, 24);
             this.cbProveedor.TabIndex = 79;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(25, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 80;
+            this.label5.Text = "Código";
+            // 
+            // txtcodigo
+            // 
+            this.txtcodigo.Location = new System.Drawing.Point(28, 165);
+            this.txtcodigo.Name = "txtcodigo";
+            this.txtcodigo.Size = new System.Drawing.Size(201, 22);
+            this.txtcodigo.TabIndex = 81;
+            // 
             // FrmRegistrarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 450);
+            this.Controls.Add(this.txtcodigo);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.cbProveedor);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -292,14 +313,12 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbcategoria;
         public System.Windows.Forms.TextBox txtstock;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox txtprecioventa;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox txtpreciocompra;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dtimeingreso;
         private System.Windows.Forms.Button btncancerlar;
         private System.Windows.Forms.Button btnguardar;
         public System.Windows.Forms.TextBox txtidproducto;
@@ -310,6 +329,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbProveedor;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox txtcodigo;
+        public System.Windows.Forms.DateTimePicker dtimeingreso;
+        public System.Windows.Forms.ComboBox cbProveedor;
+        public System.Windows.Forms.ComboBox cbcategoria;
     }
 }

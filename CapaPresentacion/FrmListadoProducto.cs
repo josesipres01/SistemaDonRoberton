@@ -14,6 +14,7 @@ namespace CapaPresentacion
 {
     public partial class FrmListadoProducto : Form
     {
+        string criterioBusqueda = "Nombre";
 
         public FrmListadoProducto()
         {
@@ -131,6 +132,19 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
+        }
+
+        private void rbtnnombre_Click(object sender, EventArgs e)
+        {
+            criterioBusqueda = "Nombre";
+            BuscarNombre();
+        }
+
+        private void rbtnrfc_Click(object sender, EventArgs e)
+        {
+
+            criterioBusqueda = "Código";
+            BuscarCódigo();
         }
     }
 }

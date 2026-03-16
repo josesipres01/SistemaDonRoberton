@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="materialButton1.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAALAAAACwARRqq2kAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAABI0lEQVRIS62VwU0DQQxFXw90AjcEdwicQxPcaSCR0kn6CFAF4hKQoAPgFGRpLTkfr2ey4Utfa439
+        bc/ueAf+4gNYA5/AE/Ac1ux5NHbAPXAK3AFz4GxYM9/RqJJUvhI3wPuQoEri/jfgWp0VTHA+2K0Chgtg
+        K74SLnwNXY7xRTRdOCh4gBaO/AGWGmywI6nBykfRZDgBvuOCB1ciR4x9KLiXa2qBVcF/KaBdN3dg700D
+        lV9Bo103dzBLApU+YK3dpgVuk46VNvVR4/AZSuckvqK4xcz246cFIrqOacu25xht0BZB0yWKjJouZKKW
+        PbmAf8zKjpouRFH2YdWOmi5kopY9qYD9Kc2uuBFNF+xGs1uqF5eH3mg2/lZEux2jJb/SJBl+AZF+y2Wl
+        Z/RBAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="btnProducti.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -134,7 +146,7 @@
   <data name="btnCerrarSesion1.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qwAAAKsB1E2SqwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACxSURBVEhL1ZbN
+        qgAAAKoBBgpwTwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACxSURBVEhL1ZbN
         CQIxEEbfQdRSPFiBbFnW4E8DliI25KpVKB8kEkLiJd8cfDCHnYF52eyQLMASOAMz8G7EMKdGU6vgnhrt
         6oIL20p7/IVgAeyBVV0QDsEl9bi2JA7BphjzG7Auiw6B6EpcArEFXvV2OQWilByVaAlybjSe0QKdEt8H
         F+UWHZRwCkI/ssb0kXrZx7TbXDgE4UdF+GH3k3BBvjKnuuAi/NLXb4sk+U3qGOIDs16FU5P0QmMAAAAA

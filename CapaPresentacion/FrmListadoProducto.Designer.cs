@@ -37,17 +37,17 @@
             this.rbtnrfc = new MaterialSkin.Controls.MaterialButton();
             this.rbtnnombre = new MaterialSkin.Controls.MaterialButton();
             this.dlistado = new System.Windows.Forms.DataGridView();
-            this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
-            this.colBarras = new System.Windows.Forms.DataGridViewImageColumn();
-            this.idcategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idcategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBarras = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -204,6 +204,97 @@
             this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
             this.dlistado.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dlistado_CellFormatting);
             // 
+            // idproducto
+            // 
+            this.idproducto.DataPropertyName = "idproducto";
+            this.idproducto.HeaderText = "ID";
+            this.idproducto.MinimumWidth = 150;
+            this.idproducto.Name = "idproducto";
+            this.idproducto.ReadOnly = true;
+            this.idproducto.Width = 150;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "codigo";
+            this.codigo.HeaderText = "Código";
+            this.codigo.MinimumWidth = 6;
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Visible = false;
+            this.codigo.Width = 81;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 87;
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.MinimumWidth = 6;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.Width = 111;
+            // 
+            // fecha_ingreso
+            // 
+            this.fecha_ingreso.DataPropertyName = "fecha_ingreso";
+            this.fecha_ingreso.HeaderText = "Fecha Ingreso";
+            this.fecha_ingreso.MinimumWidth = 6;
+            this.fecha_ingreso.Name = "fecha_ingreso";
+            this.fecha_ingreso.ReadOnly = true;
+            this.fecha_ingreso.Width = 127;
+            // 
+            // precio_compra
+            // 
+            this.precio_compra.DataPropertyName = "precio_compra";
+            this.precio_compra.HeaderText = "Precio Compra";
+            this.precio_compra.MinimumWidth = 6;
+            this.precio_compra.Name = "precio_compra";
+            this.precio_compra.ReadOnly = true;
+            this.precio_compra.Width = 130;
+            // 
+            // precio_venta
+            // 
+            this.precio_venta.DataPropertyName = "precio_venta";
+            this.precio_venta.HeaderText = "Precio Venta";
+            this.precio_venta.MinimumWidth = 6;
+            this.precio_venta.Name = "precio_venta";
+            this.precio_venta.ReadOnly = true;
+            this.precio_venta.Width = 118;
+            // 
+            // stock
+            // 
+            this.stock.DataPropertyName = "stock";
+            this.stock.HeaderText = "Stock";
+            this.stock.MinimumWidth = 6;
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            this.stock.Width = 72;
+            // 
+            // idcategoria
+            // 
+            this.idcategoria.DataPropertyName = "idcategoria";
+            this.idcategoria.HeaderText = "Categoria";
+            this.idcategoria.MinimumWidth = 6;
+            this.idcategoria.Name = "idcategoria";
+            this.idcategoria.ReadOnly = true;
+            this.idcategoria.Width = 98;
+            // 
+            // colBarras
+            // 
+            this.colBarras.HeaderText = "Código Barras";
+            this.colBarras.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colBarras.MinimumWidth = 6;
+            this.colBarras.Name = "colBarras";
+            this.colBarras.ReadOnly = true;
+            this.colBarras.Width = 104;
+            // 
             // txtbuscar
             // 
             this.txtbuscar.AnimateReadOnly = false;
@@ -235,96 +326,6 @@
             this.txtbuscar.UseSystemPasswordChar = false;
             this.txtbuscar.Click += new System.EventHandler(this.txtbuscar_Click);
             // 
-            // colBarras
-            // 
-            this.colBarras.HeaderText = "Código Barras";
-            this.colBarras.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colBarras.MinimumWidth = 6;
-            this.colBarras.Name = "colBarras";
-            this.colBarras.ReadOnly = true;
-            this.colBarras.Width = 104;
-            // 
-            // idcategoria
-            // 
-            this.idcategoria.DataPropertyName = "idcategoria";
-            this.idcategoria.HeaderText = "Categoria";
-            this.idcategoria.MinimumWidth = 6;
-            this.idcategoria.Name = "idcategoria";
-            this.idcategoria.ReadOnly = true;
-            this.idcategoria.Width = 98;
-            // 
-            // stock
-            // 
-            this.stock.DataPropertyName = "stock";
-            this.stock.HeaderText = "Stock";
-            this.stock.MinimumWidth = 6;
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            this.stock.Width = 72;
-            // 
-            // precio_venta
-            // 
-            this.precio_venta.DataPropertyName = "precio_venta";
-            this.precio_venta.HeaderText = "Precio Venta";
-            this.precio_venta.MinimumWidth = 6;
-            this.precio_venta.Name = "precio_venta";
-            this.precio_venta.ReadOnly = true;
-            this.precio_venta.Width = 118;
-            // 
-            // precio_compra
-            // 
-            this.precio_compra.DataPropertyName = "precio_compra";
-            this.precio_compra.HeaderText = "Precio Compra";
-            this.precio_compra.MinimumWidth = 6;
-            this.precio_compra.Name = "precio_compra";
-            this.precio_compra.ReadOnly = true;
-            this.precio_compra.Width = 130;
-            // 
-            // fecha_ingreso
-            // 
-            this.fecha_ingreso.DataPropertyName = "fecha_ingreso";
-            this.fecha_ingreso.HeaderText = "Fecha Ingreso";
-            this.fecha_ingreso.MinimumWidth = 6;
-            this.fecha_ingreso.Name = "fecha_ingreso";
-            this.fecha_ingreso.ReadOnly = true;
-            this.fecha_ingreso.Width = 127;
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "descripcion";
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.MinimumWidth = 6;
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 111;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 87;
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "codigo";
-            this.codigo.HeaderText = "Código";
-            this.codigo.MinimumWidth = 6;
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            this.codigo.Width = 81;
-            // 
-            // idproducto
-            // 
-            this.idproducto.DataPropertyName = "idproducto";
-            this.idproducto.HeaderText = "ID";
-            this.idproducto.MinimumWidth = 6;
-            this.idproducto.Name = "idproducto";
-            this.idproducto.ReadOnly = true;
-            this.idproducto.Width = 50;
-            // 
             // FrmListadoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,6 +341,7 @@
             this.Controls.Add(this.dlistado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmListadoProducto";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "FrmListadoProducto";
             this.Load += new System.EventHandler(this.FrmListadoProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).EndInit();

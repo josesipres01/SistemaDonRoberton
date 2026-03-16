@@ -40,6 +40,7 @@
             this.btnReportes = new MaterialSkin.Controls.MaterialButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.pnlSidebar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlSidebar.Controls.Add(this.materialButton1);
             this.pnlSidebar.Controls.Add(this.btnProducti);
             this.pnlSidebar.Controls.Add(this.btnCerrarSesion1);
             this.pnlSidebar.Controls.Add(this.label1);
@@ -138,7 +140,7 @@
             this.btnCategorias.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategorias.HighEmphasis = false;
             this.btnCategorias.Icon = ((System.Drawing.Image)(resources.GetObject("btnCategorias.Icon")));
-            this.btnCategorias.Location = new System.Drawing.Point(23, 238);
+            this.btnCategorias.Location = new System.Drawing.Point(20, 298);
             this.btnCategorias.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCategorias.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCategorias.Name = "btnCategorias";
@@ -161,7 +163,7 @@
             this.btnClientes.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.HighEmphasis = false;
             this.btnClientes.Icon = ((System.Drawing.Image)(resources.GetObject("btnClientes.Icon")));
-            this.btnClientes.Location = new System.Drawing.Point(20, 178);
+            this.btnClientes.Location = new System.Drawing.Point(25, 230);
             this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClientes.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClientes.Name = "btnClientes";
@@ -199,7 +201,7 @@
             this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.HighEmphasis = false;
             this.btnReportes.Icon = ((System.Drawing.Image)(resources.GetObject("btnReportes.Icon")));
-            this.btnReportes.Location = new System.Drawing.Point(25, 298);
+            this.btnReportes.Location = new System.Drawing.Point(25, 367);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnReportes.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnReportes.Name = "btnReportes";
@@ -234,6 +236,28 @@
             this.label3.TabIndex = 8;
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.materialButton1.FlatAppearance.BorderSize = 0;
+            this.materialButton1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialButton1.HighEmphasis = false;
+            this.materialButton1.Icon = ((System.Drawing.Image)(resources.GetObject("materialButton1.Icon")));
+            this.materialButton1.Location = new System.Drawing.Point(25, 168);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(105, 36);
+            this.materialButton1.TabIndex = 11;
+            this.materialButton1.Text = "VENTAS";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = false;
+            // 
             // PantallaInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -263,5 +287,6 @@
         private MaterialSkin.Controls.MaterialButton btnReportes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
     }
 }

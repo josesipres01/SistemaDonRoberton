@@ -46,6 +46,7 @@ namespace CapaNegocio
             Datos.Descripcion = descripcion;
             Datos.Fingreso = fingreso;
             Datos.Pcompra = pcompra;
+            Datos.Pventa = pventa;
             Datos.Stock = stock;
             Datos.Idcategoria = idcategoria;
             Datos.Idproveedor = idproveedor;

@@ -42,62 +42,6 @@ namespace CapaPresentacion
             cbProveedor.ValueMember = "idproveedor";
         }
 
-
-        private void btnguardar_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                if (
-                    string.IsNullOrWhiteSpace(txtnombre.Text) ||
-                    string.IsNullOrWhiteSpace(txtpreciocompra.Text) ||
-                    string.IsNullOrWhiteSpace(txtprecioventa.Text) ||
-                    string.IsNullOrWhiteSpace(txtstock.Text))
-                {
-                    MessageBox.Show("Por favor, complete todos los campos obligatorios (Nombre, Precios y Stock).",
-                                    "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Detiene el proceso si falta algo
-                }
-
-                // --- PREPARACIÓN DE DATOS ---
-                string rpta = "";
-
-
-                // --- LLAMADA A LA CAPA DE NEGOCIO (CNProducto) ---
-                rpta = CNProducto.Guardar(
-                    txtnombre.Text.Trim(),
-                    txtdescripcion.Text.Trim(),
-                    dtimeingreso.Value,
-                    Convert.ToDouble(txtpreciocompra.Text),
-                    Convert.ToDouble(txtprecioventa.Text),
-                    Convert.ToInt32(txtstock.Text),
-                    Convert.ToInt32(cbcategoria.SelectedValue),
-                    Convert.ToInt32(cbProveedor),
-                    txtcodigo.Text.Trim()
-                );
-
-                if (rpta.Equals("OK"))
-                {
-                    MessageBox.Show("¡Producto guardado exitosamente!", "Sistema de Ventas",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.LimpiarControles();
-                }
-                else
-                {
-                    MessageBox.Show("Error al guardar: " + rpta, "Error",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Asegúrese de que los precios y el stock tengan solamente numeros.",
-                                "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrió un error inesperado: " + ex.Message,
-                                "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private void LimpiarControles()
         {
             txtnombre.Clear();
@@ -113,62 +57,70 @@ namespace CapaPresentacion
         {
             try
             {
+                // 1. Validación de campos obligatorios
                 if (string.IsNullOrWhiteSpace(txtnombre.Text) ||
-                                  string.IsNullOrWhiteSpace(txtpreciocompra.Text) ||
-                                  string.IsNullOrWhiteSpace(txtprecioventa.Text) ||
-                                  string.IsNullOrWhiteSpace(txtstock.Text))
+                    string.IsNullOrWhiteSpace(txtpreciocompra.Text) ||
+                    string.IsNullOrWhiteSpace(txtprecioventa.Text) ||
+                    string.IsNullOrWhiteSpace(txtstock.Text) ||
+                    string.IsNullOrWhiteSpace(txtcodigo.Text)) 
                 {
-                    MessageBox.Show("Por favor, complete todos los campos obligatorios (Código, Nombre, Precios y Stock).",
+                    MessageBox.Show("Por favor, complete todos los campos obligatorios.",
                                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Detiene el proceso si falta algo
+                    return;
                 }
 
-                // --- PREPARACIÓN DE DATOS ---
                 string rpta = "";
 
-
-                // --- LLAMADA A LA CAPA DE NEGOCIO (CNProducto) ---
-                rpta = CNProducto.Guardar(
-                    txtnombre.Text.Trim(),
-                    txtdescripcion.Text.Trim(),
-                    dtimeingreso.Value,
-                    Convert.ToDouble(txtpreciocompra.Text),
-                    Convert.ToDouble(txtprecioventa.Text),
-                    Convert.ToInt32(txtstock.Text),
-                    Convert.ToInt32(cbcategoria.SelectedValue),
-                    Convert.ToInt32(cbProveedor.SelectedValue),
-                    txtcodigo.Text.Trim()
-                );
+                // --- LA LÓGICA QUE TE FALTABA: ¿Insertar o Editar? ---
+                if (this.Insert) // Si la bandera Insert es true
+                {
+                    rpta = CNProducto.Guardar(
+                        txtnombre.Text.Trim(),
+                        txtdescripcion.Text.Trim(),
+                        dtimeingreso.Value,
+                        Convert.ToDouble(txtpreciocompra.Text),
+                        Convert.ToDouble(txtprecioventa.Text),
+                        Convert.ToInt32(txtstock.Text),
+                        Convert.ToInt32(cbcategoria.SelectedValue),
+                        Convert.ToInt32(cbProveedor.SelectedValue),
+                        txtcodigo.Text.Trim()
+                    );
+                }
+                else if (this.Edit) // Si la bandera Edit es true
+                {
+                    rpta = CNProducto.Editar(
+                    Convert.ToInt32(txtidproducto.Text), 
+                    txtnombre.Text.Trim(),              
+                    txtdescripcion.Text.Trim(),          
+                    dtimeingreso.Value,                 
+                    Convert.ToDouble(txtpreciocompra.Text), 
+                    Convert.ToDouble(txtprecioventa.Text),  
+                    Convert.ToInt32(txtstock.Text),         
+                    Convert.ToInt32(cbcategoria.SelectedValue), 
+                    Convert.ToInt32(cbProveedor.SelectedValue), 
+                    txtcodigo.Text.Trim()                      
+                        );
+                    }
 
                 if (rpta.Equals("OK"))
                 {
-                    MessageBox.Show("¡Producto guardado exitosamente!", "Sistema de Ventas",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.LimpiarControles();
+                    if (this.Insert) MessageBox.Show("¡Producto guardado exitosamente!", "DonRoberton");
+                    else MessageBox.Show("¡Producto actualizado exitosamente!", "DonRoberton");
+
+                    // Volver al listado
+                    PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+                    objetoPadre.AbrirFormulario(new FrmListadoProducto());
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Error al guardar: " + rpta, "Error",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al procesar: " + rpta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                ;
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Asegúrese de que los precios y el stock tengan solamente numeros.",
-                                "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error inesperado: " + ex.Message,
-                                "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
-
-            objetoPadre.AbrirFormulario(new FrmListadoProducto());
-
-            this.Close();
-
         }
 
         private void btncancerlar_Click(object sender, EventArgs e)

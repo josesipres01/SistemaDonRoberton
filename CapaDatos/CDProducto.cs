@@ -118,6 +118,7 @@ namespace CapaDatos
                     Cmd.Parameters.AddWithValue("idcategoria", prod.Idcategoria);
                     Cmd.Parameters.AddWithValue("idproveedor", prod.Idproveedor);
                     Cmd.Parameters.AddWithValue("@codigo", prod.Codigo);
+                
 
                 resul = Cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo actualizar el registro";
                 }

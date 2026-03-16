@@ -1,5 +1,7 @@
-﻿using CapaDatos;
+﻿using BarcodeStandard;
+using CapaDatos;
 using CapaNegocio;
+using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,8 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BarcodeLib;
 
-namespace CapaPresentacion
+namespace CapaPresentacion  
 {
     public partial class FrmListadoProducto : Form
     {
@@ -32,13 +35,10 @@ namespace CapaPresentacion
 
             if (objetoPadre != null)
             {
-                // 1. Creamos la instancia y activamos la bandera 'Insert'
                 FrmRegistrarProducto form = new FrmRegistrarProducto { Insert = true };
 
-                // 2. Lo abrimos en el panel principal
                 objetoPadre.AbrirFormulario(form);
 
-                // 3. Cerramos el listado
                 this.Close();
             }
         }
@@ -145,6 +145,36 @@ namespace CapaPresentacion
 
             criterioBusqueda = "Código";
             BuscarCódigo();
+        }
+
+        private void dlistado_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dlistado.Columns[e.ColumnIndex].Name == "colBarras")
+            {
+                try
+                {
+                    string valorCodigo = Convert.ToString(dlistado.Rows[e.RowIndex].Cells["codigo"].Value);
+
+                    if (!string.IsNullOrEmpty(valorCodigo))
+                    {
+                        Barcode barcode = new Barcode();
+                        barcode.IncludeLabel = false;
+
+                        Image img = barcode.Encode(TYPE.CODE128, valorCodigo, Color.Black, Color.White, 150, 40);
+
+                        e.Value = img;
+                    }
+                }
+                catch (Exception)
+                {
+                    e.Value = null;
+                }
+            }
+        }
+
+        private void txtbuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

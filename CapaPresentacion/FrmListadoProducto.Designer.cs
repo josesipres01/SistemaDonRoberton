@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btneliminar = new MaterialSkin.Controls.MaterialButton();
             this.btneditar = new MaterialSkin.Controls.MaterialButton();
@@ -38,15 +38,16 @@
             this.rbtnnombre = new MaterialSkin.Controls.MaterialButton();
             this.dlistado = new System.Windows.Forms.DataGridView();
             this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
-            this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBarras = new System.Windows.Forms.DataGridViewImageColumn();
             this.idcategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,14 +164,14 @@
             this.dlistado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dlistado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dlistado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dlistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dlistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idproducto,
@@ -181,24 +182,27 @@
             this.precio_compra,
             this.precio_venta,
             this.stock,
-            this.idcategoria});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dlistado.DefaultCellStyle = dataGridViewCellStyle6;
+            this.idcategoria,
+            this.colBarras});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dlistado.DefaultCellStyle = dataGridViewCellStyle2;
             this.dlistado.Location = new System.Drawing.Point(41, 180);
             this.dlistado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dlistado.Name = "dlistado";
+            this.dlistado.ReadOnly = true;
             this.dlistado.RowHeadersWidth = 51;
             this.dlistado.RowTemplate.Height = 45;
             this.dlistado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dlistado.Size = new System.Drawing.Size(760, 188);
             this.dlistado.TabIndex = 54;
             this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
+            this.dlistado.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dlistado_CellFormatting);
             // 
             // txtbuscar
             // 
@@ -229,70 +233,16 @@
             this.txtbuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtbuscar.TrailingIcon = null;
             this.txtbuscar.UseSystemPasswordChar = false;
+            this.txtbuscar.Click += new System.EventHandler(this.txtbuscar_Click);
             // 
-            // idproducto
+            // colBarras
             // 
-            this.idproducto.DataPropertyName = "idproducto";
-            this.idproducto.HeaderText = "ID";
-            this.idproducto.MinimumWidth = 6;
-            this.idproducto.Name = "idproducto";
-            this.idproducto.Width = 50;
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "codigo";
-            this.codigo.HeaderText = "Código";
-            this.codigo.MinimumWidth = 6;
-            this.codigo.Name = "codigo";
-            this.codigo.Width = 81;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 87;
-            // 
-            // descripcion
-            // 
-            this.descripcion.DataPropertyName = "descripcion";
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.MinimumWidth = 6;
-            this.descripcion.Name = "descripcion";
-            this.descripcion.Width = 111;
-            // 
-            // fecha_ingreso
-            // 
-            this.fecha_ingreso.DataPropertyName = "fecha_ingreso";
-            this.fecha_ingreso.HeaderText = "Fecha Ingreso";
-            this.fecha_ingreso.MinimumWidth = 6;
-            this.fecha_ingreso.Name = "fecha_ingreso";
-            this.fecha_ingreso.Width = 127;
-            // 
-            // precio_compra
-            // 
-            this.precio_compra.DataPropertyName = "precio_compra";
-            this.precio_compra.HeaderText = "Precio Compra";
-            this.precio_compra.MinimumWidth = 6;
-            this.precio_compra.Name = "precio_compra";
-            this.precio_compra.Width = 130;
-            // 
-            // precio_venta
-            // 
-            this.precio_venta.DataPropertyName = "precio_venta";
-            this.precio_venta.HeaderText = "Precio Venta";
-            this.precio_venta.MinimumWidth = 6;
-            this.precio_venta.Name = "precio_venta";
-            this.precio_venta.Width = 118;
-            // 
-            // stock
-            // 
-            this.stock.DataPropertyName = "stock";
-            this.stock.HeaderText = "Stock";
-            this.stock.MinimumWidth = 6;
-            this.stock.Name = "stock";
-            this.stock.Width = 72;
+            this.colBarras.HeaderText = "Código Barras";
+            this.colBarras.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colBarras.MinimumWidth = 6;
+            this.colBarras.Name = "colBarras";
+            this.colBarras.ReadOnly = true;
+            this.colBarras.Width = 104;
             // 
             // idcategoria
             // 
@@ -300,7 +250,80 @@
             this.idcategoria.HeaderText = "Categoria";
             this.idcategoria.MinimumWidth = 6;
             this.idcategoria.Name = "idcategoria";
+            this.idcategoria.ReadOnly = true;
             this.idcategoria.Width = 98;
+            // 
+            // stock
+            // 
+            this.stock.DataPropertyName = "stock";
+            this.stock.HeaderText = "Stock";
+            this.stock.MinimumWidth = 6;
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            this.stock.Width = 72;
+            // 
+            // precio_venta
+            // 
+            this.precio_venta.DataPropertyName = "precio_venta";
+            this.precio_venta.HeaderText = "Precio Venta";
+            this.precio_venta.MinimumWidth = 6;
+            this.precio_venta.Name = "precio_venta";
+            this.precio_venta.ReadOnly = true;
+            this.precio_venta.Width = 118;
+            // 
+            // precio_compra
+            // 
+            this.precio_compra.DataPropertyName = "precio_compra";
+            this.precio_compra.HeaderText = "Precio Compra";
+            this.precio_compra.MinimumWidth = 6;
+            this.precio_compra.Name = "precio_compra";
+            this.precio_compra.ReadOnly = true;
+            this.precio_compra.Width = 130;
+            // 
+            // fecha_ingreso
+            // 
+            this.fecha_ingreso.DataPropertyName = "fecha_ingreso";
+            this.fecha_ingreso.HeaderText = "Fecha Ingreso";
+            this.fecha_ingreso.MinimumWidth = 6;
+            this.fecha_ingreso.Name = "fecha_ingreso";
+            this.fecha_ingreso.ReadOnly = true;
+            this.fecha_ingreso.Width = 127;
+            // 
+            // descripcion
+            // 
+            this.descripcion.DataPropertyName = "descripcion";
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.MinimumWidth = 6;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.Width = 111;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 87;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "codigo";
+            this.codigo.HeaderText = "Código";
+            this.codigo.MinimumWidth = 6;
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            this.codigo.Width = 81;
+            // 
+            // idproducto
+            // 
+            this.idproducto.DataPropertyName = "idproducto";
+            this.idproducto.HeaderText = "ID";
+            this.idproducto.MinimumWidth = 6;
+            this.idproducto.Name = "idproducto";
+            this.idproducto.ReadOnly = true;
+            this.idproducto.Width = 50;
             // 
             // FrmListadoProducto
             // 
@@ -344,5 +367,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_venta;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcategoria;
+        private System.Windows.Forms.DataGridViewImageColumn colBarras;
     }
 }

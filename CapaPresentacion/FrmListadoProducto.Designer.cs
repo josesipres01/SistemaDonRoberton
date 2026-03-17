@@ -37,8 +37,10 @@
             this.rbtnrfc = new MaterialSkin.Controls.MaterialButton();
             this.rbtnnombre = new MaterialSkin.Controls.MaterialButton();
             this.dlistado = new System.Windows.Forms.DataGridView();
+            this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
             this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBarras = new System.Windows.Forms.DataGridViewImageColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha_ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,8 +48,6 @@
             this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idcategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBarras = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,14 +176,14 @@
             this.dlistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idproducto,
             this.codigo,
+            this.colBarras,
             this.nombre,
             this.descripcion,
             this.fecha_ingreso,
             this.precio_compra,
             this.precio_venta,
             this.stock,
-            this.idcategoria,
-            this.colBarras});
+            this.idcategoria});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -204,6 +204,37 @@
             this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
             this.dlistado.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dlistado_CellFormatting);
             // 
+            // txtbuscar
+            // 
+            this.txtbuscar.AnimateReadOnly = false;
+            this.txtbuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtbuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtbuscar.Depth = 0;
+            this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtbuscar.HideSelection = true;
+            this.txtbuscar.Hint = "Buscar producto...";
+            this.txtbuscar.LeadingIcon = global::CapaPresentacion.Properties.Resources.lupa;
+            this.txtbuscar.Location = new System.Drawing.Point(41, 98);
+            this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbuscar.MaxLength = 32767;
+            this.txtbuscar.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtbuscar.Name = "txtbuscar";
+            this.txtbuscar.PasswordChar = '\0';
+            this.txtbuscar.PrefixSuffixText = null;
+            this.txtbuscar.ReadOnly = false;
+            this.txtbuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtbuscar.SelectedText = "";
+            this.txtbuscar.SelectionLength = 0;
+            this.txtbuscar.SelectionStart = 0;
+            this.txtbuscar.ShortcutsEnabled = true;
+            this.txtbuscar.Size = new System.Drawing.Size(386, 48);
+            this.txtbuscar.TabIndex = 55;
+            this.txtbuscar.TabStop = false;
+            this.txtbuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtbuscar.TrailingIcon = null;
+            this.txtbuscar.UseSystemPasswordChar = false;
+            this.txtbuscar.Click += new System.EventHandler(this.txtbuscar_Click);
+            // 
             // idproducto
             // 
             this.idproducto.DataPropertyName = "idproducto";
@@ -211,6 +242,7 @@
             this.idproducto.MinimumWidth = 150;
             this.idproducto.Name = "idproducto";
             this.idproducto.ReadOnly = true;
+            this.idproducto.Visible = false;
             this.idproducto.Width = 150;
             // 
             // codigo
@@ -220,8 +252,16 @@
             this.codigo.MinimumWidth = 6;
             this.codigo.Name = "codigo";
             this.codigo.ReadOnly = true;
-            this.codigo.Visible = false;
             this.codigo.Width = 81;
+            // 
+            // colBarras
+            // 
+            this.colBarras.HeaderText = "Código Barras";
+            this.colBarras.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colBarras.MinimumWidth = 6;
+            this.colBarras.Name = "colBarras";
+            this.colBarras.ReadOnly = true;
+            this.colBarras.Width = 104;
             // 
             // nombre
             // 
@@ -286,46 +326,6 @@
             this.idcategoria.ReadOnly = true;
             this.idcategoria.Width = 98;
             // 
-            // colBarras
-            // 
-            this.colBarras.HeaderText = "Código Barras";
-            this.colBarras.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colBarras.MinimumWidth = 6;
-            this.colBarras.Name = "colBarras";
-            this.colBarras.ReadOnly = true;
-            this.colBarras.Width = 104;
-            // 
-            // txtbuscar
-            // 
-            this.txtbuscar.AnimateReadOnly = false;
-            this.txtbuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtbuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtbuscar.Depth = 0;
-            this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtbuscar.HideSelection = true;
-            this.txtbuscar.Hint = "Buscar producto...";
-            this.txtbuscar.LeadingIcon = global::CapaPresentacion.Properties.Resources.lupa;
-            this.txtbuscar.Location = new System.Drawing.Point(41, 98);
-            this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbuscar.MaxLength = 32767;
-            this.txtbuscar.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.PasswordChar = '\0';
-            this.txtbuscar.PrefixSuffixText = null;
-            this.txtbuscar.ReadOnly = false;
-            this.txtbuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtbuscar.SelectedText = "";
-            this.txtbuscar.SelectionLength = 0;
-            this.txtbuscar.SelectionStart = 0;
-            this.txtbuscar.ShortcutsEnabled = true;
-            this.txtbuscar.Size = new System.Drawing.Size(386, 48);
-            this.txtbuscar.TabIndex = 55;
-            this.txtbuscar.TabStop = false;
-            this.txtbuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtbuscar.TrailingIcon = null;
-            this.txtbuscar.UseSystemPasswordChar = false;
-            this.txtbuscar.Click += new System.EventHandler(this.txtbuscar_Click);
-            // 
             // FrmListadoProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,6 +362,7 @@
         private System.Windows.Forms.DataGridView dlistado;
         private System.Windows.Forms.DataGridViewTextBoxColumn idproducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewImageColumn colBarras;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_ingreso;
@@ -369,6 +370,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_venta;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcategoria;
-        private System.Windows.Forms.DataGridViewImageColumn colBarras;
     }
 }

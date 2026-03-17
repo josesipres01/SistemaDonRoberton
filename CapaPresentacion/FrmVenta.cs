@@ -33,8 +33,10 @@ namespace CapaPresentacion
 
         public void LlenarComboClientes()
         {
-            cbcliente.DataSource = CNCliente.Listar();
-            cbcliente.DisplayMember = "nombre";
+            DataTable dt = CNCliente.Listar();
+            dt.Columns.Add("NombreCompleto", typeof(string), "nombre + ' ' + apellidos");
+            cbcliente.DataSource = dt;
+            cbcliente.DisplayMember = "NombreCompleto";
             cbcliente.ValueMember = "idcliente";
             cbcliente.SelectedIndex = -1;
             cbcliente.Text = "PÚBLICO GENERAL";

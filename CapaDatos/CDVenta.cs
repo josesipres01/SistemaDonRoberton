@@ -15,6 +15,8 @@ namespace CapaDatos
         public int Idproducto { get; set; }
         public int Cantidad { get; set; }
         public double PrecioUnitario { get; set; }
+        public double TotalDetalle { get; set; }
+
     }
 
 
@@ -28,6 +30,7 @@ namespace CapaDatos
         public int Idcliente { get; set; }
         public int Idcajero { get; set; }
         public int Idmetodopago { get; set; }
+
 
         public List<CDDetalleVenta> Detalles { get; set; } = new List<CDDetalleVenta>();
 
@@ -62,7 +65,7 @@ namespace CapaDatos
 
         }
 
-        public string Guardar(CDVenta Venta)
+        public string Insertar(CDVenta Venta)
         {
             string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
@@ -70,13 +73,18 @@ namespace CapaDatos
             {
                 SqlCon.ConnectionString = Conexión.Conn;
                 SqlCon.Open();
-
                 SqlTransaction SqlTra = SqlCon.BeginTransaction();
 
+                // 1. Insertar Cabecera de Venta
                 SqlCommand CmdVenta = new SqlCommand("spguardar_venta", SqlCon, SqlTra);
                 CmdVenta.CommandType = CommandType.StoredProcedure;
 
-                // Parámetros de la venta...
+                SqlParameter parIdVenta = new SqlParameter();
+                parIdVenta.ParameterName = "@idventa";
+                parIdVenta.SqlDbType = SqlDbType.Int;
+                parIdVenta.Direction = ParameterDirection.Output;
+                CmdVenta.Parameters.Add(parIdVenta);
+
                 CmdVenta.Parameters.AddWithValue("@fecha", Venta.Fecha);
                 CmdVenta.Parameters.AddWithValue("@subtotal", Venta.Subtotal);
                 CmdVenta.Parameters.AddWithValue("@iva", Venta.Iva);
@@ -85,38 +93,37 @@ namespace CapaDatos
                 CmdVenta.Parameters.AddWithValue("@idcajero", Venta.Idcajero);
                 CmdVenta.Parameters.AddWithValue("@idmetodopago", Venta.Idmetodopago);
 
-                // Recuperamos el ID que se acaba de generar para la venta
-                int idVentaGenerada = Convert.ToInt32(CmdVenta.ExecuteScalar());
+                // Obtenemos el ID de la venta generada
+                CmdVenta.ExecuteNonQuery();
+                int idVentaGenerada = Convert.ToInt32(CmdVenta.Parameters["@idventa"].Value);
 
-                // 2. Insertar los Detalles uno por uno
-                foreach (CDDetalleVenta det in Venta.Detalles)
+
+                // 2. Insertar Detalles uno por uno (Esto activa tu Trigger de SQL)
+                foreach (var det in Venta.Detalles)
                 {
                     SqlCommand CmdDet = new SqlCommand("spguardar_detalleventa", SqlCon, SqlTra);
                     CmdDet.CommandType = CommandType.StoredProcedure;
 
-                    // Calculamos el total (cantidad * precio)
-                    double totalFila = det.Cantidad * det.PrecioUnitario;
-
-                    // PARÁMETROS (Deben coincidir con el Stored Procedure)
-                    // El iddetalleventa es OUTPUT, lo configuramos así:
+                    // Parámetro de salida para el ID del detalle (según tu SP)
                     SqlParameter parIdDetalle = new SqlParameter("@iddetalleventa", SqlDbType.Int);
                     parIdDetalle.Direction = ParameterDirection.Output;
                     CmdDet.Parameters.Add(parIdDetalle);
 
                     CmdDet.Parameters.AddWithValue("@cantidad", det.Cantidad);
                     CmdDet.Parameters.AddWithValue("@preciounitario", det.PrecioUnitario);
-                    CmdDet.Parameters.AddWithValue("@total", totalFila); // El valor calculado
+                    CmdDet.Parameters.AddWithValue("@total", det.TotalDetalle); // Cantidad * Precio
                     CmdDet.Parameters.AddWithValue("@idventa", idVentaGenerada);
                     CmdDet.Parameters.AddWithValue("@idproducto", det.Idproducto);
 
-                    rpta = CmdDet.ExecuteNonQuery() == 1 ? "OK" : "No se pudo ingresar el detalle";
-
-                    if (rpta != "OK") break;
+                    CmdDet.ExecuteNonQuery();
+                    rpta = "OK";
                 }
+
+                if (rpta.Equals("OK")) SqlTra.Commit(); // Se guarda todo
+                else SqlTra.Rollback(); // Si algo falló, se cancela todo
             }
             catch (Exception ex) { rpta = ex.Message; }
             finally { if (SqlCon.State == ConnectionState.Open) SqlCon.Close(); }
-
             return rpta;
         }
     }

@@ -25,5 +25,31 @@ namespace CapaDatos
                 return dt;
             }
         }
+
+        public DataTable Listar()
+        {
+
+            DataTable resul = new DataTable("usuarios");
+            SqlConnection conexion = new SqlConnection();
+            try
+            {
+                conexion.ConnectionString = Conexión.Conn;
+                SqlCommand Cmd = new SqlCommand("splistar_usuarios", conexion);
+                Cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(Cmd);
+                SqlDat.Fill(resul);
+            }
+            catch (Exception ex)
+            {
+                resul = null;
+                throw ex;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open) conexion.Close();
+            }
+            return resul;
+        }
     }
 }

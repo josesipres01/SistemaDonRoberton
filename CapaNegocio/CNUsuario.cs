@@ -15,5 +15,11 @@ namespace CapaNegocio
             CDUsuario objetoCD = new CDUsuario();
             return objetoCD.ValidarAcceso(user, pass);
         }
+
+        public static DataTable Listar()
+        {
+            CDUsuario Datos = new CDUsuario();
+            return Datos.Listar();
+        }
     }
 }

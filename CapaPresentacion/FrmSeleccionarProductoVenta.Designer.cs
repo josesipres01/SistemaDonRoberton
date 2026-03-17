@@ -32,25 +32,28 @@
             this.rbtnrfc = new MaterialSkin.Controls.MaterialButton();
             this.rbtnnombre = new MaterialSkin.Controls.MaterialButton();
             this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
-            this.btnRegistrar = new MaterialSkin.Controls.MaterialButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cbCategoria = new System.Windows.Forms.ComboBox();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.dseleccionar = new System.Windows.Forms.DataGridView();
+            this.btnagregar = new System.Windows.Forms.Button();
+            this.chkSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dseleccionar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(60, 44);
+            this.label1.Location = new System.Drawing.Point(37, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 37);
             this.label1.TabIndex = 69;
             this.label1.Text = "Productos";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // rbtnrfc
             // 
@@ -59,7 +62,7 @@
             this.rbtnrfc.Depth = 0;
             this.rbtnrfc.HighEmphasis = true;
             this.rbtnrfc.Icon = null;
-            this.rbtnrfc.Location = new System.Drawing.Point(592, 111);
+            this.rbtnrfc.Location = new System.Drawing.Point(576, 111);
             this.rbtnrfc.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.rbtnrfc.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbtnrfc.Name = "rbtnrfc";
@@ -79,7 +82,7 @@
             this.rbtnnombre.Depth = 0;
             this.rbtnnombre.HighEmphasis = true;
             this.rbtnnombre.Icon = null;
-            this.rbtnnombre.Location = new System.Drawing.Point(473, 111);
+            this.rbtnnombre.Location = new System.Drawing.Point(450, 111);
             this.rbtnnombre.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.rbtnnombre.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbtnnombre.Name = "rbtnnombre";
@@ -102,7 +105,7 @@
             this.txtbuscar.HideSelection = true;
             this.txtbuscar.Hint = "Buscar producto...";
             this.txtbuscar.LeadingIcon = global::CapaPresentacion.Properties.Resources.lupa;
-            this.txtbuscar.Location = new System.Drawing.Point(60, 99);
+            this.txtbuscar.Location = new System.Drawing.Point(37, 99);
             this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtbuscar.MaxLength = 32767;
             this.txtbuscar.MouseState = MaterialSkin.MouseState.OUT;
@@ -121,88 +124,116 @@
             this.txtbuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtbuscar.TrailingIcon = null;
             this.txtbuscar.UseSystemPasswordChar = false;
-            this.txtbuscar.Click += new System.EventHandler(this.txtbuscar_Click);
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRegistrar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnRegistrar.Depth = 0;
-            this.btnRegistrar.HighEmphasis = true;
-            this.btnRegistrar.Icon = null;
-            this.btnRegistrar.Location = new System.Drawing.Point(779, 452);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.btnRegistrar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnRegistrar.Size = new System.Drawing.Size(99, 36);
-            this.btnRegistrar.TabIndex = 80;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnRegistrar.UseAccentColor = false;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.cbCategoria);
-            this.groupBox1.Controls.Add(this.materialLabel4);
-            this.groupBox1.Location = new System.Drawing.Point(58, 163);
+            this.groupBox1.Controls.Add(this.dseleccionar);
+            this.groupBox1.Location = new System.Drawing.Point(35, 174);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(820, 279);
+            this.groupBox1.Size = new System.Drawing.Size(799, 275);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Productos";
             // 
-            // dataGridView1
+            // dseleccionar
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 91);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(789, 152);
-            this.dataGridView1.TabIndex = 4;
+            this.dseleccionar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dseleccionar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chkSeleccionar,
+            this.idproducto,
+            this.cantidad_venta,
+            this.nombre,
+            this.precio_venta,
+            this.stock});
+            this.dseleccionar.Location = new System.Drawing.Point(19, 32);
+            this.dseleccionar.Name = "dseleccionar";
+            this.dseleccionar.RowHeadersWidth = 51;
+            this.dseleccionar.RowTemplate.Height = 24;
+            this.dseleccionar.Size = new System.Drawing.Size(760, 155);
+            this.dseleccionar.TabIndex = 4;
+            this.dseleccionar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dseleccionar_CellEndEdit);
             // 
-            // cbCategoria
+            // btnagregar
             // 
-            this.cbCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbCategoria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(7, 50);
-            this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(216, 24);
-            this.cbCategoria.TabIndex = 1;
+            this.btnagregar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnagregar.Location = new System.Drawing.Point(744, 471);
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.Size = new System.Drawing.Size(90, 33);
+            this.btnagregar.TabIndex = 89;
+            this.btnagregar.Text = "&Agregar";
+            this.btnagregar.UseVisualStyleBackColor = true;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
-            // materialLabel4
+            // chkSeleccionar
             // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(6, 27);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(184, 19);
-            this.materialLabel4.TabIndex = 0;
-            this.materialLabel4.Text = "Seleccione una Categoría:";
+            this.chkSeleccionar.HeaderText = "Seleccionar";
+            this.chkSeleccionar.MinimumWidth = 6;
+            this.chkSeleccionar.Name = "chkSeleccionar";
+            this.chkSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.chkSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.chkSeleccionar.Width = 125;
+            // 
+            // idproducto
+            // 
+            this.idproducto.DataPropertyName = "idproducto";
+            this.idproducto.HeaderText = "ID";
+            this.idproducto.MinimumWidth = 6;
+            this.idproducto.Name = "idproducto";
+            this.idproducto.ReadOnly = true;
+            this.idproducto.Visible = false;
+            this.idproducto.Width = 125;
+            // 
+            // cantidad_venta
+            // 
+            this.cantidad_venta.DataPropertyName = "cantidad_venta";
+            this.cantidad_venta.HeaderText = "Cantidad";
+            this.cantidad_venta.MinimumWidth = 6;
+            this.cantidad_venta.Name = "cantidad_venta";
+            this.cantidad_venta.Width = 125;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 125;
+            // 
+            // precio_venta
+            // 
+            this.precio_venta.DataPropertyName = "precio_venta";
+            this.precio_venta.HeaderText = "Precio";
+            this.precio_venta.MinimumWidth = 6;
+            this.precio_venta.Name = "precio_venta";
+            this.precio_venta.ReadOnly = true;
+            this.precio_venta.Width = 125;
+            // 
+            // stock
+            // 
+            this.stock.DataPropertyName = "stock";
+            this.stock.HeaderText = "Stock";
+            this.stock.MinimumWidth = 6;
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            this.stock.Width = 125;
             // 
             // FrmSeleccionarProductoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 537);
-            this.Controls.Add(this.btnRegistrar);
+            this.ClientSize = new System.Drawing.Size(875, 537);
+            this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rbtnrfc);
             this.Controls.Add(this.rbtnnombre);
             this.Controls.Add(this.txtbuscar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FrmSeleccionarProductoVenta";
-            this.Text = "FrmSeleccionarProductoVenta";
             this.Load += new System.EventHandler(this.FrmSeleccionarProductoVenta_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dseleccionar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,10 +245,14 @@
         private MaterialSkin.Controls.MaterialButton rbtnrfc;
         private MaterialSkin.Controls.MaterialButton rbtnnombre;
         private MaterialSkin.Controls.MaterialTextBox2 txtbuscar;
-        private MaterialSkin.Controls.MaterialButton btnRegistrar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox cbCategoria;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private System.Windows.Forms.DataGridView dseleccionar;
+        private System.Windows.Forms.Button btnagregar;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chkSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idproducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad_venta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio_venta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
     }
 }

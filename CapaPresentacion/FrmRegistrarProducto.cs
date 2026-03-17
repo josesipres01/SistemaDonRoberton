@@ -131,5 +131,10 @@ namespace CapaPresentacion
 
             this.Close();
         }
+
+        private void cbcategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

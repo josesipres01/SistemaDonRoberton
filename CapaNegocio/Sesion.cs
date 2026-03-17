@@ -8,7 +8,8 @@ namespace CapaNegocio
 {
     public  class Sesion
     {
-        public static int IdAcceso; 
+        public static int IdAcceso;
+        public static int IdUsuario;
         public static string Usuario;
         public static string Rol;
 

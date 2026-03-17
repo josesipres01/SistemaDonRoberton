@@ -91,6 +91,7 @@
             this.cbcategoria.Name = "cbcategoria";
             this.cbcategoria.Size = new System.Drawing.Size(201, 24);
             this.cbcategoria.TabIndex = 75;
+            this.cbcategoria.SelectedIndexChanged += new System.EventHandler(this.cbcategoria_SelectedIndexChanged);
             // 
             // txtstock
             // 

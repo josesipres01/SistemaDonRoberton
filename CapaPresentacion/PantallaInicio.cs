@@ -60,5 +60,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario(new MenuReportes());
         }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmVenta());
+        }
     }
 }

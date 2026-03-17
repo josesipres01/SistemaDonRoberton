@@ -45,6 +45,7 @@
     <Compile Include="CNBitacora.cs" />
     <Compile Include="CNCategoria.cs" />
     <Compile Include="CNCliente.cs" />
+    <Compile Include="CNMetodoPago.cs" />
     <Compile Include="CNProducto.cs" />
     <Compile Include="CNProveedor.cs" />
     <Compile Include="CNUsuario.cs" />

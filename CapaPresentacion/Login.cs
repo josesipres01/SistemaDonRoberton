@@ -41,17 +41,22 @@ namespace CapaPresentacion
                 {
                     con.Open();
 
-                    string queryLogin = "SELECT rol FROM usuarios WHERE usuario = @user AND contrasena = @pass";
+                    string queryLogin = "SELECT id, rol FROM usuarios WHERE usuario = @user AND contrasena = @pass";
                     SqlCommand cmdLogin = new SqlCommand(queryLogin, con);
                     cmdLogin.Parameters.AddWithValue("@user", usuario);
                     cmdLogin.Parameters.AddWithValue("@pass", password);
 
-                    object resultadoRol = cmdLogin.ExecuteScalar();
+                    SqlDataReader reader = cmdLogin.ExecuteReader();
 
-                    if (resultadoRol != null) 
+                    if (reader.Read())
                     {
-                        Sesion.Rol = resultadoRol.ToString();
+                        Sesion.IdUsuario = Convert.ToInt32(reader["id"]);
+                        Sesion.IdAcceso = Convert.ToInt32(reader["id"]);
+                        Sesion.Rol = reader["rol"].ToString();
                         Sesion.Usuario = usuario;
+
+                        reader.Close();
+
 
                         string queryBitacora = @"INSERT INTO bitacora_accesos (usuario, fecha_entrada) 
                                        VALUES (@user, GETDATE());
@@ -65,12 +70,14 @@ namespace CapaPresentacion
 
                         MessageBox.Show("Hola! " + usuario, "Acceso Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                       
                         Form principal = new PantallaInicio();
                         principal.Show();
                         this.Hide();
                     }
                     else
                     {
+                        reader.Close() ;
                         MessageBox.Show("Usuario o contraseña incorrectos.", "Error de Acceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtcontrasena.Clear();
                         txtusuario.Focus();

@@ -19,22 +19,19 @@ namespace CapaNegocio
 
         // Método Insertar 
         public static string Insertar(DateTime fecha, double subtotal, double iva, double total,
-                                    int idcliente, int idcajero, int idmetodopago,
-                                    List<CDDetalleVenta> detalles)
+                            int idcliente, int idcajero, int idmetodo, List<CDDetalleVenta> detalles)
         {
             CDVenta Datos = new CDVenta();
-
             Datos.Fecha = fecha;
             Datos.Subtotal = subtotal;
             Datos.Iva = iva;
             Datos.Total = total;
             Datos.Idcliente = idcliente;
             Datos.Idcajero = idcajero;
-            Datos.Idmetodopago = idmetodopago;
-
+            Datos.Idmetodopago = idmetodo;
             Datos.Detalles = detalles;
 
-            return Datos.Guardar(Datos);
+            return Datos.Insertar(Datos);
         }
     }
 }

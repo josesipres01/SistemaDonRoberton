@@ -65,5 +65,12 @@ namespace CapaPresentacion
         {
             AbrirFormulario(new FrmVenta());
         }
+
+
+        private void btnproveedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmListadoProveedor());
+
+        }
     }
 }

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaInicio));
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.btnproveedores = new MaterialSkin.Controls.MaterialButton();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.btnProducti = new MaterialSkin.Controls.MaterialButton();
             this.btnCerrarSesion1 = new MaterialSkin.Controls.MaterialButton();
@@ -56,6 +57,7 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlSidebar.Controls.Add(this.btnproveedores);
             this.pnlSidebar.Controls.Add(this.materialButton1);
             this.pnlSidebar.Controls.Add(this.btnProducti);
             this.pnlSidebar.Controls.Add(this.btnCerrarSesion1);
@@ -72,6 +74,29 @@
             this.pnlSidebar.Size = new System.Drawing.Size(214, 590);
             this.pnlSidebar.TabIndex = 11;
             this.pnlSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSidebar_Paint);
+            // 
+            // btnproveedores
+            // 
+            this.btnproveedores.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnproveedores.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnproveedores.Depth = 0;
+            this.btnproveedores.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnproveedores.FlatAppearance.BorderSize = 0;
+            this.btnproveedores.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnproveedores.HighEmphasis = false;
+            this.btnproveedores.Icon = ((System.Drawing.Image)(resources.GetObject("btnproveedores.Icon")));
+            this.btnproveedores.Location = new System.Drawing.Point(20, 285);
+            this.btnproveedores.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnproveedores.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnproveedores.Name = "btnproveedores";
+            this.btnproveedores.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnproveedores.Size = new System.Drawing.Size(151, 36);
+            this.btnproveedores.TabIndex = 12;
+            this.btnproveedores.Text = "Proveedores";
+            this.btnproveedores.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
+            this.btnproveedores.UseAccentColor = false;
+            this.btnproveedores.UseVisualStyleBackColor = false;
+            this.btnproveedores.Click += new System.EventHandler(this.btnproveedores_Click);
             // 
             // materialButton1
             // 
@@ -163,7 +188,7 @@
             this.btnCategorias.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategorias.HighEmphasis = false;
             this.btnCategorias.Icon = ((System.Drawing.Image)(resources.GetObject("btnCategorias.Icon")));
-            this.btnCategorias.Location = new System.Drawing.Point(20, 298);
+            this.btnCategorias.Location = new System.Drawing.Point(20, 343);
             this.btnCategorias.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCategorias.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCategorias.Name = "btnCategorias";
@@ -224,7 +249,7 @@
             this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.HighEmphasis = false;
             this.btnReportes.Icon = ((System.Drawing.Image)(resources.GetObject("btnReportes.Icon")));
-            this.btnReportes.Location = new System.Drawing.Point(25, 367);
+            this.btnReportes.Location = new System.Drawing.Point(26, 396);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnReportes.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnReportes.Name = "btnReportes";
@@ -289,5 +314,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton btnproveedores;
     }
 }

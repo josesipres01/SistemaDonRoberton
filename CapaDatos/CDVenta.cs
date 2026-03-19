@@ -98,7 +98,7 @@ namespace CapaDatos
                 int idVentaGenerada = Convert.ToInt32(CmdVenta.Parameters["@idventa"].Value);
 
 
-                // 2. Insertar Detalles uno por uno (Esto activa tu Trigger de SQL)
+                // 2. Insertar Detalles uno por uno 
                 foreach (var det in Venta.Detalles)
                 {
                     SqlCommand CmdDet = new SqlCommand("spguardar_detalleventa", SqlCon, SqlTra);

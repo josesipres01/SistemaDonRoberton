@@ -29,11 +29,11 @@ namespace CapaPresentacion
 
         private void FrmListadoCliente_Load(object sender, EventArgs e)
         {
-            
-            
 
-            Mostrar();
+
             configurarTabla(); //Metodo para la tabla bonita
+    
+            Mostrar();
         }
 
 

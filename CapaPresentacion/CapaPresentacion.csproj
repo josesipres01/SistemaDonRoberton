@@ -96,6 +96,12 @@
     <Compile Include="FrmListadoCategoria.Designer.cs">
       <DependentUpon>FrmListadoCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoPedidos.Designer.cs">
+      <DependentUpon>FrmListadoPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,12 @@
     </Compile>
     <Compile Include="FrmMenuReportes.Designer.cs">
       <DependentUpon>FrmMenuReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistraPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistraPedido.Designer.cs">
+      <DependentUpon>FrmRegistraPedido.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistrarCategoria.cs">
       <SubType>Form</SubType>
@@ -210,6 +222,9 @@
     <EmbeddedResource Include="FrmListadoCliente.resx">
       <DependentUpon>FrmListadoCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoPedidos.resx">
+      <DependentUpon>FrmListadoPedidos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoProducto.resx">
       <DependentUpon>FrmListadoProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuReportes.resx">
       <DependentUpon>FrmMenuReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistraPedido.resx">
+      <DependentUpon>FrmRegistraPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarCategoria.resx">
       <DependentUpon>FrmRegistrarCategoria.cs</DependentUpon>

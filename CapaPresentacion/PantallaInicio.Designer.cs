@@ -42,6 +42,7 @@
             this.btnReportes = new MaterialSkin.Controls.MaterialButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.pnlSidebar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlSidebar.Controls.Add(this.materialButton2);
             this.pnlSidebar.Controls.Add(this.btnproveedores);
             this.pnlSidebar.Controls.Add(this.materialButton1);
             this.pnlSidebar.Controls.Add(this.btnProducti);
@@ -188,7 +190,7 @@
             this.btnCategorias.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategorias.HighEmphasis = false;
             this.btnCategorias.Icon = ((System.Drawing.Image)(resources.GetObject("btnCategorias.Icon")));
-            this.btnCategorias.Location = new System.Drawing.Point(20, 343);
+            this.btnCategorias.Location = new System.Drawing.Point(20, 389);
             this.btnCategorias.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCategorias.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCategorias.Name = "btnCategorias";
@@ -249,7 +251,7 @@
             this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.HighEmphasis = false;
             this.btnReportes.Icon = ((System.Drawing.Image)(resources.GetObject("btnReportes.Icon")));
-            this.btnReportes.Location = new System.Drawing.Point(26, 396);
+            this.btnReportes.Location = new System.Drawing.Point(25, 437);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnReportes.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnReportes.Name = "btnReportes";
@@ -284,6 +286,28 @@
             this.label3.TabIndex = 8;
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // materialButton2
+            // 
+            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton2.Depth = 0;
+            this.materialButton2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.materialButton2.FlatAppearance.BorderSize = 0;
+            this.materialButton2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialButton2.HighEmphasis = false;
+            this.materialButton2.Icon = ((System.Drawing.Image)(resources.GetObject("materialButton2.Icon")));
+            this.materialButton2.Location = new System.Drawing.Point(23, 333);
+            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton2.Name = "materialButton2";
+            this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton2.Size = new System.Drawing.Size(138, 36);
+            this.materialButton2.TabIndex = 13;
+            this.materialButton2.Text = "Pedidos";
+            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
+            this.materialButton2.UseAccentColor = false;
+            this.materialButton2.UseVisualStyleBackColor = false;
+            // 
             // PantallaInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -315,5 +339,6 @@
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialButton btnproveedores;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
     }
 }

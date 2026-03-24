@@ -16,5 +16,30 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void txtbuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnrfc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnnombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -246,7 +246,6 @@
             this.txtbuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbuscar.HideSelection = true;
             this.txtbuscar.Hint = "Buscar pedidos realizados...";
-            this.txtbuscar.LeadingIcon = global::CapaPresentacion.Properties.Resources.lupa;
             this.txtbuscar.Location = new System.Drawing.Point(19, 87);
             this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtbuscar.MaxLength = 32767;

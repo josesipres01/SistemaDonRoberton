@@ -210,7 +210,6 @@ namespace CapaPresentacion
             this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtbuscar.HideSelection = true;
             this.txtbuscar.Hint = "Buscar cliente...";
-            this.txtbuscar.LeadingIcon = global::CapaPresentacion.Properties.Resources.lupa;
             this.txtbuscar.Location = new System.Drawing.Point(34, 95);
             this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtbuscar.MaxLength = 32767;

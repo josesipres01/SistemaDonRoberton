@@ -96,6 +96,12 @@
     <Compile Include="FrmListadoCategoria.Designer.cs">
       <DependentUpon>FrmListadoCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRegistrarPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrarPedido.Designer.cs">
+      <DependentUpon>FrmRegistrarPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,12 +125,6 @@
     </Compile>
     <Compile Include="FrmMenuReportes.Designer.cs">
       <DependentUpon>FrmMenuReportes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmRegistraPedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRegistraPedido.Designer.cs">
-      <DependentUpon>FrmRegistraPedido.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRegistrarCategoria.cs">
       <SubType>Form</SubType>
@@ -174,6 +174,12 @@
     <Compile Include="FrmReporteSesiones.Designer.cs">
       <DependentUpon>FrmReporteSesiones.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSeleccionarProductoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSeleccionarProductoPedido.Designer.cs">
+      <DependentUpon>FrmSeleccionarProductoPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSeleccionarProductoVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     <EmbeddedResource Include="FrmListadoCliente.resx">
       <DependentUpon>FrmListadoCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrarPedido.resx">
+      <DependentUpon>FrmRegistrarPedido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoPedidos.resx">
       <DependentUpon>FrmListadoPedidos.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,9 +242,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuReportes.resx">
       <DependentUpon>FrmMenuReportes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRegistraPedido.resx">
-      <DependentUpon>FrmRegistraPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRegistrarCategoria.resx">
       <DependentUpon>FrmRegistrarCategoria.cs</DependentUpon>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteSesiones.resx">
       <DependentUpon>FrmReporteSesiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSeleccionarProductoPedido.resx">
+      <DependentUpon>FrmSeleccionarProductoPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSeleccionarProductoVenta.resx">
       <DependentUpon>FrmSeleccionarProductoVenta.cs</DependentUpon>

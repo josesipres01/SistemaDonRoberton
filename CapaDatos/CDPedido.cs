@@ -84,6 +84,23 @@ namespace CapaDatos
             }
             return dt;
         }
+        public string Recibir(int id)
+        {
+            string rpta = "";
+            using (SqlConnection con = new SqlConnection(Conexión.Conn))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("sprecibir_pedido", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idpedido", id);
+                    rpta = cmd.ExecuteNonQuery() >= 1 ? "OK" : "No se pudo procesar";
+                }
+                catch (Exception ex) { rpta = ex.Message; }
+            }
+            return rpta;
+        }
     }
 
     // Clase para los items del pedido

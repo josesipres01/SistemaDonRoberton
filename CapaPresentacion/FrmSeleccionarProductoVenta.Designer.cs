@@ -34,13 +34,13 @@
             this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dseleccionar = new System.Windows.Forms.DataGridView();
-            this.btnagregar = new System.Windows.Forms.Button();
             this.chkSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnagregar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dseleccionar)).BeginInit();
             this.SuspendLayout();
@@ -104,6 +104,7 @@
             this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtbuscar.HideSelection = true;
             this.txtbuscar.Hint = "Buscar producto...";
+            this.txtbuscar.LeadingIcon = null;
             this.txtbuscar.Location = new System.Drawing.Point(37, 99);
             this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtbuscar.MaxLength = 32767;
@@ -151,17 +152,6 @@
             this.dseleccionar.Size = new System.Drawing.Size(760, 155);
             this.dseleccionar.TabIndex = 4;
             this.dseleccionar.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dseleccionar_CellEndEdit);
-            // 
-            // btnagregar
-            // 
-            this.btnagregar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnagregar.Location = new System.Drawing.Point(744, 471);
-            this.btnagregar.Name = "btnagregar";
-            this.btnagregar.Size = new System.Drawing.Size(90, 33);
-            this.btnagregar.TabIndex = 89;
-            this.btnagregar.Text = "&Agregar";
-            this.btnagregar.UseVisualStyleBackColor = true;
-            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
             // chkSeleccionar
             // 
@@ -217,6 +207,17 @@
             this.stock.ReadOnly = true;
             this.stock.Width = 125;
             // 
+            // btnagregar
+            // 
+            this.btnagregar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnagregar.Location = new System.Drawing.Point(744, 471);
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.Size = new System.Drawing.Size(90, 33);
+            this.btnagregar.TabIndex = 89;
+            this.btnagregar.Text = "&Agregar";
+            this.btnagregar.UseVisualStyleBackColor = true;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
+            // 
             // FrmSeleccionarProductoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -228,7 +229,7 @@
             this.Controls.Add(this.rbtnrfc);
             this.Controls.Add(this.rbtnnombre);
             this.Controls.Add(this.txtbuscar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSeleccionarProductoVenta";
             this.Load += new System.EventHandler(this.FrmSeleccionarProductoVenta_Load);
             this.groupBox1.ResumeLayout(false);

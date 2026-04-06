@@ -65,6 +65,7 @@
             this.label1.Size = new System.Drawing.Size(117, 37);
             this.label1.TabIndex = 69;
             this.label1.Text = "Ventas";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // materialLabel2
             // 
@@ -78,6 +79,7 @@
             this.materialLabel2.Size = new System.Drawing.Size(48, 19);
             this.materialLabel2.TabIndex = 71;
             this.materialLabel2.Text = "Fecha:";
+            this.materialLabel2.Click += new System.EventHandler(this.materialLabel2_Click);
             // 
             // dtimefecha
             // 
@@ -88,6 +90,7 @@
             this.dtimefecha.Name = "dtimefecha";
             this.dtimefecha.Size = new System.Drawing.Size(115, 22);
             this.dtimefecha.TabIndex = 72;
+            this.dtimefecha.ValueChanged += new System.EventHandler(this.dtimefecha_ValueChanged);
             // 
             // materialLabel1
             // 
@@ -101,6 +104,7 @@
             this.materialLabel1.Size = new System.Drawing.Size(50, 19);
             this.materialLabel1.TabIndex = 73;
             this.materialLabel1.Text = "Cajero:";
+            this.materialLabel1.Click += new System.EventHandler(this.materialLabel1_Click);
             // 
             // cbcajero
             // 
@@ -122,6 +126,7 @@
             this.cbcliente.Name = "cbcliente";
             this.cbcliente.Size = new System.Drawing.Size(191, 24);
             this.cbcliente.TabIndex = 76;
+            this.cbcliente.SelectedIndexChanged += new System.EventHandler(this.cbcliente_SelectedIndexChanged);
             // 
             // materialLabel3
             // 
@@ -135,6 +140,7 @@
             this.materialLabel3.Size = new System.Drawing.Size(53, 19);
             this.materialLabel3.TabIndex = 75;
             this.materialLabel3.Text = "Cliente:";
+            this.materialLabel3.Click += new System.EventHandler(this.materialLabel3_Click);
             // 
             // grplistado
             // 
@@ -145,6 +151,7 @@
             this.grplistado.TabIndex = 78;
             this.grplistado.TabStop = false;
             this.grplistado.Text = "Listado de Compra";
+            this.grplistado.Enter += new System.EventHandler(this.grplistado_Enter);
             // 
             // dlistadocompra
             // 
@@ -206,6 +213,7 @@
             this.cbmetodopago.Name = "cbmetodopago";
             this.cbmetodopago.Size = new System.Drawing.Size(161, 24);
             this.cbmetodopago.TabIndex = 82;
+            this.cbmetodopago.SelectedIndexChanged += new System.EventHandler(this.cbmetodopago_SelectedIndexChanged);
             // 
             // materialLabel4
             // 
@@ -219,6 +227,7 @@
             this.materialLabel4.Size = new System.Drawing.Size(222, 19);
             this.materialLabel4.TabIndex = 81;
             this.materialLabel4.Text = "Seleccione un método de pago:";
+            this.materialLabel4.Click += new System.EventHandler(this.materialLabel4_Click);
             // 
             // btnrealizarventa
             // 
@@ -265,6 +274,7 @@
             this.materialLabel5.Size = new System.Drawing.Size(42, 19);
             this.materialLabel5.TabIndex = 89;
             this.materialLabel5.Text = "Total:";
+            this.materialLabel5.Click += new System.EventHandler(this.materialLabel5_Click);
             // 
             // tboxtotal
             // 
@@ -273,6 +283,7 @@
             this.tboxtotal.ReadOnly = true;
             this.tboxtotal.Size = new System.Drawing.Size(140, 22);
             this.tboxtotal.TabIndex = 90;
+            this.tboxtotal.TextChanged += new System.EventHandler(this.tboxtotal_TextChanged);
             // 
             // tboxsubtotal
             // 
@@ -281,6 +292,7 @@
             this.tboxsubtotal.ReadOnly = true;
             this.tboxsubtotal.Size = new System.Drawing.Size(140, 22);
             this.tboxsubtotal.TabIndex = 92;
+            this.tboxsubtotal.TextChanged += new System.EventHandler(this.tboxsubtotal_TextChanged);
             // 
             // materialLabel6
             // 
@@ -294,6 +306,7 @@
             this.materialLabel6.Size = new System.Drawing.Size(65, 19);
             this.materialLabel6.TabIndex = 91;
             this.materialLabel6.Text = "Subtotal:";
+            this.materialLabel6.Click += new System.EventHandler(this.materialLabel6_Click);
             // 
             // tboxiva
             // 
@@ -302,6 +315,7 @@
             this.tboxiva.ReadOnly = true;
             this.tboxiva.Size = new System.Drawing.Size(140, 22);
             this.tboxiva.TabIndex = 94;
+            this.tboxiva.TextChanged += new System.EventHandler(this.tboxiva_TextChanged);
             // 
             // materialLabel7
             // 

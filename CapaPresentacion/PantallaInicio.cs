@@ -72,5 +72,12 @@ namespace CapaPresentacion
             AbrirFormulario(new FrmListadoProveedor());
 
         }
+
+        private void materialButton2_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmListadoPedidos());
+
+
+        }
     }
 }

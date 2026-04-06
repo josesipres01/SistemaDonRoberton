@@ -76,6 +76,29 @@ namespace CapaNegocio
             return Datos.BuscarNombre(Datos);
         }
 
+        public static DataTable ListarPorProveedor(int idprov)
+        {
+            DataTable dtResul = new DataTable("producto");
+            SqlConnection sqlCon = new SqlConnection();
+            try
+            {
+                sqlCon.ConnectionString = Conexión.Conn;
+                SqlCommand sqlCmd = new SqlCommand("spbuscar_producto_proveedor", sqlCon);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+
+                // Pasamos el ID del proveedor como filtro
+                sqlCmd.Parameters.AddWithValue("@idproveedor", idprov);
+
+                SqlDataAdapter sqlDat = new SqlDataAdapter(sqlCmd);
+                sqlDat.Fill(dtResul);
+            }
+            catch (Exception ex)
+            {
+                dtResul = null;
+                throw ex;
+            }
+            return dtResul;
+        }
 
 
 

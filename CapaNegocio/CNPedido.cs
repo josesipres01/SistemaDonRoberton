@@ -27,5 +27,9 @@ namespace CapaNegocio
 
             return objeto.Insertar(objeto);
         }
+        public static string Recibir(int id)
+        {
+            return new CDPedido().Recibir(id);
+        }
     }
 }

@@ -79,5 +79,10 @@ namespace CapaPresentacion
 
 
         }
+
+        private void btnRespaldo_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmRespaldo());
+        }
     }
 }

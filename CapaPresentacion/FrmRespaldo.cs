@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 namespace CapaPresentacion
 {
     public partial class FrmRespaldo : Form
@@ -50,16 +51,28 @@ namespace CapaPresentacion
 
             if (openFile.ShowDialog() == DialogResult.OK)
             {
+                // 1. Mostrar la ruta en el diseño
                 txtRutaCargar.Text = openFile.FileName;
 
-                // Confirmación de seguridad
-                if (MessageBox.Show("¿Está seguro de restaurar? Se sobrescribirán todos los datos.", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                // 2. Confirmación de seguridad
+                var confirmacion = MessageBox.Show("¿Está seguro de restaurar? Se sobrescribirán todos los datos.",
+                                                 "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirmacion == DialogResult.Yes)
                 {
+                    // 3. LLAMAR A LA CAPA DE NEGOCIO (que a su vez llama a la de datos que corregimos arriba)
                     CNRespaldo negocio = new CNRespaldo();
+
                     if (negocio.CargarCopia(openFile.FileName))
-                        MessageBox.Show("Base de datos restaurada exitosamente.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    {
+                        MessageBox.Show("¡Base de datos restaurada exitosamente!", "Sistema",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     else
-                        MessageBox.Show("Error en la restauración.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    {
+                        MessageBox.Show("Error en la restauración. Revise el archivo 'restore_log.txt' para más detalles.",
+                                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

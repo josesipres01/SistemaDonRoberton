@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace CapaDatos
 {
@@ -8,50 +9,89 @@ namespace CapaDatos
     {
         // Instancia de tu clase Conexión para obtener la cadena
         private Conexión conexion = new Conexión();
+        private string rutaPuente = @"C:\BackupsDonRoberton\bridge_db.bak";
 
-        public bool GenerarBackup(string ruta)
+        private string ObtenerRutaDefaultSQL(SqlConnection con)
         {
-            try
+            // Esta consulta le pregunta a SQL su carpeta de "casa"
+            string query = "SELECT SERVERPROPERTY('InstanceDefaultBackupPath')";
+            using (SqlCommand cmd = new SqlCommand(query, con))
             {
-                // Usamos la cadena de clase Conexión
-                using (SqlConnection con = new SqlConnection(Conexión.Conn))
+                var ruta = cmd.ExecuteScalar();
+                if (ruta != null && ruta != DBNull.Value) return ruta.ToString();
+            }
+            // Si falla (en versiones muy viejas), usamos una carpeta temporal del sistema
+            return @"C:\temp\";
+        }
+
+        public bool GenerarBackup(string rutaDestinoUsuario)
+        {
+            using (SqlConnection con = new SqlConnection(Conexión.Conn))
+            {
+                con.Open();
+                // 1. Detectamos la zona segura de SQL
+                string carpetaSegura = ObtenerRutaDefaultSQL(con);
+                string archivoTemporal = Path.Combine(carpetaSegura, "temp_donroberton.bak");
+
+                try
                 {
-                    // Importante
-                    string query = $@"BACKUP DATABASE [sistemaDonRoberton] 
-                             TO DISK = '{ruta}' 
-                             WITH FORMAT, NAME = 'Full Backup of sistemaDonRoberton';";
+                    // 2. SQL hace el backup en SU propia carpeta (aquí nunca falla por permisos)
+                    string query = $@"BACKUP DATABASE [sistemaDonRoberton] TO DISK = '{archivoTemporal}' WITH FORMAT, INIT";
+                    new SqlCommand(query, con).ExecuteNonQuery();
 
-                    SqlCommand cmd = new SqlCommand(query, con);
+                    // 3. C# (que tiene permisos del usuario) lo mueve a donde el usuario quiera
+                    if (File.Exists(rutaDestinoUsuario)) File.Delete(rutaDestinoUsuario);
+                    File.Move(archivoTemporal, rutaDestinoUsuario);
 
-                    con.Open();
-
-                    cmd.ExecuteNonQuery();
                     return true;
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error en SQL: " + ex.Message);
+                catch (Exception ex)
+                {
+                    File.AppendAllText("error.log", ex.Message);
+                    return false;
+                }
             }
         }
 
-        public bool RestaurarBackup(string ruta)
+        public bool RestaurarBackup(string rutaOrigenUsuario)
         {
+            string rutaPuente = @"C:\BackupsDonRoberton\temp_restore.bak";
             try
             {
-                string connectionStringMaster = "Data Source=.;Initial Catalog=master;Integrated Security=True";
-                using (SqlConnection con = new SqlConnection(connectionStringMaster))
+                SqlConnection.ClearAllPools();
+                File.Copy(rutaOrigenUsuario, rutaPuente, true);
+
+                string conMaster = "Data Source=.;Initial Catalog=master;Integrated Security=True";
+                using (SqlConnection con = new SqlConnection(conMaster))
                 {
                     con.Open();
-                    string query = $@"ALTER DATABASE [sistemaDonRoberton] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-                                     RESTORE DATABASE [sistemaDonRoberton] FROM DISK = '{ruta}' WITH REPLACE;
-                                     ALTER DATABASE [sistemaDonRoberton] SET MULTI_USER;";
+                    // Intentamos expulsar usuarios, si falla no importa, seguimos
+                    try
+                    {
+                        new SqlCommand("ALTER DATABASE [sistemaDonRoberton] SET SINGLE_USER WITH ROLLBACK IMMEDIATE", con).ExecuteNonQuery();
+                    }
+                    catch { /* Ignoramos si no hay permisos de admin */ }
+
+                    // El comando principal
+                    string query = $@"RESTORE DATABASE [sistemaDonRoberton] FROM DISK = '{rutaPuente}' WITH REPLACE";
                     SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.CommandTimeout = 0; // Sin límite de tiempo
                     cmd.ExecuteNonQuery();
-                    return true;
+
+                    // Volvemos a modo multiusuario
+                    try
+                    {
+                        new SqlCommand("ALTER DATABASE [sistemaDonRoberton] SET MULTI_USER", con).ExecuteNonQuery();
+                    }
+                    catch { }
                 }
+                return true;
             }
-            catch (Exception) { return false; }
+            catch (Exception ex)
+            {
+                File.AppendAllText("restore_log.txt", ex.Message);
+                return false;
+            }
         }
     }
 }

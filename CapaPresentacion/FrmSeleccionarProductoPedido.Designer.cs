@@ -35,6 +35,7 @@
             this.rbtnrfc = new MaterialSkin.Controls.MaterialButton();
             this.rbtnnombre = new MaterialSkin.Controls.MaterialButton();
             this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
+            this.btnsalir = new System.Windows.Forms.Button();
             this.chkSeleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +49,7 @@
             // btnagregar
             // 
             this.btnagregar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnagregar.Location = new System.Drawing.Point(746, 524);
+            this.btnagregar.Location = new System.Drawing.Point(632, 481);
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(90, 33);
             this.btnagregar.TabIndex = 95;
@@ -59,7 +60,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dseleccionar);
-            this.groupBox1.Location = new System.Drawing.Point(37, 232);
+            this.groupBox1.Location = new System.Drawing.Point(33, 184);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(799, 275);
             this.groupBox1.TabIndex = 94;
@@ -163,6 +164,17 @@
             this.txtbuscar.TrailingIcon = null;
             this.txtbuscar.UseSystemPasswordChar = false;
             // 
+            // btnsalir
+            // 
+            this.btnsalir.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsalir.Location = new System.Drawing.Point(742, 481);
+            this.btnsalir.Name = "btnsalir";
+            this.btnsalir.Size = new System.Drawing.Size(90, 33);
+            this.btnsalir.TabIndex = 96;
+            this.btnsalir.Text = "&Salir";
+            this.btnsalir.UseVisualStyleBackColor = true;
+            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
+            // 
             // chkSeleccionar
             // 
             this.chkSeleccionar.HeaderText = "Seleccionar";
@@ -219,7 +231,8 @@
             // 
             // FrmSeleccionarProductoPedido
             // 
-            this.ClientSize = new System.Drawing.Size(893, 584);
+            this.ClientSize = new System.Drawing.Size(865, 545);
+            this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -245,6 +258,7 @@
         private MaterialSkin.Controls.MaterialButton rbtnrfc;
         private MaterialSkin.Controls.MaterialButton rbtnnombre;
         private MaterialSkin.Controls.MaterialTextBox2 txtbuscar;
+        private System.Windows.Forms.Button btnsalir;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idproducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;

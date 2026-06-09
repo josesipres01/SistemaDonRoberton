@@ -28,18 +28,18 @@ namespace CapaPresentacion
         {
             PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
 
-            // Abrimos el formulario de REGISTRO (el carrito), no el buscador
             objetoPadre.AbrirFormulario(new FrmRegistrarPedido());
         }
         private void Mostrar()
+
         {
-            // Llamamos a la capa de negocio que creamos anteriormente
+            this.dlistado.AutoGenerateColumns = false;
+
             this.dlistado.DataSource = CNPedido.Listar();
 
-            // Ocultamos el ID si no quieres que se vea
             if (dlistado.Rows.Count > 0)
             {
-                this.dlistado.Columns["idpedido"].Visible = false;
+                this.dlistado.Columns["idpedido"].Visible = true;
             }
         }
 
@@ -52,22 +52,34 @@ namespace CapaPresentacion
         {
             if (dlistado.CurrentRow != null)
             {
-                string estado = Convert.ToString(dlistado.CurrentRow.Cells["estado"].Value);
-                if (estado == "CANCELADO")
-                {
-                    MessageBox.Show("Este pedido ya está cancelado."); return;
-                }
+                string idTexto = Convert.ToString(dlistado.CurrentRow.Cells["idpedido"].Value);
+                string estado = Convert.ToString(dlistado.CurrentRow.Cells["estado"].Value).ToUpper().Trim();
 
-                DialogResult opcion = MessageBox.Show("¿Desea cancelar este pedido? Se restará el stock sumado.",
-                    "DonRoberton", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (string.IsNullOrEmpty(idTexto)) return;
+
+                int id = Convert.ToInt32(idTexto);
+                string mensaje = (estado == "RECIBIDO")
+                    ? "¿Desea regresar este pedido a PENDIENTE? El stock se restará."
+                    : "¿Desea ELIMINAR este pedido pendiente de forma permanente?";
+
+                DialogResult opcion = MessageBox.Show(mensaje, "DonRoberton", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (opcion == DialogResult.Yes)
                 {
-                    int id = Convert.ToInt32(dlistado.CurrentRow.Cells["idpedido"].Value);
-                    // Aquí llamarías a un método CNPedido.Cancelar(id) que ejecute el SP de arriba
-                    this.Mostrar(); // Refrescar
+                    // --- AQUÍ SE HACE LA MAGIA ---
+                    string rpta = CNPedido.Cancelar(id);
+
+                    if (rpta == "OK")
+                    {
+                        MessageBox.Show("Operación realizada con éxito.");
+                        this.Mostrar(); // Refrescamos la tabla para ver los cambios
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: " + rpta);
+                    }
                 }
-            }   
+            }
         }
 
         private void btneditar_Click(object sender, EventArgs e)
@@ -87,6 +99,14 @@ namespace CapaPresentacion
 
                 if (op == DialogResult.Yes)
                 {
+                    string idTexto = Convert.ToString(dlistado.CurrentRow.Cells["idpedido"].Value);
+                    MessageBox.Show("ID capturado: " + idTexto);
+
+                    if (string.IsNullOrEmpty(idTexto))
+                    {
+                        MessageBox.Show("No se pudo obtener el ID del pedido. Revisa el nombre de la columna.");
+                        return;
+                    }
                     int id = Convert.ToInt32(dlistado.CurrentRow.Cells["idpedido"].Value);
                     string rpta = CNPedido.Recibir(id);
 

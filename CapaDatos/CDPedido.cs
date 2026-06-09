@@ -53,13 +53,23 @@ namespace CapaDatos
                     SqlCommand CmdDet = new SqlCommand("spguardar_detallepedido", SqlCon, SqlTra);
                     CmdDet.CommandType = CommandType.StoredProcedure;
 
+                    // --- AQUÍ ESTÁ LA CORRECCIÓN: Agregar el parámetro OUTPUT ---
+                    SqlParameter parIdDetalle = new SqlParameter();
+                    parIdDetalle.ParameterName = "@iddetallepedido";
+                    parIdDetalle.SqlDbType = SqlDbType.Int;
+                    parIdDetalle.Direction = ParameterDirection.Output; // Importante: Salida
+                    CmdDet.Parameters.Add(parIdDetalle);
+                    // ----------------------------------------------------------
+
                     CmdDet.Parameters.AddWithValue("@idpedido", idGenerado);
                     CmdDet.Parameters.AddWithValue("@idproducto", det.Idproducto);
                     CmdDet.Parameters.AddWithValue("@cantidad", det.Cantidad);
-                    CmdDet.Parameters.AddWithValue("@precio_compra", det.PrecioCompra); // Tu cambio solicitado
+                    CmdDet.Parameters.AddWithValue("@precio_compra", det.PrecioCompra);
                     CmdDet.Parameters.AddWithValue("@subtotal", det.Subtotal);
 
-                    rpta = CmdDet.ExecuteNonQuery() >= 1 ? "OK" : "No se pudo registrar el producto: " + det.Idproducto;
+                    // Ejecutamos el detalle
+                    CmdDet.ExecuteNonQuery();
+                    rpta = "OK";
 
                     if (rpta != "OK") break;
                 }
@@ -95,7 +105,30 @@ namespace CapaDatos
                     SqlCommand cmd = new SqlCommand("sprecibir_pedido", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@idpedido", id);
-                    rpta = cmd.ExecuteNonQuery() >= 1 ? "OK" : "No se pudo procesar";
+
+                    cmd.ExecuteNonQuery();
+                    rpta = "OK";
+                }
+                catch (Exception ex)
+                {
+                    rpta = ex.Message;
+                }
+            }
+            return rpta;
+        }
+        public string Cancelar(int id)
+        {
+            string rpta = "";
+            using (SqlConnection con = new SqlConnection(Conexión.Conn))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("spcancelar_pedido", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idpedido", id);
+                    cmd.ExecuteNonQuery();
+                    rpta = "OK";
                 }
                 catch (Exception ex) { rpta = ex.Message; }
             }

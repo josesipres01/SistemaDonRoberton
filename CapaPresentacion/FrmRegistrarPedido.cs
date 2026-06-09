@@ -20,76 +20,67 @@ namespace CapaPresentacion
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
-
         {
-            // VALIDACIÓN: Si no ha seleccionado proveedor, no lo dejamos abrir el buscador
             if (cbproveedor.SelectedValue == null || cbproveedor.SelectedIndex == -1)
             {
-                MessageBox.Show("Por favor, seleccione primero el proveedor para filtrar sus productos.",
-                                "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, seleccione primero el proveedor.", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Si pasó la validación, abrimos el buscador pasándole el ID del proveedor
             FrmSeleccionarProductoPedido buscador = new FrmSeleccionarProductoPedido();
-            buscador.IdProveedorSeleccionado = Convert.ToInt32(cbproveedor.SelectedValue); // Le pasamos el ID
+            buscador.IdProveedorSeleccionado = Convert.ToInt32(cbproveedor.SelectedValue);
 
             if (buscador.ShowDialog() == DialogResult.OK)
             {
-
-                if (buscador.ShowDialog() == DialogResult.OK)
+                // Limpiamos para no duplicar si ya había algo (opcional)
+                foreach (DataRow fila in buscador.ProductosSeleccionados.Rows)
                 {
-                    foreach (DataRow fila in buscador.ProductosSeleccionados.Rows)
-                    {
-                        int id = Convert.ToInt32(fila["idproducto"]);
-                        string nombre = fila["nombre"].ToString();
-                        double precio = Convert.ToDouble(fila["precio_venta"]);
-                        int cantidad = Convert.ToInt32(fila["cantidad"]);
-                        double subtotal = precio * cantidad;
+                    int id = Convert.ToInt32(fila["idproducto"]);
+                    string nombre = fila["nombre"].ToString();
+                    double precio = Convert.ToDouble(fila["precio_compra"]); // PRECIO DE COMPRA
+                    int cantidad = Convert.ToInt32(fila["cantidad"]);
+                    double subtotal = precio * cantidad;
 
-                        dlistadocompra.Rows.Add(id, nombre, cantidad, precio, subtotal);
-                    }
-
-                    this.CalcularGranTotal();
+                    // Asegúrate de que las columnas en tu dlistadocompra se llamen así internamente
+                    dlistadocompra.Rows.Add(id, nombre, cantidad, precio, subtotal);
                 }
+
+                this.CalcularGranTotal();
+
                 if (dlistadocompra.Rows.Count > 0)
-                {
-                    cbproveedor.Enabled = false; // Bloqueamos el combo para no cambiar de proveedor a mitad del pedido
-                }
+                    cbproveedor.Enabled = false; // Bloqueamos el proveedor
             }
-
-
-
-
         }
+
+        // 2. Corregimos el Cálculo del Total (que se vea en los Textbox)
         private void CalcularGranTotal()
         {
             double subtotalAcumulado = 0;
-            double porcentajeIva = 0.16; // 16% de IVA
-
-            // 1. Recorremos la tabla para sumar los subtotales de cada fila
             foreach (DataGridViewRow fila in dlistadocompra.Rows)
             {
-                if (fila.Cells["cantidad"].Value != null && fila.Cells["precio_unit"].Value != null)
+                if (fila.Cells["cantidad"].Value != null)
                 {
-                    // Calculamos: Cantidad * Precio Unitario
+                    // Nota: Verifica que el nombre de la columna sea "precio_unit" o "precio"
                     double cant = Convert.ToDouble(fila.Cells["cantidad"].Value);
                     double precio = Convert.ToDouble(fila.Cells["precio_unit"].Value);
-
                     subtotalAcumulado += (cant * precio);
                 }
             }
+
+            // Mostramos los resultados en tus controles
+            tboxsubtotal.Text = subtotalAcumulado.ToString("N2");
+            tboxiva.Text = (subtotalAcumulado * 0.16).ToString("N2");
+            tboxtotal.Text = (subtotalAcumulado * 1.16).ToString("N2");
         }
 
-        private void FrmListadoPedido_Load(object sender, EventArgs e)
+        // 3. Corregimos el evento Load (Asegúrate de que en el rayito de eventos diga este nombre)
+        private void FrmRegistrarPedido_Load(object sender, EventArgs e)
         {
-            // 1. Cargamos los proveedores
             cbproveedor.DataSource = CNProveedor.Listar();
             cbproveedor.DisplayMember = "nombre";
             cbproveedor.ValueMember = "idproveedor";
             cbproveedor.SelectedIndex = -1;
 
-            // 2. Mostramos el usuario que inició sesión
             cbusuario.Text = Sesion.Usuario;
         }
 
@@ -146,6 +137,47 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
                 MessageBox.Show("Error crítico: " + ex.Message);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Verificamos que haya una fila seleccionada y que no sea la fila vacía del final
+                if (dlistadocompra.CurrentRow != null && !dlistadocompra.CurrentRow.IsNewRow)
+                {
+                    // 2. Pedimos confirmación (Opcional, para evitar errores del cajero)
+                    DialogResult opcion = MessageBox.Show("¿Desea quitar este producto del pedido?",
+                                                        "DonRoberton", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (opcion == DialogResult.Yes)
+                    {
+                        // 3. Eliminamos la fila seleccionada
+                        dlistadocompra.Rows.RemoveAt(dlistadocompra.CurrentRow.Index);
+
+                        // 4. Recalculamos los totales generales
+                        this.CalcularGranTotal();
+
+                        // 5. MEJORA: Si la tabla queda vacía, volvemos a habilitar el combo de proveedor
+                        // (Por si el usuario se equivocó de proveedor y quiere cambiarlo)
+                        if (dlistadocompra.Rows.Count == 0 || (dlistadocompra.AllowUserToAddRows && dlistadocompra.Rows.Count == 1))
+                        {
+                            cbproveedor.Enabled = true;
+                        }
+
+                        MessageBox.Show("Producto eliminado de la lista.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione el producto que desea eliminar.",
+                                    "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message);
             }
         }
     }

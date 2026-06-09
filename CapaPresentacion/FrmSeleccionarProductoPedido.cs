@@ -26,8 +26,8 @@ namespace CapaPresentacion
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
-        {
-            // 1. Inicializamos la estructura de la tabla de resultados
+        {   
+            // 1. Inicializamos la estructura de la tabla (usando nombres de tu SQL)
             ProductosSeleccionados = new DataTable();
             ProductosSeleccionados.Columns.Add("idproducto", typeof(int));
             ProductosSeleccionados.Columns.Add("nombre", typeof(string));
@@ -38,44 +38,35 @@ namespace CapaPresentacion
 
             foreach (DataGridViewRow fila in dseleccionar.Rows)
             {
-                // 2. Revisamos el Checkbox (asegúrate que la columna se llame 'chkSeleccionar')
+                // 2. Usamos 'chkSeleccionar' (como sale en tu esquema)
                 bool isChecked = Convert.ToBoolean(fila.Cells["chkSeleccionar"].Value);
 
                 if (isChecked)
                 {
                     haySeleccion = true;
 
-                    // 3. Captura y validación de cantidad
-                    int stockActual = Convert.ToInt32(fila.Cells["stock"].Value);
-                    var valorCelda = fila.Cells["cantidad_venta"].Value;
-                    int cantidadPedida = (valorCelda == null || string.IsNullOrWhiteSpace(valorCelda.ToString()))
-                                         ? 1 : Convert.ToInt32(valorCelda);
+                    // --- CAPTURA DE DATOS USANDO TUS NOMBRES DEL ESQUEMA ---
+                    int id = Convert.ToInt32(fila.Cells["idproducto"].Value);
+                    string nom = Convert.ToString(fila.Cells["nombre"].Value);
+                    double precio = Convert.ToDouble(fila.Cells["precio_compra"].Value);
 
-                    if (cantidadPedida <= 0)
-                    {
-                        MessageBox.Show("La cantidad debe ser mayor a 0 en: " + fila.Cells["nombre"].Value);
-                        return;
-                    }
+                    var valorCelda = fila.Cells["cantidad"].Value;
+                    int cantPedida = (valorCelda == null || string.IsNullOrWhiteSpace(valorCelda.ToString()))
+                                     ? 1 : Convert.ToInt32(valorCelda);
 
-                    // 4. Agregamos a la tabla que viajará al carrito
-                    // NOTA: Usa los nombres exactos de tus columnas del DataGridView
-                    ProductosSeleccionados.Rows.Add(
-                        Convert.ToInt32(fila.Cells["idproducto"].Value),
-                        Convert.ToString(fila.Cells["nombre"].Value),
-                        Convert.ToDouble(fila.Cells["precio_compra"].Value),
-                        cantidadPedida
-                    );
+                    // 3. Agregamos a la tabla que viajará al carrito
+                    ProductosSeleccionados.Rows.Add(id, nom, precio, cantPedida);
                 }
             }
 
             if (haySeleccion)
             {
-                this.DialogResult = DialogResult.OK; // Le avisa al Carrito que todo salió bien
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Seleccione al menos un producto con la palomita.");
+                MessageBox.Show("Por favor, seleccione al menos un producto.");
             }
         }
 
@@ -113,6 +104,11 @@ namespace CapaPresentacion
 
             criterioBusqueda = "Código";
             BuscarCódigo();
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

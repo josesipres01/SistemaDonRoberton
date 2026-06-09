@@ -31,5 +31,9 @@ namespace CapaNegocio
         {
             return new CDPedido().Recibir(id);
         }
+        public static string Cancelar(int id)
+        {
+            return new CDPedido().Cancelar(id);
+        }
     }
 }

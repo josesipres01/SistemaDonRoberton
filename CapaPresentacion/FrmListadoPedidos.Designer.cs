@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnrecibir = new MaterialSkin.Controls.MaterialButton();
             this.btnnuevo = new MaterialSkin.Controls.MaterialButton();
@@ -40,7 +40,7 @@
             this.btneliminar = new MaterialSkin.Controls.MaterialButton();
             this.idpedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comprador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -143,30 +143,30 @@
             this.dlistado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dlistado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dlistado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dlistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dlistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idpedido,
             this.fecha,
-            this.usuario,
+            this.Comprador,
             this.Proveedor,
             this.total,
             this.estado});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dlistado.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dlistado.DefaultCellStyle = dataGridViewCellStyle2;
             this.dlistado.Location = new System.Drawing.Point(29, 177);
             this.dlistado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dlistado.Name = "dlistado";
@@ -230,7 +230,7 @@
             // idpedido
             // 
             this.idpedido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idpedido.DataPropertyName = "idpedido";
+            this.idpedido.DataPropertyName = "ID";
             this.idpedido.HeaderText = "ID";
             this.idpedido.MinimumWidth = 6;
             this.idpedido.Name = "idpedido";
@@ -245,14 +245,14 @@
             this.fecha.Name = "fecha";
             this.fecha.Width = 76;
             // 
-            // usuario
+            // Comprador
             // 
-            this.usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.usuario.DataPropertyName = "usuario";
-            this.usuario.HeaderText = "Usuario";
-            this.usuario.MinimumWidth = 6;
-            this.usuario.Name = "usuario";
-            this.usuario.Width = 86;
+            this.Comprador.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Comprador.DataPropertyName = "Comprador";
+            this.Comprador.HeaderText = "Usuario";
+            this.Comprador.MinimumWidth = 6;
+            this.Comprador.Name = "Comprador";
+            this.Comprador.Width = 86;
             // 
             // Proveedor
             // 
@@ -265,7 +265,7 @@
             // total
             // 
             this.total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.total.DataPropertyName = "total";
+            this.total.DataPropertyName = "Total Compra";
             this.total.HeaderText = "Total";
             this.total.MinimumWidth = 6;
             this.total.Name = "total";
@@ -315,7 +315,7 @@
         private MaterialSkin.Controls.MaterialButton btneliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idpedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comprador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;

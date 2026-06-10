@@ -35,5 +35,19 @@ namespace CapaNegocio
         {
             return new CDPedido().Cancelar(id);
         }
+        public static DataTable ObtenerDetalles(int id)
+        {
+            return new CDPedido().ObtenerDetalles(id);
+        }
+        public static string Editar(int idpedido, double total, List<CDDetallePedido> detalles)
+        {
+            CDPedido objeto = new CDPedido();
+            objeto.Idpedido = idpedido;
+            objeto.Total = total;
+            objeto.Detalles = detalles;
+
+            return objeto.Editar(objeto);
+        }
     }
+
 }

@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.btnrecibir = new MaterialSkin.Controls.MaterialButton();
             this.btnnuevo = new MaterialSkin.Controls.MaterialButton();
             this.rbtndni = new MaterialSkin.Controls.MaterialButton();
             this.rbtnnombre = new MaterialSkin.Controls.MaterialButton();
             this.dlistado = new System.Windows.Forms.DataGridView();
-            this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
-            this.btneliminar = new MaterialSkin.Controls.MaterialButton();
             this.idpedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comprador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtbuscar = new MaterialSkin.Controls.MaterialTextBox2();
+            this.btneliminar = new MaterialSkin.Controls.MaterialButton();
+            this.btnverdetalle = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.dlistado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,14 +144,14 @@
             this.dlistado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dlistado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dlistado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dlistado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dlistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dlistado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idpedido,
@@ -159,14 +160,14 @@
             this.Proveedor,
             this.total,
             this.estado});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dlistado.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dlistado.DefaultCellStyle = dataGridViewCellStyle4;
             this.dlistado.Location = new System.Drawing.Point(29, 177);
             this.dlistado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dlistado.Name = "dlistado";
@@ -176,56 +177,6 @@
             this.dlistado.Size = new System.Drawing.Size(760, 188);
             this.dlistado.TabIndex = 62;
             this.dlistado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistado_CellContentClick);
-            // 
-            // txtbuscar
-            // 
-            this.txtbuscar.AnimateReadOnly = false;
-            this.txtbuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtbuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtbuscar.Depth = 0;
-            this.txtbuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbuscar.HideSelection = true;
-            this.txtbuscar.Hint = "Buscar pedidos realizados...";
-            this.txtbuscar.LeadingIcon = null;
-            this.txtbuscar.Location = new System.Drawing.Point(19, 87);
-            this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbuscar.MaxLength = 32767;
-            this.txtbuscar.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.PasswordChar = '\0';
-            this.txtbuscar.PrefixSuffixText = null;
-            this.txtbuscar.ReadOnly = false;
-            this.txtbuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtbuscar.SelectedText = "";
-            this.txtbuscar.SelectionLength = 0;
-            this.txtbuscar.SelectionStart = 0;
-            this.txtbuscar.ShortcutsEnabled = true;
-            this.txtbuscar.Size = new System.Drawing.Size(386, 48);
-            this.txtbuscar.TabIndex = 63;
-            this.txtbuscar.TabStop = false;
-            this.txtbuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtbuscar.TrailingIcon = null;
-            this.txtbuscar.UseSystemPasswordChar = false;
-            // 
-            // btneliminar
-            // 
-            this.btneliminar.AutoSize = false;
-            this.btneliminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btneliminar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btneliminar.Depth = 0;
-            this.btneliminar.HighEmphasis = true;
-            this.btneliminar.Icon = null;
-            this.btneliminar.Location = new System.Drawing.Point(362, 426);
-            this.btneliminar.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.btneliminar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btneliminar.Size = new System.Drawing.Size(172, 41);
-            this.btneliminar.TabIndex = 70;
-            this.btneliminar.Text = "CANCELAR PEDIDO";
-            this.btneliminar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btneliminar.UseAccentColor = true;
-            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
             // 
             // idpedido
             // 
@@ -280,11 +231,85 @@
             this.estado.Name = "estado";
             this.estado.Width = 81;
             // 
+            // txtbuscar
+            // 
+            this.txtbuscar.AnimateReadOnly = false;
+            this.txtbuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtbuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtbuscar.Depth = 0;
+            this.txtbuscar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbuscar.HideSelection = true;
+            this.txtbuscar.Hint = "Buscar pedidos realizados...";
+            this.txtbuscar.LeadingIcon = null;
+            this.txtbuscar.Location = new System.Drawing.Point(19, 87);
+            this.txtbuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbuscar.MaxLength = 32767;
+            this.txtbuscar.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtbuscar.Name = "txtbuscar";
+            this.txtbuscar.PasswordChar = '\0';
+            this.txtbuscar.PrefixSuffixText = null;
+            this.txtbuscar.ReadOnly = false;
+            this.txtbuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtbuscar.SelectedText = "";
+            this.txtbuscar.SelectionLength = 0;
+            this.txtbuscar.SelectionStart = 0;
+            this.txtbuscar.ShortcutsEnabled = true;
+            this.txtbuscar.Size = new System.Drawing.Size(386, 48);
+            this.txtbuscar.TabIndex = 63;
+            this.txtbuscar.TabStop = false;
+            this.txtbuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtbuscar.TrailingIcon = null;
+            this.txtbuscar.UseSystemPasswordChar = false;
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.AutoSize = false;
+            this.btneliminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btneliminar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btneliminar.Depth = 0;
+            this.btneliminar.HighEmphasis = true;
+            this.btneliminar.Icon = null;
+            this.btneliminar.Location = new System.Drawing.Point(362, 426);
+            this.btneliminar.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.btneliminar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btneliminar.Size = new System.Drawing.Size(172, 41);
+            this.btneliminar.TabIndex = 70;
+            this.btneliminar.Text = "CANCELAR PEDIDO";
+            this.btneliminar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btneliminar.UseAccentColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
+            // 
+            // btnverdetalle
+            // 
+            this.btnverdetalle.AutoSize = false;
+            this.btnverdetalle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnverdetalle.BackColor = System.Drawing.Color.Transparent;
+            this.btnverdetalle.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnverdetalle.Depth = 0;
+            this.btnverdetalle.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnverdetalle.HighEmphasis = false;
+            this.btnverdetalle.Icon = null;
+            this.btnverdetalle.Location = new System.Drawing.Point(544, 426);
+            this.btnverdetalle.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.btnverdetalle.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnverdetalle.Name = "btnverdetalle";
+            this.btnverdetalle.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnverdetalle.Size = new System.Drawing.Size(154, 41);
+            this.btnverdetalle.TabIndex = 71;
+            this.btnverdetalle.Text = "VER DETALLE";
+            this.btnverdetalle.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btnverdetalle.UseAccentColor = false;
+            this.btnverdetalle.UseVisualStyleBackColor = false;
+            this.btnverdetalle.Click += new System.EventHandler(this.btnverdetalle_Click);
+            // 
             // FrmListadoPedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 520);
+            this.Controls.Add(this.btnverdetalle);
             this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnrecibir);
@@ -319,5 +344,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private MaterialSkin.Controls.MaterialButton btnverdetalle;
     }
 }

@@ -35,10 +35,16 @@
             this.tboxtotal = new System.Windows.Forms.TextBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.btnagregar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btneliminar = new System.Windows.Forms.Button();
             this.btnrealizarventa = new System.Windows.Forms.Button();
             this.grplistado = new System.Windows.Forms.GroupBox();
             this.dlistadocompra = new System.Windows.Forms.DataGridView();
+            this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbusuario = new System.Windows.Forms.ComboBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.dtimefecha = new System.Windows.Forms.DateTimePicker();
@@ -46,12 +52,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbproveedor = new System.Windows.Forms.ComboBox();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.grplistado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dlistadocompra)).BeginInit();
             this.SuspendLayout();
@@ -134,22 +135,22 @@
             this.btnagregar.UseVisualStyleBackColor = true;
             this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
-            // button2
+            // btneliminar
             // 
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(660, 153);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 33);
-            this.button2.TabIndex = 106;
-            this.button2.Text = "&Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btneliminar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneliminar.Location = new System.Drawing.Point(660, 153);
+            this.btneliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(91, 33);
+            this.btneliminar.TabIndex = 106;
+            this.btneliminar.Text = "&Eliminar";
+            this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnrealizarventa
             // 
             this.btnrealizarventa.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnrealizarventa.Location = new System.Drawing.Point(580, 473);
+            this.btnrealizarventa.Location = new System.Drawing.Point(463, 481);
             this.btnrealizarventa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnrealizarventa.Name = "btnrealizarventa";
             this.btnrealizarventa.Size = new System.Drawing.Size(155, 33);
@@ -187,6 +188,55 @@
             this.dlistadocompra.RowTemplate.Height = 24;
             this.dlistadocompra.Size = new System.Drawing.Size(712, 156);
             this.dlistadocompra.TabIndex = 4;
+            // 
+            // idproducto
+            // 
+            this.idproducto.DataPropertyName = "idproducto";
+            this.idproducto.HeaderText = "ID";
+            this.idproducto.MinimumWidth = 6;
+            this.idproducto.Name = "idproducto";
+            this.idproducto.Visible = false;
+            this.idproducto.Width = 125;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Producto";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 125;
+            // 
+            // cantidad
+            // 
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.MinimumWidth = 6;
+            this.cantidad.Name = "cantidad";
+            this.cantidad.ReadOnly = true;
+            this.cantidad.Width = 125;
+            // 
+            // precio_unit
+            // 
+            this.precio_unit.DataPropertyName = "precio_unit";
+            this.precio_unit.HeaderText = "Precio Unit";
+            this.precio_unit.MinimumWidth = 6;
+            this.precio_unit.Name = "precio_unit";
+            this.precio_unit.ReadOnly = true;
+            this.precio_unit.Width = 125;
+            // 
+            // subtotal
+            // 
+            this.subtotal.DataPropertyName = "subtotal";
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.MinimumWidth = 6;
+            this.subtotal.Name = "subtotal";
+            this.subtotal.Width = 125;
+            // 
+            // Proveedor
+            // 
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.MinimumWidth = 6;
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.Width = 125;
             // 
             // cbusuario
             // 
@@ -271,60 +321,24 @@
             this.materialLabel3.Text = "Proveedor:";
             this.materialLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // idproducto
+            // btnCancelar
             // 
-            this.idproducto.DataPropertyName = "idproducto";
-            this.idproducto.HeaderText = "ID";
-            this.idproducto.MinimumWidth = 6;
-            this.idproducto.Name = "idproducto";
-            this.idproducto.Visible = false;
-            this.idproducto.Width = 125;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Producto";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 125;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.MinimumWidth = 6;
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            this.cantidad.Width = 125;
-            // 
-            // precio_unit
-            // 
-            this.precio_unit.DataPropertyName = "precio_unit";
-            this.precio_unit.HeaderText = "Precio Unit";
-            this.precio_unit.MinimumWidth = 6;
-            this.precio_unit.Name = "precio_unit";
-            this.precio_unit.ReadOnly = true;
-            this.precio_unit.Width = 125;
-            // 
-            // subtotal
-            // 
-            this.subtotal.DataPropertyName = "subtotal";
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.MinimumWidth = 6;
-            this.subtotal.Name = "subtotal";
-            this.subtotal.Width = 125;
-            // 
-            // Proveedor
-            // 
-            this.Proveedor.HeaderText = "Proveedor";
-            this.Proveedor.MinimumWidth = 6;
-            this.Proveedor.Name = "Proveedor";
-            this.Proveedor.Width = 125;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(642, 481);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(109, 33);
+            this.btnCancelar.TabIndex = 116;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmRegistrarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 569);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.cbproveedor);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.tboxiva);
@@ -334,7 +348,7 @@
             this.Controls.Add(this.tboxtotal);
             this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.btnagregar);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btneliminar);
             this.Controls.Add(this.btnrealizarventa);
             this.Controls.Add(this.grplistado);
             this.Controls.Add(this.cbusuario);
@@ -363,7 +377,7 @@
         private System.Windows.Forms.TextBox tboxtotal;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private System.Windows.Forms.Button btnagregar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btnrealizarventa;
         private System.Windows.Forms.GroupBox grplistado;
         private System.Windows.Forms.DataGridView dlistadocompra;
@@ -372,7 +386,6 @@
         private System.Windows.Forms.DateTimePicker dtimefecha;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbproveedor;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.DataGridViewTextBoxColumn idproducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
@@ -380,5 +393,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
+        private System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.ComboBox cbproveedor;
     }
 }

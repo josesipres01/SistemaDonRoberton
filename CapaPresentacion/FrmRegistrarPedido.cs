@@ -14,9 +14,12 @@ namespace CapaPresentacion
 {
     public partial class FrmRegistrarPedido : Form
     {
+        public int IdPedidoCargado = 0;
+        public bool ModoVista = false;
         public FrmRegistrarPedido()
         {
             InitializeComponent();
+           
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
@@ -82,23 +85,56 @@ namespace CapaPresentacion
             cbproveedor.SelectedIndex = -1;
 
             cbusuario.Text = Sesion.Usuario;
+
+            if (ModoVista)
+            {
+                // 1. Traemos los datos de la Capa de Negocio
+                DataTable dtDetalles = CNPedido.ObtenerDetalles(this.IdPedidoCargado);
+
+                // 2. Limpiamos la tabla por si acaso
+                dlistadocompra.Rows.Clear();
+
+                // 3. Recorremos y asignamos manualmente
+                foreach (DataRow fila in dtDetalles.Rows)
+                {
+                    // El orden debe coincidir con tu diseño: ID, Producto, Cantidad, Precio, Subtotal
+                    dlistadocompra.Rows.Add(
+                        fila["idproducto"],
+                        fila["nombre"],
+                        fila["cantidad"],
+                        fila["precio_unit"],
+                        fila["subtotal"]
+                    );
+                }
+
+                // 4. Actualizamos los totales de abajo
+                this.CalcularGranTotal();
+                // Bloqueamos los Combobox
+                cbproveedor.Enabled = false;
+                cbusuario.Enabled = false; // O el nombre que tenga tu combobox/textbox de usuario
+
+                // Cambiamos el texto del botón para que el usuario sepa que va a actualizar
+                btnrealizarventa.Text = "Actualizar Pedido";
+            }
         }
 
         private void btnrealizarventa_Click(object sender, EventArgs e)
         {
             try
             {
-                // 1. VALIDACIONES
-                if (dlistadocompra.Rows.Count == 0)
+                // 1. VALIDACIONES BÁSICAS
+                if (dlistadocompra.Rows.Count == 0 || (dlistadocompra.AllowUserToAddRows && dlistadocompra.Rows.Count == 1))
                 {
-                    MessageBox.Show("No hay productos en el pedido."); return;
+                    MessageBox.Show("No hay productos en el pedido.", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
                 if (cbproveedor.SelectedValue == null)
                 {
-                    MessageBox.Show("Seleccione un proveedor."); return;
+                    MessageBox.Show("Seleccione un proveedor.", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                // 2. PREPARAR LOS DETALLES
+                // 2. PREPARAR LOS DETALLES (Esto sirve para ambos casos)
                 List<CDDetallePedido> detalles = new List<CDDetallePedido>();
                 foreach (DataGridViewRow fila in dlistadocompra.Rows)
                 {
@@ -113,25 +149,49 @@ namespace CapaPresentacion
                     }
                 }
 
-                // 3. LLAMAR A LA CAPA DE NEGOCIO
-                // Enviamos el pedido como "PENDIENTE"
-                string rpta = CNPedido.Insertar(
-                    DateTime.Now,
-                    Convert.ToInt32(cbproveedor.SelectedValue),
-                    Sesion.IdUsuario,
-                    Convert.ToDouble(tboxtotal.Text),
-                    "PENDIENTE",
-                    detalles
-                );
+                string rpta = "";
 
+                // 3. DECIDIR SI ES INSERTAR O ACTUALIZAR
+                if (this.ModoVista == true) // --- CASO ACTUALIZAR ---
+                {
+                    // Llamamos a un nuevo método Editar que crearemos en las capas
+                    rpta = CNPedido.Editar(
+                        this.IdPedidoCargado,
+                        Convert.ToDouble(tboxtotal.Text),
+                        detalles
+                    );
+
+                    if (rpta.Equals("OK"))
+                    {
+                        MessageBox.Show("¡Pedido ACTUALIZADO correctamente!", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else // --- CASO REGISTRAR NUEVO ---
+                {
+                    rpta = CNPedido.Insertar(
+                        DateTime.Now,
+                        Convert.ToInt32(cbproveedor.SelectedValue),
+                        Sesion.IdUsuario,
+                        Convert.ToDouble(tboxtotal.Text),
+                        "PENDIENTE",
+                        detalles
+                    );
+
+                    if (rpta.Equals("OK"))
+                    {
+                        MessageBox.Show("¡Pedido registrado como PENDIENTE!", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                // 4. REGRESAR AL LISTADO (Si todo salió bien)
                 if (rpta.Equals("OK"))
                 {
-                    MessageBox.Show("¡Pedido registrado como PENDIENTE!\nRecuerda confirmarlo en el listado cuando llegue la mercancía.");
-                    this.Close(); // Cerramos y volvemos al listado
+                    // Reutilizamos la lógica de regresar
+                    this.btnCancelar_Click(null, null);
                 }
                 else
                 {
-                    MessageBox.Show("Error: " + rpta);
+                    MessageBox.Show("Error: " + rpta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -179,6 +239,18 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Error al eliminar: " + ex.Message);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            // Buscamos el formulario padre (Dashboard)
+            PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+
+            // Regresamos al listado de pedidos
+            objetoPadre.AbrirFormulario(new FrmListadoPedidos());
+
+            // Cerramos la ventana actual
+            this.Close();
         }
     }
 }   

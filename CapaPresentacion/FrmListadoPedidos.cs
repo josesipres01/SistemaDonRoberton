@@ -13,6 +13,7 @@ namespace CapaPresentacion
 {
     public partial class FrmListadoPedidos : Form
     {
+        
         public FrmListadoPedidos()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace CapaPresentacion
         private void FrmListadoPedidos_Load(object sender, EventArgs e)
         {
             this.Mostrar();
+
 
         }
 
@@ -120,6 +122,30 @@ namespace CapaPresentacion
                         MessageBox.Show(rpta);
                     }
                 }
+            }
+        }
+
+   
+
+        private void btnverdetalle_Click(object sender, EventArgs e)
+        {
+            if (dlistado.CurrentRow != null)
+            {
+                // 1. Obtener datos de la fila seleccionada
+                int id = Convert.ToInt32(dlistado.CurrentRow.Cells["idpedido"].Value);
+                string provNombre = Convert.ToString(dlistado.CurrentRow.Cells["proveedor"].Value);
+                string estado = Convert.ToString(dlistado.CurrentRow.Cells["Estado"].Value);
+
+                // 2. Crear instancia del formulario de registro
+                FrmRegistrarPedido frm = new FrmRegistrarPedido();
+                frm.IdPedidoCargado = id;
+                frm.ModoVista = true; // Le avisamos que es solo para ver
+                frm.Show(); // O abrir formulario
+                frm.cbproveedor.Text = provNombre;
+
+                // 4. Abrirlo en el panel principal de DonRoberton
+                PantallaInicio objetoPadre = (PantallaInicio)Application.OpenForms["PantallaInicio"];
+                objetoPadre.AbrirFormulario(frm);
             }
         }
     }

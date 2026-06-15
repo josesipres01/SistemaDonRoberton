@@ -16,6 +16,9 @@ namespace CapaPresentacion
     {
         public int IdPedidoCargado = 0;
         public bool ModoVista = false;
+        public bool ModoRecepcion = false;
+        public string EstadoRecibido = "";
+
         public FrmRegistrarPedido()
         {
             InitializeComponent();
@@ -24,9 +27,10 @@ namespace CapaPresentacion
 
         private void btnagregar_Click(object sender, EventArgs e)
         {
+            // Validamos que haya un proveedor seleccionado
             if (cbproveedor.SelectedValue == null || cbproveedor.SelectedIndex == -1)
             {
-                MessageBox.Show("Por favor, seleccione primero el proveedor.", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione un proveedor primero.");
                 return;
             }
 
@@ -35,139 +39,198 @@ namespace CapaPresentacion
 
             if (buscador.ShowDialog() == DialogResult.OK)
             {
-                // Limpiamos para no duplicar si ya había algo (opcional)
                 foreach (DataRow fila in buscador.ProductosSeleccionados.Rows)
                 {
-                    int id = Convert.ToInt32(fila["idproducto"]);
-                    string nombre = fila["nombre"].ToString();
-                    double precio = Convert.ToDouble(fila["precio_compra"]); // PRECIO DE COMPRA
-                    int cantidad = Convert.ToInt32(fila["cantidad"]);
-                    double subtotal = precio * cantidad;
+                    // 1. Agregamos una fila vacía
+                    int n = dlistadocompra.Rows.Add();
 
-                    // Asegúrate de que las columnas en tu dlistadocompra se llamen así internamente
-                    dlistadocompra.Rows.Add(id, nombre, cantidad, precio, subtotal);
+                    // 2. Asignamos CADA DATO por el NOMBRE de la columna del DataGridView
+                    // Asegúrate de que en el Diseñador los (Name) sean idproducto, nombre, etc.
+                    dlistadocompra.Rows[n].Cells["idproducto"].Value = fila["idproducto"];
+                    dlistadocompra.Rows[n].Cells["nombre"].Value = fila["nombre"];
+                    dlistadocompra.Rows[n].Cells["cantidad"].Value = fila["cantidad"];
+                    dlistadocompra.Rows[n].Cells["precio_unit"].Value = fila["precio_compra"];
+
+                    // 3. Calculamos el subtotal de esa fila de una vez
+                    double precio = Convert.ToDouble(fila["precio_compra"]);
+                    int cant = Convert.ToInt32(fila["cantidad"]);
+                    dlistadocompra.Rows[n].Cells["subtotal"].Value = (precio * cant).ToString("N2");
+
+                    // 4. Importante para que no te dé error el "2" y el "12"
+                    dlistadocompra.Rows[n].Cells["cant_original"].Value = fila["cantidad"];
                 }
 
+                // 5. Actualizamos los labels de abajo
                 this.CalcularGranTotal();
 
-                if (dlistadocompra.Rows.Count > 0)
-                    cbproveedor.Enabled = false; // Bloqueamos el proveedor
+                // Bloqueamos el proveedor para no mezclar
+                cbproveedor.Enabled = false;
             }
         }
-
-        // 2. Corregimos el Cálculo del Total (que se vea en los Textbox)
         private void CalcularGranTotal()
         {
-            double subtotalAcumulado = 0;
+            double sumaSubtotal = 0;
+
             foreach (DataGridViewRow fila in dlistadocompra.Rows)
             {
-                if (fila.Cells["cantidad"].Value != null)
+                // Solo sumamos si la fila es válida (idproducto no es nulo)
+                if (fila.Cells["idproducto"].Value != null)
                 {
-                    // Nota: Verifica que el nombre de la columna sea "precio_unit" o "precio"
-                    double cant = Convert.ToDouble(fila.Cells["cantidad"].Value);
-                    double precio = Convert.ToDouble(fila.Cells["precio_unit"].Value);
-                    subtotalAcumulado += (cant * precio);
+                    // Sumamos lo que hay en la columna "subtotal"
+                    sumaSubtotal += Convert.ToDouble(fila.Cells["subtotal"].Value);
                 }
             }
 
-            // Mostramos los resultados en tus controles
-            tboxsubtotal.Text = subtotalAcumulado.ToString("N2");
-            tboxiva.Text = (subtotalAcumulado * 0.16).ToString("N2");
-            tboxtotal.Text = (subtotalAcumulado * 1.16).ToString("N2");
-        }
+            double valorIva = sumaSubtotal * 0.16;
+            double valorTotal = sumaSubtotal + valorIva;
 
-        // 3. Corregimos el evento Load (Asegúrate de que en el rayito de eventos diga este nombre)
+            // Mostramos en los TextBoxes
+            tboxsubtotal.Text = sumaSubtotal.ToString("N2");
+            tboxiva.Text = valorIva.ToString("N2");
+            tboxtotal.Text = valorTotal.ToString("N2");
+        }
         private void FrmRegistrarPedido_Load(object sender, EventArgs e)
         {
+            // 1. Cargamos proveedores y usuario siempre
             cbproveedor.DataSource = CNProveedor.Listar();
             cbproveedor.DisplayMember = "nombre";
             cbproveedor.ValueMember = "idproveedor";
             cbproveedor.SelectedIndex = -1;
-
             cbusuario.Text = Sesion.Usuario;
 
-            if (ModoVista)
+            // 2. ¿Es una consulta o recepción de un pedido viejo?
+            if (this.ModoVista || this.ModoRecepcion)
             {
-                // 1. Traemos los datos de la Capa de Negocio
                 DataTable dtDetalles = CNPedido.ObtenerDetalles(this.IdPedidoCargado);
-
-                // 2. Limpiamos la tabla por si acaso
                 dlistadocompra.Rows.Clear();
 
-                // 3. Recorremos y asignamos manualmente
                 foreach (DataRow fila in dtDetalles.Rows)
                 {
-                    // El orden debe coincidir con tu diseño: ID, Producto, Cantidad, Precio, Subtotal
-                    dlistadocompra.Rows.Add(
-                        fila["idproducto"],
-                        fila["nombre"],
-                        fila["cantidad"],
-                        fila["precio_unit"],
-                        fila["subtotal"]
-                    );
+                    int n = dlistadocompra.Rows.Add();
+                    // MAPEAMOS POR NOMBRE DE CELDA (Esto evita que los datos se muevan)
+                    dlistadocompra.Rows[n].Cells["idproducto"].Value = fila["idproducto"];
+                    dlistadocompra.Rows[n].Cells["nombre"].Value = fila["nombre"];
+                    dlistadocompra.Rows[n].Cells["cantidad"].Value = fila["cantidad"];
+                    dlistadocompra.Rows[n].Cells["precio_unit"].Value = fila["precio_unit"];
+                    dlistadocompra.Rows[n].Cells["subtotal"].Value = fila["subtotal"];
+                    dlistadocompra.Rows[n].Cells["cant_original"].Value = fila["cantidad"];
                 }
 
-                // 4. Actualizamos los totales de abajo
-                this.CalcularGranTotal();
-                // Bloqueamos los Combobox
                 cbproveedor.Enabled = false;
-                cbusuario.Enabled = false; // O el nombre que tenga tu combobox/textbox de usuario
+                cbusuario.Enabled = false;
 
-                // Cambiamos el texto del botón para que el usuario sepa que va a actualizar
-                btnrealizarventa.Text = "Actualizar Pedido";
+                // --- LÓGICA DE BLOQUEO POR ESTADO (RECIBIDO vs PENDIENTE) ---
+                if (this.EstadoRecibido == "RECIBIDO")
+                {
+                    // Bloqueo total: Solo lectura
+                    btnrealizarventa.Visible = false; // Escondemos el botón de Guardar/Actualizar
+                    btnagregar.Visible = false;       // Escondemos el botón Agregar
+                    btneliminar.Visible = false;      // Escondemos el botón Eliminar
+                    dlistadocompra.ReadOnly = true;   // La tabla no se puede tocar
+
+                    // Opcional: Cambiar título si tienes un Label de encabezado
+                    // labelTitulo.Text = "Consulta de Pedido (FINALIZADO)";
+                }
+                else if (this.ModoRecepcion)
+                {
+                    // Modo para confirmar llegada de mercancía
+                    btnrealizarventa.Text = "Recibir Pedido";
+                    btnrealizarventa.Visible = true;
+                    dlistadocompra.ReadOnly = false;
+                    foreach (DataGridViewColumn col in dlistadocompra.Columns)
+                    {
+                        if (col.Name != "cantidad") col.ReadOnly = true;
+                    }
+                    btnagregar.Visible = false;
+                    btneliminar.Visible = false;
+                }
+                else if (this.ModoVista)
+                {
+                    // Modo edición de pedido PENDIENTE
+                    btnrealizarventa.Text = "Actualizar Pedido";
+                    btnrealizarventa.Visible = true;
+                    btnagregar.Visible = true;
+                    btneliminar.Visible = true;
+                    dlistadocompra.ReadOnly = false;
+                }
+
+                this.CalcularGranTotal();
+            }
+            else // --- ES UN PEDIDO NUEVO ---
+            {
+                dlistadocompra.Rows.Clear();
+                cbproveedor.Enabled = true;
+                cbusuario.Enabled = false;
+                btnrealizarventa.Text = "Realizar Pedido";
+                btnrealizarventa.Visible = true;
+                btnagregar.Visible = true;
+                btneliminar.Visible = true;
+
+                // Limpiamos los totales
+                tboxsubtotal.Text = "0.00";
+                tboxiva.Text = "0.00";
+                tboxtotal.Text = "0.00";
             }
         }
-
         private void btnrealizarventa_Click(object sender, EventArgs e)
         {
             try
             {
-                // 1. VALIDACIONES BÁSICAS
+                // 1. VALIDACIONES BÁSICAS (Aplica para todos los casos)
                 if (dlistadocompra.Rows.Count == 0 || (dlistadocompra.AllowUserToAddRows && dlistadocompra.Rows.Count == 1))
                 {
                     MessageBox.Show("No hay productos en el pedido.", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if (cbproveedor.SelectedValue == null)
-                {
-                    MessageBox.Show("Seleccione un proveedor.", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
 
-                // 2. PREPARAR LOS DETALLES (Esto sirve para ambos casos)
-                List<CDDetallePedido> detalles = new List<CDDetallePedido>();
-                foreach (DataGridViewRow fila in dlistadocompra.Rows)
+                // --- SOLUCIÓN AL ERROR DE PROVEEDOR ---
+                // Solo validamos que el combo tenga selección si es un pedido NUEVO.
+                // Si es Vista o Recepción, el proveedor ya existe en la base de datos.
+                if (!ModoRecepcion && !ModoVista)
                 {
-                    if (fila.Cells["idproducto"].Value != null)
+                    if (cbproveedor.SelectedValue == null || cbproveedor.SelectedIndex == -1)
                     {
-                        CDDetallePedido det = new CDDetallePedido();
-                        det.Idproducto = Convert.ToInt32(fila.Cells["idproducto"].Value);
-                        det.Cantidad = Convert.ToInt32(fila.Cells["cantidad"].Value);
-                        det.PrecioCompra = Convert.ToDouble(fila.Cells["precio_unit"].Value);
-                        det.Subtotal = det.Cantidad * det.PrecioCompra;
-                        detalles.Add(det);
+                        MessageBox.Show("Seleccione un proveedor.", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
                 }
 
                 string rpta = "";
 
-                // 3. DECIDIR SI ES INSERTAR O ACTUALIZAR
-                if (this.ModoVista == true) // --- CASO ACTUALIZAR ---
+                //  (Recibir, Editar o Insertar)
+
+                if (this.ModoRecepcion == true) // --- CASO A: RECIBIR PEDIDO (Suma Stock) ---
                 {
-                    // Llamamos a un nuevo método Editar que crearemos en las capas
-                    rpta = CNPedido.Editar(
-                        this.IdPedidoCargado,
-                        Convert.ToDouble(tboxtotal.Text),
-                        detalles
-                    );
+                    foreach (DataGridViewRow fila in dlistadocompra.Rows)
+                    {
+                        if (fila.Cells["idproducto"].Value != null)
+                        {
+                            int idp = Convert.ToInt32(fila.Cells["idproducto"].Value);
+                            int cant = Convert.ToInt32(fila.Cells["cantidad"].Value);
+
+                            // Esta función actualiza la cantidad real y SUMA al stock en SQL
+                            rpta = CNPedido.FinalizarRecepcionItem(this.IdPedidoCargado, idp, cant);
+                        }
+                    }
+
+                    if (rpta.Equals("OK"))
+                    {
+                        MessageBox.Show("¡Pedido RECIBIDO con éxito! El stock ha sido actualizado.", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else if (this.ModoVista == true) // --- CASO B: ACTUALIZAR PEDIDO (Solo cambios de lista) ---
+                {
+                    List<CDDetallePedido> detalles = ObtenerDetallesDeTabla();
+                    rpta = CNPedido.Editar(this.IdPedidoCargado, Convert.ToDouble(tboxtotal.Text), detalles);
 
                     if (rpta.Equals("OK"))
                     {
                         MessageBox.Show("¡Pedido ACTUALIZADO correctamente!", "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                else // --- CASO REGISTRAR NUEVO ---
+                else // --- CASO C: REGISTRAR NUEVO PEDIDO (Crea como Pendiente) ---
                 {
+                    List<CDDetallePedido> detalles = ObtenerDetallesDeTabla();
                     rpta = CNPedido.Insertar(
                         DateTime.Now,
                         Convert.ToInt32(cbproveedor.SelectedValue),
@@ -183,23 +246,40 @@ namespace CapaPresentacion
                     }
                 }
 
-                // 4. REGRESAR AL LISTADO (Si todo salió bien)
+                // 3. FINALIZAR Y REGRESAR (Si la respuesta de SQL fue "OK")
                 if (rpta.Equals("OK"))
                 {
-                    // Reutilizamos la lógica de regresar
+                    // Reutilizamos tu método Cancelar para volver al listado de pedidos
                     this.btnCancelar_Click(null, null);
                 }
                 else
                 {
-                    MessageBox.Show("Error: " + rpta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al procesar: " + rpta, "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error crítico: " + ex.Message);
+                MessageBox.Show("Error crítico: " + ex.Message, "DonRoberton", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        private List<CDDetallePedido> ObtenerDetallesDeTabla()
+        {
+            List<CDDetallePedido> lista = new List<CDDetallePedido>();
+            foreach (DataGridViewRow fila in dlistadocompra.Rows)
+            {
+                if (fila.Cells["idproducto"].Value != null)
+                {
+                    CDDetallePedido det = new CDDetallePedido();
+                    det.Idproducto = Convert.ToInt32(fila.Cells["idproducto"].Value);
+                    det.Cantidad = Convert.ToInt32(fila.Cells["cantidad"].Value);
+                    det.PrecioCompra = Convert.ToDouble(fila.Cells["precio_unit"].Value);
+                    det.Subtotal = Convert.ToDouble(fila.Cells["subtotal"].Value);
+                    lista.Add(det);
+                }
+            }
+            return lista;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -251,6 +331,48 @@ namespace CapaPresentacion
 
             // Cerramos la ventana actual
             this.Close();
+        }
+
+        private void dlistadocompra_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            // 1. Verificamos que la columna editada sea la de "cantidad"
+            if (dlistadocompra.Columns[e.ColumnIndex].Name == "cantidad")
+            {
+                // 2. Obtenemos los valores básicos de la fila
+                int cantEscrita = 0;
+                double precio = 0;
+
+                // Usamos TryParse para evitar errores si la celda está vacía
+                int.TryParse(Convert.ToString(dlistadocompra.Rows[e.RowIndex].Cells["cantidad"].Value), out cantEscrita);
+                double.TryParse(Convert.ToString(dlistadocompra.Rows[e.RowIndex].Cells["precio_unit"].Value), out precio);
+
+                // 3. VALIDACIÓN DE LÍMITE (Solo aplica si estamos RECIBIENDO mercancía vieja)
+                if (this.ModoRecepcion)
+                {
+                    int limiteMaximo = 0;
+                    int.TryParse(Convert.ToString(dlistadocompra.Rows[e.RowIndex].Cells["cant_original"].Value), out limiteMaximo);
+
+                    if (cantEscrita > limiteMaximo)
+                    {
+                        MessageBox.Show("No puedes recibir más de lo solicitado (" + limiteMaximo + ")", "DonRoberton");
+                        dlistadocompra.Rows[e.RowIndex].Cells["cantidad"].Value = limiteMaximo;
+                        cantEscrita = limiteMaximo;
+                    }
+                }
+
+                // 4. RECALCULAR LA FILA (Esto se ejecuta SIEMPRE, en cualquier modo)
+                double nuevoSubtotal = cantEscrita * precio;
+                dlistadocompra.Rows[e.RowIndex].Cells["subtotal"].Value = nuevoSubtotal.ToString("N2");
+
+                // 5. ACTUALIZAR LOS LABELS DE ABAJO
+                this.CalcularGranTotal();
+            }
+
+        }
+
+        private void cbproveedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }   

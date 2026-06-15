@@ -200,6 +200,53 @@ namespace CapaDatos
             finally { if (SqlCon.State == ConnectionState.Open) SqlCon.Close(); }
             return rpta;
         }
+        public string FinalizarRecepcionItem(int idped, int idprod, int cant)
+        {
+            string rpta = "";
+            using (SqlConnection con = new SqlConnection(Conexión.Conn))
+            {
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("sp_finalizar_recepcion_item", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idpedido", idped);
+                    cmd.Parameters.AddWithValue("@idproducto", idprod);
+                    cmd.Parameters.AddWithValue("@cantidad_real", cant);
+                    cmd.ExecuteNonQuery();
+                    rpta = "OK";
+                }
+                catch (Exception ex) { rpta = ex.Message; }
+            }
+            return rpta;
+        }
+        public DataTable BuscarID(int id)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = new SqlConnection(Conexión.Conn))
+            {
+                SqlCommand cmd = new SqlCommand("spbuscar_pedido_id", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+        public DataTable BuscarProveedor(string nombre)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = new SqlConnection(Conexión.Conn))
+            {
+                SqlCommand cmd = new SqlCommand("spbuscar_pedido_proveedor", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
     }
 
     // Clase para los items del pedido
@@ -210,6 +257,7 @@ namespace CapaDatos
         public double PrecioCompra { get; set; }
         public double Subtotal { get; set; }
     }
+
 
 }
 

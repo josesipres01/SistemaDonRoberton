@@ -27,10 +27,10 @@ namespace CapaNegocio
 
         }
 
-        public void LoginSalida(int id)
+        public static void LoginSalida(int id)
         {
-            cb.RegistrarSalida(id);
-
+            CDBitacora objeto = new CDBitacora();
+            objeto.RegistrarSalida(id);
         }
 
         public static DataTable MostrarSesiones()

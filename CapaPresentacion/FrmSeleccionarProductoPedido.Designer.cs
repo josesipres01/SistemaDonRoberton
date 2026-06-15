@@ -227,6 +227,7 @@
             this.proveedor.MinimumWidth = 6;
             this.proveedor.Name = "proveedor";
             this.proveedor.ReadOnly = true;
+            this.proveedor.Visible = false;
             this.proveedor.Width = 125;
             // 
             // FrmSeleccionarProductoPedido

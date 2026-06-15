@@ -69,15 +69,23 @@ namespace CapaDatos
         // Método para registrar la salida
         public void RegistrarSalida(int idAcceso)
         {
-            using (SqlConnection con = new SqlConnection(Conexión.Conn))
+            using (SqlConnection conexion = new SqlConnection(Conexión.Conn))
             {
-                con.Open();
-                string query = "UPDATE bitacora_accesos SET fecha_salida = GETDATE() WHERE id = @id";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@id", idAcceso); 
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    conexion.Open();
+                    string query = "UPDATE bitacora_accesos SET fecha_salida = GETDATE() WHERE id = @id";
+
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("@id", idAcceso);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    // Opcional: registrar el error en un archivo
+                }
             }
-        }
+        }   
 
         public DataTable ListarSesiones()
         {

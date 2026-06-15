@@ -33,8 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnrecibir = new MaterialSkin.Controls.MaterialButton();
             this.btnnuevo = new MaterialSkin.Controls.MaterialButton();
-            this.rbtndni = new MaterialSkin.Controls.MaterialButton();
-            this.rbtnnombre = new MaterialSkin.Controls.MaterialButton();
+            this.rbtnproveedor = new MaterialSkin.Controls.MaterialButton();
+            this.rbtnid = new MaterialSkin.Controls.MaterialButton();
             this.dlistado = new System.Windows.Forms.DataGridView();
             this.idpedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +78,7 @@
             this.btnrecibir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.btnrecibir.UseAccentColor = false;
             this.btnrecibir.UseVisualStyleBackColor = false;
-            this.btnrecibir.Click += new System.EventHandler(this.btneditar_Click);
+            this.btnrecibir.Click += new System.EventHandler(this.btnrecibir_Click);
             // 
             // btnnuevo
             // 
@@ -100,43 +100,45 @@
             this.btnnuevo.UseAccentColor = false;
             this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
             // 
-            // rbtndni
+            // rbtnproveedor
             // 
-            this.rbtndni.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.rbtndni.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.rbtndni.Depth = 0;
-            this.rbtndni.HighEmphasis = true;
-            this.rbtndni.Icon = null;
-            this.rbtndni.Location = new System.Drawing.Point(558, 99);
-            this.rbtndni.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.rbtndni.MouseState = MaterialSkin.MouseState.HOVER;
-            this.rbtndni.Name = "rbtndni";
-            this.rbtndni.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.rbtndni.Size = new System.Drawing.Size(64, 36);
-            this.rbtndni.TabIndex = 65;
-            this.rbtndni.Text = "DNI";
-            this.rbtndni.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.rbtndni.UseAccentColor = false;
-            this.rbtndni.UseVisualStyleBackColor = true;
+            this.rbtnproveedor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rbtnproveedor.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.rbtnproveedor.Depth = 0;
+            this.rbtnproveedor.HighEmphasis = true;
+            this.rbtnproveedor.Icon = null;
+            this.rbtnproveedor.Location = new System.Drawing.Point(532, 99);
+            this.rbtnproveedor.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.rbtnproveedor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbtnproveedor.Name = "rbtnproveedor";
+            this.rbtnproveedor.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.rbtnproveedor.Size = new System.Drawing.Size(105, 36);
+            this.rbtnproveedor.TabIndex = 65;
+            this.rbtnproveedor.Text = "Proveedor";
+            this.rbtnproveedor.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.rbtnproveedor.UseAccentColor = false;
+            this.rbtnproveedor.UseVisualStyleBackColor = true;
+            this.rbtnproveedor.Click += new System.EventHandler(this.rbtnproveedor_Click);
             // 
-            // rbtnnombre
+            // rbtnid
             // 
-            this.rbtnnombre.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.rbtnnombre.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.rbtnnombre.Depth = 0;
-            this.rbtnnombre.HighEmphasis = true;
-            this.rbtnnombre.Icon = null;
-            this.rbtnnombre.Location = new System.Drawing.Point(432, 99);
-            this.rbtnnombre.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
-            this.rbtnnombre.MouseState = MaterialSkin.MouseState.HOVER;
-            this.rbtnnombre.Name = "rbtnnombre";
-            this.rbtnnombre.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.rbtnnombre.Size = new System.Drawing.Size(82, 36);
-            this.rbtnnombre.TabIndex = 64;
-            this.rbtnnombre.Text = "Nombre";
-            this.rbtnnombre.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.rbtnnombre.UseAccentColor = false;
-            this.rbtnnombre.UseVisualStyleBackColor = true;
+            this.rbtnid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rbtnid.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.rbtnid.Depth = 0;
+            this.rbtnid.HighEmphasis = true;
+            this.rbtnid.Icon = null;
+            this.rbtnid.Location = new System.Drawing.Point(432, 99);
+            this.rbtnid.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.rbtnid.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbtnid.Name = "rbtnid";
+            this.rbtnid.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.rbtnid.Size = new System.Drawing.Size(64, 36);
+            this.rbtnid.TabIndex = 64;
+            this.rbtnid.Text = "ID";
+            this.rbtnid.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.rbtnid.UseAccentColor = false;
+            this.rbtnid.UseVisualStyleBackColor = true;
+            this.rbtnid.Click += new System.EventHandler(this.rbtnid_Click);
             // 
             // dlistado
             // 
@@ -260,6 +262,7 @@
             this.txtbuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtbuscar.TrailingIcon = null;
             this.txtbuscar.UseSystemPasswordChar = false;
+            this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
             // 
             // btneliminar
             // 
@@ -314,8 +317,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnrecibir);
             this.Controls.Add(this.btnnuevo);
-            this.Controls.Add(this.rbtndni);
-            this.Controls.Add(this.rbtnnombre);
+            this.Controls.Add(this.rbtnproveedor);
+            this.Controls.Add(this.rbtnid);
             this.Controls.Add(this.txtbuscar);
             this.Controls.Add(this.dlistado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -333,8 +336,8 @@
         private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialButton btnrecibir;
         private MaterialSkin.Controls.MaterialButton btnnuevo;
-        private MaterialSkin.Controls.MaterialButton rbtndni;
-        private MaterialSkin.Controls.MaterialButton rbtnnombre;
+        private MaterialSkin.Controls.MaterialButton rbtnproveedor;
+        private MaterialSkin.Controls.MaterialButton rbtnid;
         private MaterialSkin.Controls.MaterialTextBox2 txtbuscar;
         private System.Windows.Forms.DataGridView dlistado;
         private MaterialSkin.Controls.MaterialButton btneliminar;

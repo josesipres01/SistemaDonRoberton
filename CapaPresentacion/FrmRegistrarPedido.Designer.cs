@@ -39,12 +39,6 @@
             this.btnrealizarventa = new System.Windows.Forms.Button();
             this.grplistado = new System.Windows.Forms.GroupBox();
             this.dlistadocompra = new System.Windows.Forms.DataGridView();
-            this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbusuario = new System.Windows.Forms.ComboBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.dtimefecha = new System.Windows.Forms.DateTimePicker();
@@ -53,6 +47,13 @@
             this.cbproveedor = new System.Windows.Forms.ComboBox();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.idproducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cant_original = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio_unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grplistado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dlistadocompra)).BeginInit();
             this.SuspendLayout();
@@ -177,6 +178,7 @@
             this.dlistadocompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idproducto,
             this.nombre,
+            this.cant_original,
             this.cantidad,
             this.precio_unit,
             this.subtotal,
@@ -188,55 +190,7 @@
             this.dlistadocompra.RowTemplate.Height = 24;
             this.dlistadocompra.Size = new System.Drawing.Size(712, 156);
             this.dlistadocompra.TabIndex = 4;
-            // 
-            // idproducto
-            // 
-            this.idproducto.DataPropertyName = "idproducto";
-            this.idproducto.HeaderText = "ID";
-            this.idproducto.MinimumWidth = 6;
-            this.idproducto.Name = "idproducto";
-            this.idproducto.Visible = false;
-            this.idproducto.Width = 125;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Producto";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 125;
-            // 
-            // cantidad
-            // 
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.MinimumWidth = 6;
-            this.cantidad.Name = "cantidad";
-            this.cantidad.ReadOnly = true;
-            this.cantidad.Width = 125;
-            // 
-            // precio_unit
-            // 
-            this.precio_unit.DataPropertyName = "precio_unit";
-            this.precio_unit.HeaderText = "Precio Unit";
-            this.precio_unit.MinimumWidth = 6;
-            this.precio_unit.Name = "precio_unit";
-            this.precio_unit.ReadOnly = true;
-            this.precio_unit.Width = 125;
-            // 
-            // subtotal
-            // 
-            this.subtotal.DataPropertyName = "subtotal";
-            this.subtotal.HeaderText = "Subtotal";
-            this.subtotal.MinimumWidth = 6;
-            this.subtotal.Name = "subtotal";
-            this.subtotal.Width = 125;
-            // 
-            // Proveedor
-            // 
-            this.Proveedor.HeaderText = "Proveedor";
-            this.Proveedor.MinimumWidth = 6;
-            this.Proveedor.Name = "Proveedor";
-            this.Proveedor.Width = 125;
+            this.dlistadocompra.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dlistadocompra_CellEndEdit);
             // 
             // cbusuario
             // 
@@ -306,6 +260,7 @@
             this.cbproveedor.Name = "cbproveedor";
             this.cbproveedor.Size = new System.Drawing.Size(191, 24);
             this.cbproveedor.TabIndex = 115;
+            this.cbproveedor.SelectedIndexChanged += new System.EventHandler(this.cbproveedor_SelectedIndexChanged);
             // 
             // materialLabel3
             // 
@@ -332,6 +287,65 @@
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // idproducto
+            // 
+            this.idproducto.DataPropertyName = "idproducto";
+            this.idproducto.HeaderText = "ID";
+            this.idproducto.MinimumWidth = 6;
+            this.idproducto.Name = "idproducto";
+            this.idproducto.Visible = false;
+            this.idproducto.Width = 125;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "Producto";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 125;
+            // 
+            // cant_original
+            // 
+            this.cant_original.HeaderText = "Cantidad Original";
+            this.cant_original.MinimumWidth = 6;
+            this.cant_original.Name = "cant_original";
+            this.cant_original.Visible = false;
+            this.cant_original.Width = 125;
+            // 
+            // cantidad
+            // 
+            this.cantidad.DataPropertyName = "cantidad";
+            this.cantidad.HeaderText = "Cantidad";
+            this.cantidad.MinimumWidth = 6;
+            this.cantidad.Name = "cantidad";
+            this.cantidad.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cantidad.Width = 125;
+            // 
+            // precio_unit
+            // 
+            this.precio_unit.HeaderText = "Precio Unit";
+            this.precio_unit.MinimumWidth = 6;
+            this.precio_unit.Name = "precio_unit";
+            this.precio_unit.ReadOnly = true;
+            this.precio_unit.Width = 125;
+            // 
+            // subtotal
+            // 
+            this.subtotal.DataPropertyName = "subtotal";
+            this.subtotal.HeaderText = "Subtotal";
+            this.subtotal.MinimumWidth = 6;
+            this.subtotal.Name = "subtotal";
+            this.subtotal.Width = 125;
+            // 
+            // Proveedor
+            // 
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.MinimumWidth = 6;
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.Visible = false;
+            this.Proveedor.Width = 125;
             // 
             // FrmRegistrarPedido
             // 
@@ -387,13 +401,14 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.ComboBox cbproveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn idproducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cant_original;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio_unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn subtotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
-        private System.Windows.Forms.Button btnCancelar;
-        public System.Windows.Forms.ComboBox cbproveedor;
     }
 }

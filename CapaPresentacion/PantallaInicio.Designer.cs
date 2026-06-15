@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaInicio));
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.btnRespaldo = new MaterialSkin.Controls.MaterialButton();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.btnproveedores = new MaterialSkin.Controls.MaterialButton();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
@@ -43,17 +44,16 @@
             this.btnReportes = new MaterialSkin.Controls.MaterialButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnRespaldo = new MaterialSkin.Controls.MaterialButton();
             this.pnlSidebar.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContenedor
             // 
             this.pnlContenedor.AutoScroll = true;
-            this.pnlContenedor.Location = new System.Drawing.Point(160, 0);
-            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlContenedor.Location = new System.Drawing.Point(213, 0);
+            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(733, 544);
+            this.pnlContenedor.Size = new System.Drawing.Size(977, 670);
             this.pnlContenedor.TabIndex = 11;
             this.pnlContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContenedor_Paint);
             // 
@@ -75,11 +75,34 @@
             this.pnlSidebar.Controls.Add(this.label3);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(160, 524);
+            this.pnlSidebar.Size = new System.Drawing.Size(213, 645);
             this.pnlSidebar.TabIndex = 11;
             this.pnlSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSidebar_Paint);
+            // 
+            // btnRespaldo
+            // 
+            this.btnRespaldo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRespaldo.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnRespaldo.Depth = 0;
+            this.btnRespaldo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRespaldo.FlatAppearance.BorderSize = 0;
+            this.btnRespaldo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRespaldo.HighEmphasis = false;
+            this.btnRespaldo.Icon = ((System.Drawing.Image)(resources.GetObject("btnRespaldo.Icon")));
+            this.btnRespaldo.Location = new System.Drawing.Point(25, 500);
+            this.btnRespaldo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnRespaldo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRespaldo.Name = "btnRespaldo";
+            this.btnRespaldo.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnRespaldo.Size = new System.Drawing.Size(123, 36);
+            this.btnRespaldo.TabIndex = 14;
+            this.btnRespaldo.Text = "Respaldo";
+            this.btnRespaldo.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
+            this.btnRespaldo.UseAccentColor = false;
+            this.btnRespaldo.UseVisualStyleBackColor = false;
+            this.btnRespaldo.Click += new System.EventHandler(this.btnRespaldo_Click);
             // 
             // materialButton2
             // 
@@ -91,8 +114,8 @@
             this.materialButton2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialButton2.HighEmphasis = false;
             this.materialButton2.Icon = ((System.Drawing.Image)(resources.GetObject("materialButton2.Icon")));
-            this.materialButton2.Location = new System.Drawing.Point(17, 271);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.materialButton2.Location = new System.Drawing.Point(23, 334);
+            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
             this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -114,8 +137,8 @@
             this.btnproveedores.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnproveedores.HighEmphasis = false;
             this.btnproveedores.Icon = ((System.Drawing.Image)(resources.GetObject("btnproveedores.Icon")));
-            this.btnproveedores.Location = new System.Drawing.Point(15, 232);
-            this.btnproveedores.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnproveedores.Location = new System.Drawing.Point(20, 286);
+            this.btnproveedores.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnproveedores.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnproveedores.Name = "btnproveedores";
             this.btnproveedores.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -137,8 +160,8 @@
             this.materialButton1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialButton1.HighEmphasis = false;
             this.materialButton1.Icon = ((System.Drawing.Image)(resources.GetObject("materialButton1.Icon")));
-            this.materialButton1.Location = new System.Drawing.Point(15, 139);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.materialButton1.Location = new System.Drawing.Point(20, 171);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
             this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -160,8 +183,8 @@
             this.btnProducti.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProducti.HighEmphasis = false;
             this.btnProducti.Icon = ((System.Drawing.Image)(resources.GetObject("btnProducti.Icon")));
-            this.btnProducti.Location = new System.Drawing.Point(15, 98);
-            this.btnProducti.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnProducti.Location = new System.Drawing.Point(20, 121);
+            this.btnProducti.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnProducti.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnProducti.Name = "btnProducti";
             this.btnProducti.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -183,8 +206,8 @@
             this.btnCerrarSesion1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrarSesion1.HighEmphasis = false;
             this.btnCerrarSesion1.Icon = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion1.Icon")));
-            this.btnCerrarSesion1.Location = new System.Drawing.Point(10, 469);
-            this.btnCerrarSesion1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnCerrarSesion1.Location = new System.Drawing.Point(13, 577);
+            this.btnCerrarSesion1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCerrarSesion1.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCerrarSesion1.Name = "btnCerrarSesion1";
             this.btnCerrarSesion1.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -194,16 +217,16 @@
             this.btnCerrarSesion1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
             this.btnCerrarSesion1.UseAccentColor = false;
             this.btnCerrarSesion1.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion1.Click += new System.EventHandler(this.btnCerrarSesion1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label1.Location = new System.Drawing.Point(16, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(21, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 21);
+            this.label1.Size = new System.Drawing.Size(140, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "DonRoberton";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,8 +241,8 @@
             this.btnCategorias.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategorias.HighEmphasis = false;
             this.btnCategorias.Icon = ((System.Drawing.Image)(resources.GetObject("btnCategorias.Icon")));
-            this.btnCategorias.Location = new System.Drawing.Point(15, 316);
-            this.btnCategorias.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnCategorias.Location = new System.Drawing.Point(20, 389);
+            this.btnCategorias.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCategorias.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCategorias.Name = "btnCategorias";
             this.btnCategorias.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -241,8 +264,8 @@
             this.btnClientes.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.HighEmphasis = false;
             this.btnClientes.Icon = ((System.Drawing.Image)(resources.GetObject("btnClientes.Icon")));
-            this.btnClientes.Location = new System.Drawing.Point(19, 187);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnClientes.Location = new System.Drawing.Point(25, 230);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClientes.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -262,8 +285,7 @@
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.Image = ((System.Drawing.Image)(resources.GetObject("materialLabel1.Image")));
             this.materialLabel1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.materialLabel1.Location = new System.Drawing.Point(40, 47);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.materialLabel1.Location = new System.Drawing.Point(53, 58);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(1, 0);
@@ -280,8 +302,8 @@
             this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.HighEmphasis = false;
             this.btnReportes.Icon = ((System.Drawing.Image)(resources.GetObject("btnReportes.Icon")));
-            this.btnReportes.Location = new System.Drawing.Point(19, 360);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnReportes.Location = new System.Drawing.Point(25, 443);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnReportes.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -297,10 +319,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 64);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(19, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 21);
+            this.label2.Size = new System.Drawing.Size(90, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "General";
             // 
@@ -310,47 +331,25 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label3.Location = new System.Drawing.Point(104, 44);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(139, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 21);
+            this.label3.Size = new System.Drawing.Size(0, 23);
             this.label3.TabIndex = 8;
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnRespaldo
-            // 
-            this.btnRespaldo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRespaldo.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnRespaldo.Depth = 0;
-            this.btnRespaldo.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRespaldo.FlatAppearance.BorderSize = 0;
-            this.btnRespaldo.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRespaldo.HighEmphasis = false;
-            this.btnRespaldo.Icon = ((System.Drawing.Image)(resources.GetObject("btnRespaldo.Icon")));
-            this.btnRespaldo.Location = new System.Drawing.Point(19, 406);
-            this.btnRespaldo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.btnRespaldo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnRespaldo.Name = "btnRespaldo";
-            this.btnRespaldo.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnRespaldo.Size = new System.Drawing.Size(122, 36);
-            this.btnRespaldo.TabIndex = 14;
-            this.btnRespaldo.Text = "Respaldo";
-            this.btnRespaldo.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
-            this.btnRespaldo.UseAccentColor = false;
-            this.btnRespaldo.UseVisualStyleBackColor = false;
-            this.btnRespaldo.Click += new System.EventHandler(this.btnRespaldo_Click);
-            // 
             // PantallaInicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 524);
+            this.ClientSize = new System.Drawing.Size(1112, 645);
             this.Controls.Add(this.pnlSidebar);
             this.Controls.Add(this.pnlContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PantallaInicio";
             this.Text = "PantallaInicio";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PantallaInicio_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PantallaInicio_FormClosed);
             this.Load += new System.EventHandler(this.PantallaInicio_Load);
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();

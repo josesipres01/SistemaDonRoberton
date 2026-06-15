@@ -48,6 +48,19 @@ namespace CapaNegocio
 
             return objeto.Editar(objeto);
         }
+        public static string FinalizarRecepcionItem(int idped, int idprod, int cant)
+        {
+            return new CDPedido().FinalizarRecepcionItem(idped, idprod, cant);
+        }
+        public static DataTable BuscarID(int id)
+        {
+            return new CDPedido().BuscarID(id);
+        }
+
+        public static DataTable BuscarProveedor(string nombre)
+        {
+            return new CDPedido().BuscarProveedor(nombre);
+        }
     }
 
 }
